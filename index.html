@@ -3,183 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chiratchaya Janpechpanao Portfolio</title>
+  <title>Chiratchaya Portfolio</title>
   <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      text-align: center;
-      padding: 100px 20px 20px 20px;
-    }
-
-    header img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.3em;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    /* Intro Section */
-    section.intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    section.intro h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      color: #111;
-    }
-
-    section.intro p {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.8;
-    }
-
-    main {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 50px 20px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 15px;
-      width: 280px;
-      padding: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .card h2 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-      color: #111;
-    }
-
-    .card p {
-      font-size: 1rem;
-      margin-bottom: 15px;
-      color: #555;
-    }
-
-    .card button {
-      background: #111;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .card button:hover {
-      background: #555;
-      transform: scale(1.05);
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    /* Fade-in animation */
-    header, section.intro, .card {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s forwards;
-    }
-
-    header { animation-delay: 0.2s; }
-    section.intro { animation-delay: 0.4s; }
-    .card:nth-child(1) { animation-delay: 0.6s; }
-    .card:nth-child(2) { animation-delay: 0.8s; }
-    .card:nth-child(3) { animation-delay: 1s; }
-    .card:nth-child(4) { animation-delay: 1.2s; }
-    .card:nth-child(5) { animation-delay: 1.4s; }
-
-    @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 768px) {
-      main { gap: 20px; }
-      .card { width: 90%; }
-      header img { width: 140px; height: 140px; }
-    }
+    body { font-family:'Poppins', sans-serif; background:#f9f9f9; color:#333; margin:0; }
+    nav { background:#111; padding:15px; text-align:center; }
+    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
+    nav a:hover { color:#fda085; transition:0.3s; }
+    header { text-align:center; padding:60px 20px; }
+    header img { width:150px; height:150px; border-radius:50%; margin-bottom:20px; }
+    section.intro { text-align:center; max-width:800px; margin:40px auto; }
+    main { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; padding:50px 20px; }
+    .card { background:#fff; border-radius:15px; width:280px; padding:20px; box-shadow:0 8px 25px rgba(0,0,0,0.08); text-align:center; transition:transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform:translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.12); }
+    .card img { width:100%; border-radius:10px; margin-bottom:15px; }
+    footer { text-align:center; padding:20px; color:#777; }
   </style>
 </head>
 <body>
 
-<!-- Navigation -->
-  <nav style="background:#111; padding:15px; text-align:center;">
-    <a href="index.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">Portfolio</a>
-    <a href="cv.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:bold;">CV</a>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Portfolio</a>
+    <a href="cv.html">CV</a>
   </nav>
 
-  <!-- Header with profile image -->
+  <!-- Header -->
   <header>
     <img src="images/profil.jpg" alt="Profilbild">
     <h1>Chiratchaya Janpechpanao</h1>
     <p>Data Engineer | MSc in Industrial Engineering & Management</p>
   </header>
 
-  <!-- Intro Section -->
+  <!-- Intro -->
   <section class="intro">
     <h2>Hi, I’m Chiratchaya</h2>
     <p>
       I’m a Data Engineer with a Master’s in Industrial Engineering and Management. 
       I’m passionate about transforming data into actionable insights that drive strategic decisions 
-      and real-world impact. With experience designing and managing end-to-end ETL/ELT pipelines, 
-      developing BI dashboards, and building predictive maintenance models, I combine analytical 
-      rigor with a collaborative mindset. I enjoy leveraging data analysis, predictive modeling, 
-      and storytelling to uncover insights that optimize performance and support business growth.
+      and real-world impact. I enjoy leveraging data analysis, predictive modeling, and storytelling 
+      to optimize performance and support business growth.
     </p>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects -->
   <main>
     <div class="card">
       <img src="images/projekt1.png" alt="Projekt 1">
@@ -201,25 +67,11 @@
       <p>Kort beskrivning av projekt 3.</p>
       <button onclick="window.open('https://github.com/octocat/octocat.github.io', '_blank')">Visa projekt</button>
     </div>
-
-    <div class="card">
-      <img src="images/projekt4.png" alt="Projekt 4">
-      <h2>Projekt 4</h2>
-      <p>Kort beskrivning av projekt 4.</p>
-      <button onclick="window.open('https://github.com/octocat/git-consortium', '_blank')">Visa projekt</button>
-    </div>
-
-    <div class="card">
-      <img src="images/projekt5.png" alt="Projekt 5">
-      <h2>Projekt 5</h2>
-      <p>Kort beskrivning av projekt 5.</p>
-      <button onclick="window.open('https://github.com/octocat/test-repo1', '_blank')">Visa projekt</button>
-    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
   </footer>
 
 </body>
+</html>
