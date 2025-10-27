@@ -5,17 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chiratchaya CV</title>
   <style>
-    body { font-family:'Poppins', sans-serif; background:#f9f9f9; color:#333; margin:0; }
-    nav { background:#111; padding:15px; text-align:center; }
-    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
-    nav a:hover { color:#fda085; transition:0.3s; }
-    header { text-align:center; padding:40px 20px; }
-    main { max-width:800px; margin:20px auto; padding:0 20px; }
-    section { margin-bottom:30px; }
-    h2 { font-size:1.8rem; margin-bottom:10px; border-bottom:2px solid #ddd; padding-bottom:5px; }
-    h3 { font-size:1.3rem; margin-bottom:5px; }
-    ul { list-style-type:disc; padding-left:20px; }
-    footer { text-align:center; padding:20px; color:#777; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #111;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #fda085;
+      transition: 0.3s;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* vänster 1, höger 2 */
+      gap: 40px;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+    }
+
+    /* Layout för mindre skärmar */
+    @media (max-width: 900px) {
+      main {
+        display: block;
+      }
+      section {
+        margin-bottom: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -33,79 +102,67 @@
   </header>
 
   <main>
-    <!-- Profile -->
-    <section>
-      <h2>Profile</h2>
-      <p>
-        Results-driven Industrial Engineer passionate about turning data into actionable insights
-        and driving real-world impact. Experienced in data engineering, I’ve built pipelines,
-        optimized models, and supported business intelligence solutions. Analytical and detail-
-        oriented, I enjoy collaborating across teams. I’m now focused on data analysis, predictive
-        modeling, and storytelling to uncover insights that drive strategic decisions.
-      </p>
-    </section>
+    <!-- Vänster kolumn: Education & Skills -->
+    <div>
+      <section>
+        <h2>Education</h2>
+        <h3>MSc in Industrial Engineering and Management – Umea University (2019-2024)</h3>
+        <p>Major: Data Science and Financial Management</p>
+        <ul>
+          <li>Advanced statistical modeling</li>
+          <li>Comprehensive data analysis, Multivariate Data Analysis, Machine Learning, Deep Learning, Big Data</li>
+          <li>Financial Management</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Project Management and Organizing</li>
+        </ul>
+      </section>
 
-    -- Education -->
-  <section>
-    <h2>Education</h2>
-    <h3>MSc in Industrial Engineering and Management – Umea University (2019-2024)</h3>
-    <p>Major: Data Science and Financial Management</p>
-    <ul>
-      <li>Advanced statistical modeling</li>
-      <li>Comprehensive data analysis, Multivariate Data Analysis, Machine Learning, Deep Learning, Big Data</li>
-      <li>Financial Management</li>
-      <li>Data Structures and Algorithms</li>
-      <li>Project Management and Organizing</li>
-    </ul>
-  </section>
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li>MATLAB, RStudio, Python (Pandas, Scikit-learn), C</li>
+          <li>SQL (SSMS, SSIS, SSAS, SSRS)</li>
+          <li>ETL/ELT data models</li>
+          <li>Microsoft Excel</li>
+          <li>Power BI</li>
+          <li>Azure DevOps</li>
+          <li>Team collaboration</li>
+          <li>Agile and Scrum (SAFe)</li>
+          <li>Growth-oriented and self-improving</li>
+        </ul>
+      </section>
+    </div>
 
-  <!-- Skills -->
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>MATLAB, RStudio, Python (Pandas, Scikit-learn), C</li>
-      <li>SQL (SSMS, SSIS, SSAS, SSRS)</li>
-      <li>ETL/ELT data models</li>
-      <li>Microsoft Excel</li>
-      <li>Power BI</li>
-      <li>Azure DevOps</li>
-      <li>Team collaboration</li>
-      <li>Agile and Scrum (SAFe)</li>
-      <li>Growth-oriented and self-improving</li>
-    </ul>
-  </section>
+    <!-- Höger kolumn: Work Experience -->
+    <div>
+      <section>
+        <h2>Work Experience</h2>
 
-    <!-- Work Experience -->
-    <section>
-      <h2>Work Experience</h2>
+        <h3>Data Engineer – Skandiabanken, Stockholm (now)</h3>
+        <ul>
+          <li>Designed, developed, and managed end-to-end ETL/ELT pipelines and data models, providing a robust infrastructure for reporting, risk monitoring, and actionable insights.</li>
+          <li>Maintained and optimized data warehouse solutions for performance, integrity, and availability.</li>
+          <li>Developed BI reports and dashboards, enabling the business to track and analyze key metrics independently.</li>
+          <li>Contributed to a self-service reporting platform, empowering users to generate reports autonomously.</li>
+          <li>Delivered accurate, actionable data to support strategic decisions and regulatory compliance.</li>
+        </ul>
 
-      <h3>Data Engineer – Skandiabanken, Stockholm (now)</h3>
-      <ul>
-        <li>Designed, developed, and managed end-to-end ETL/ELT pipelines and data
-          models, providing a robust infrastructure for reporting, risk monitoring, and
-          actionable insights.</li>
-        <li>Maintained and optimized data warehouse solutions for performance, integrity, and availability.</li>
-        <li>Developed BI reports and dashboards, enabling the business to track and analyze key metrics independently.</li>
-        <li>Contributed to a self-service reporting platform, empowering users to generate reports autonomously.</li>
-        <li>Delivered accurate, actionable data to support strategic decisions and regulatory compliance.</li>
+        <h3>Master’s Thesis: Predictive Maintenance – Volvo Construction Equipment (2024)</h3>
+        <ul>
+          <li>The project focused on leveraging machine learning for predictive maintenance of industrial robots in a manufacturing facility, delivering actionable insights and guidance to advance the organization’s maintenance strategy.</li>
+        </ul>
 
-      </ul>
+        <h3>Internship – Sundsvall Elnät och Servanet (2023)</h3>
+        <ul>
+          <li>Developed a prototype to assess impacts of alternative consumption patterns using measurements, market prices, and weather forecasts.</li>
+        </ul>
 
-      <h3>Master’s Thesis: Predictive Maintenance – Volvo Construction Equipment (2024)</h3>
-      <ul>
-        <li>The project focused on leveraging machine learning for predictive maintenance of industrial robots in a manufacturing facility, delivering actionable insights and guidance to advance the organization’s maintenance strategy.</li>
-      </ul>
-
-      <h3>Internship – Sundsvall Elnät och Servanet (2023) </h3>
-      <ul>
-        <li>I interned on expanding electricity grid services, emphasizing customer value. Developed a prototype for customers to assess impacts of alternative consumption patterns using their measurements, market prices, weather forecasts.</li>
-      </ul>
-
-      <h3>Claim Advisor – If Insurance</h3>
-      <ul>
-        <li>Managed claims issuance, provided customer advisory services, and conducted thorough investigations and evaluations to assess coverage, liability, and potential fraud.</li>
-      </ul>
-    </section>
+        <h3>Claim Advisor – If Insurance</h3>
+        <ul>
+          <li>Managed claims, provided advisory services, and conducted thorough investigations to assess coverage, liability, and potential fraud.</li>
+        </ul>
+      </section>
+    </div>
   </main>
 
   <footer>
