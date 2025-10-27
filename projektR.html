@@ -1,42 +1,213 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>R-Analys Projekt</title>
+  <title>Blood Pressure Analysis Project</title>
   <style>
-    body { font-family:'Poppins', sans-serif; background:#f9f9f9; color:#333; margin:0; padding:20px; }
+    body { font-family:'Poppins', sans-serif; background:#f9f9f9; color:#333; margin:0; padding:20px; line-height:1.6; }
     nav { background:#111; padding:15px; text-align:center; }
     nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
     nav a:hover { color:#fda085; transition:0.3s; }
+    section { margin-bottom:30px; }
     pre { background:#eee; padding:15px; border-radius:10px; overflow-x:auto; }
     img { max-width:100%; border-radius:10px; margin:20px 0; }
+    h1, h2, h3 { color:#111; }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Portfolio</a>
     <a href="cv.html">CV</a>
   </nav>
 
-  <h1>Projekt: R-Analys</h1>
-  <p>Full analys av dataset X med R, inklusive kod och diagram.</p>
+  <h1>Blood Pressure Analysis Project</h1>
 
-  <h2>Kod</h2>
-  <pre><code>
-# Läser in data
-data <- read.csv("data.csv")
+  <section>
+    <p>
+      This project investigates the relationship between blood pressure (BP, in mm Hg) and 
+      several explanatory variables in 20 individuals with high blood pressure. The predictors 
+      include age (years), weight (kg), body surface area (BSA, m²), duration of hypertension (years), 
+      basal pulse (beats per minute), and stress index. The aim is to identify which variables 
+      significantly influence blood pressure and to construct predictive models.
+    </p>
+  </section>
 
-# Grundläggande statistik
-summary(data)
+  <section>
+    <h2>Data Exploration</h2>
+    <p>
+      A preliminary data analysis was performed using descriptive statistics and visualizations 
+      such as histograms and scatterplots. Relationships between blood pressure and each predictor 
+      were examined to identify potential linear associations and outliers. A correlation matrix 
+      highlighted variables strongly associated with blood pressure and possible multicollinearity issues.
+    </p>
+  </section>
 
-# Plottar histogram
-hist(data$Age, main="Age Distribution", col="skyblue")
-  </code></pre>
+  <section>
+    <h2>Simple Linear Regression</h2>
+    <p>
+      For a simple linear regression, the predictor with the strongest correlation with blood pressure 
+      was chosen. The assumed model is:
+    </p>
+    <pre><code>BP_i = β0 + β1 * X_i + ε_i</code></pre>
+    <p>
+      where X represents the selected predictor. The estimated model was visualized together with the data, 
+      showing a clear linear trend.
+    </p>
+  </section>
 
-  <h2>Resultat / Diagram</h2>
-  <img src="images/projektR_plot.png" alt="Plot från R-analys">
+  <section>
+    <h2>Model Significance</h2>
+    <p>
+      The hypothesis tested was H0: β1 = 0 versus H1: β1 ≠ 0. The results indicated that the model 
+      was statistically significant, confirming that the predictor had a meaningful effect on blood pressure.
+    </p>
+  </section>
+
+  <section>
+    <h2>Multiple Regression Model</h2>
+    <p>
+      A multiple regression model including all predictors was then built:
+    </p>
+    <pre><code>BP_i = β0 + β1*Age_i + β2*Weight_i + β3*BSA_i + β4*Dur_i + β5*Pulse_i + β6*Stress_i + ε_i</code></pre>
+    <p>
+      Coefficients and p-values were evaluated to determine which predictors were statistically significant.
+    </p>
+  </section>
+
+  <section>
+    <h2>Model Reduction Using BIC</h2>
+    <p>
+      The BIC criterion was applied to simplify the model. Predictors with low explanatory power were 
+      removed, resulting in a more parsimonious model while retaining statistical significance.
+    </p>
+  </section>
+
+  <section>
+    <h2>Multicollinearity Assessment</h2>
+    <p>
+      Variance inflation factors (VIF) were calculated to assess multicollinearity in the full model. 
+      The predictor with the highest VIF was excluded, and the adjusted model was evaluated, confirming 
+      that multicollinearity had been reduced and the model remained significant.
+    </p>
+  </section>
+
+  <section>
+    <h2>Model Comparison</h2>
+    <p>
+      The simple, BIC-reduced, full, and multicollinearity-adjusted models were compared regarding 
+      explained variance, predictor significance, and the interpretability of the coefficients. 
+      The model providing the best balance between fit and simplicity was selected for further analysis.
+    </p>
+  </section>
+
+  <section>
+    <h2>Model Validation</h2>
+    <p>
+      For the selected model, assumptions were checked: constant variance of residuals was assessed 
+      using residual plots, normality was evaluated with Q-Q plots, and leverage and Cook’s distance 
+      were used to identify potential outliers and influential points.
+    </p>
+  </section>
+
+  <section>
+    <h2>Prediction</h2>
+    <p>
+      Finally, the selected model was used to predict blood pressure for the individual with predictor 
+      values equal to the first patient in the dataset. A 95% prediction interval was calculated to 
+      quantify uncertainty around this estimate.
+    </p>
+  </section>
+
+  <section>
+  <h2>Method</h2>
+
+  <h3>a) Preliminary Data Analysis</h3>
+  <p>
+    All analyses were performed using R. The initial exploration of the data included scatterplots 
+    and density plots to visualize distributions, detect outliers, and identify unusual patterns. 
+    Pairwise scatterplots were used to examine potential collinearity between explanatory variables.
+  </p>
+
+  <h3>b) Simple Linear Regression</h3>
+  <p>
+    Six simple linear regression models were created, each with blood pressure (BP) as the response variable 
+    and one explanatory variable: Age, Weight, BSA, Duration of hypertension (Dur), Pulse, or Stress. 
+    The assumed simple linear model is:
+  </p>
+  <div class="code-sample">
+    Model 1: BP = β0 + β1*Age + ε <br>
+    Model 2: BP = β0 + β2*Weight + ε <br>
+    Model 3: BP = β0 + β3*BSA + ε <br>
+    Model 4: BP = β0 + β4*Dur + ε <br>
+    Model 5: BP = β0 + β5*Pulse + ε <br>
+    Model 6: BP = β0 + β6*Stress + ε
+  </div>
+  <p>
+    Here, β0 is the intercept, βi are the unknown parameters, and ε represents normally distributed errors 
+    with zero mean and constant variance. The coefficient of determination (R²) was used to select the predictor 
+    providing the best model fit.
+  </p>
+
+  <h3>c) Statistical Significance</h3>
+  <p>
+    To assess whether each model was statistically significant, t-tests were used. The null hypothesis 
+    was H0: βi = 0. A significance level of α = 0.05 was applied; predictors with p-values below this threshold 
+    were considered significant.
+  </p>
+
+  <h3>d) Multiple Linear Regression</h3>
+  <p>
+    A multiple linear regression model including all predictors (Age, Weight, BSA, Dur, Pulse, and Stress) 
+    was fitted:
+  </p>
+  <div class="code-sample">
+    BP = β0 + β1*Age + β2*Weight + β3*BSA + β4*Dur + β5*Pulse + β6*Stress + ε
+  </div>
+  <p>
+    An F-test was used to evaluate the overall significance of the model, and individual predictor significance 
+    was assessed using p-values.
+  </p>
+
+  <h3>e) Model Reduction with BIC</h3>
+  <p>
+    Stepwise selection using the Bayesian Information Criterion (BIC) was applied to identify the best subset of predictors. 
+    Predictors producing the lowest BIC were retained in the final reduced model, and their statistical significance was evaluated.
+  </p>
+
+  <h3>f) Multicollinearity Assessment</h3>
+  <p>
+    Variance inflation factors (VIF) were calculated to detect multicollinearity. Predictors with VIF > 5 were considered 
+    highly collinear and removed from the model. The adjusted model was re-evaluated to ensure continued significance.
+  </p>
+
+  <h3>g) Model Comparison</h3>
+  <p>
+    The four models (simple, full, BIC-reduced, and multicollinearity-adjusted) were compared based on explained variation (R²), 
+    significance of predictors, and interpretability of coefficients. ANOVA and F-tests were used to determine any significant 
+    differences between models.
+  </p>
+
+  <h3>h) Model Validation</h3>
+  <p>
+    Diagnostic checks were performed on the selected model. Constant variance of residuals was assessed using residual plots, 
+    normality of errors using Q-Q plots and the Shapiro-Wilk test, and serial independence with the Durbin-Watson test. 
+    Leverage points, outliers, and influential observations were identified using hat-values, studentized residuals, 
+    and Cook's distance.
+  </p>
+
+  <h3>i) Prediction</h3>
+  <p>
+    Finally, the selected model was used to predict the blood pressure of the first patient in the dataset. 
+    A 95% prediction interval was calculated using the <code>predict()</code> function in R to quantify uncertainty.
+  </p>
+    
+</section>
+
+  
 
 </body>
 </html>
+
