@@ -79,13 +79,35 @@ cor(bloodData)
     </p>
 
     <pre><code>
-mdl1 <- lm(BP ~ Age, data=bloodData)
+mdl <- lm(BP ~ Age, data=bloodData)
 mdl2 <- lm(BP ~ Weight, data=bloodData)
-mdl3 <- lm(BP ~ BSA, data=bloodData)
-mdl4 <- lm(BP ~ Dur, data=bloodData)
+mdl3 <- lm(BP ~ BSA, data=bloodData)   
+mdl4 <- lm(BP ~ Dur, data=bloodData)    #no significant 
 mdl5 <- lm(BP ~ Pulse, data=bloodData)
-mdl6 <- lm(BP ~ Stress, data=bloodData)
-summary(mdl2)
+mdl6 <- lm(BP ~ Stress, data=bloodData) #no significant 
+
+'check the models'
+summary(mdl) 
+summary(mdl2) #*** 
+summary(mdl3) #*** 
+summary(mdl4)  
+summary(mdl5)
+summary(mdl6) 
+
+#Find a model with a high adjusted R2
+# For mdl2 
+res <- resid(mdl2)
+hist(res)
+#produce residual vs. fitted plot
+plot(fitted(mdl2), res,  main = "Residuals vs Fitted" ,ylab="residual")
+#add a horizontal line at 0 
+abline(0,0)
+qqplot(bloodData$Weight,bloodData$BP, xlab = "test x", ylab = "test y", main = "Q-Q Plot")
+
+# Visualise the model together with data
+par(mfrow=c(1,2))
+plot(BP ~ Weight, data = bloodData, main="Model2 together with the data")
+abline(mdl2)
     </code></pre>
 
     <table>
@@ -115,6 +137,82 @@ summary(mdl2)
     <figcaption>Figure 5: Regression line from Model 2 together with observed data.</figcaption>
   </figure>
 
+
+<section>
+  <h2>Parameter Estimation for Model (d)</h2>
+  <p>
+    The estimated parameters <code>β̂</code> for each predictor in Model (d) are shown in Table 3. 
+    We can see that <code>β̂₅</code> has a negative impact in Model (d). 
+    Apart from that, all <code>β̂</code> values seem reasonable and consistent with expectations.
+  </p>
+
+  <h3>Table 3: Estimated <code>β̂</code> values for Model (d)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Intercept</th>
+        <th>β̂₁</th>
+        <th>β̂₂</th>
+        <th>β̂₃</th>
+        <th>β̂₄</th>
+        <th>β̂₅</th>
+        <th>β̂₆</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Model (d)</td>
+        <td>-12.879</td>
+        <td>0.7032</td>
+        <td>0.9699</td>
+        <td>3.7764</td>
+        <td>0.06838</td>
+        <td>-0.0844</td>
+        <td>0.00557</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    The corresponding p-values for each parameter, based on the t-test, are presented in Table 4.
+  </p>
+
+  <h3>Table 4: p-values for each parameter in the full model</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>t-test p-value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Intercept</td><td>0.000229</td></tr>
+      <tr><td>β̂₁</td><td>2.76e-09</td></tr>
+      <tr><td>β̂₂</td><td>1.02e-09</td></tr>
+      <tr><td>β̂₃</td><td>0.0327</td></tr>
+    </tbody>
+  </table>
+</section>
+
+    <pre><code>
+summary(mdl) #**
+summary(mdl2) #*** 
+summary(mdl3) #*** 
+summary(mdl4)  
+summary(mdl5)
+summary(mdl6)   
+
+#confint(mdl2, level=0.99)
+#Confint(mdl3, level=0.99)
+
+#d) Multiple linear regression- with all the predictors
+
+mdlFULL <- lm(BP ~ ., data=bloodData)  #
+summary(mdlFULL)
+    </code></pre>
+
+  
   <section>
     <h2>Model Selection (BIC and VIF)</h2>
     <p>Based on BIC, the final suggested model is:</p>
