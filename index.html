@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Min Portfolio</title>
+  <title>Chiratchaya Janpechpanao Portfolio</title>
   <style>
     /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,7 +17,7 @@
 
     header {
       text-align: center;
-      padding: 100px 20px 50px 20px;
+      padding: 100px 20px 20px 20px;
     }
 
     header img {
@@ -31,12 +31,32 @@
 
     header h1 {
       font-size: 3rem;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.3em;
     }
 
     header p {
       font-size: 1.2rem;
       color: #555;
+    }
+
+    /* Intro Section */
+    section.intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section.intro h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    section.intro p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
     }
 
     main {
@@ -105,24 +125,25 @@
     }
 
     /* Fade-in animation */
-    header, .card {
+    header, section.intro, .card {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeIn 1s forwards;
     }
 
     header { animation-delay: 0.2s; }
-    .card:nth-child(1) { animation-delay: 0.4s; }
-    .card:nth-child(2) { animation-delay: 0.6s; }
-    .card:nth-child(3) { animation-delay: 0.8s; }
-    .card:nth-child(4) { animation-delay: 1s; }
-    .card:nth-child(5) { animation-delay: 1.2s; }
+    section.intro { animation-delay: 0.4s; }
+    .card:nth-child(1) { animation-delay: 0.6s; }
+    .card:nth-child(2) { animation-delay: 0.8s; }
+    .card:nth-child(3) { animation-delay: 1s; }
+    .card:nth-child(4) { animation-delay: 1.2s; }
+    .card:nth-child(5) { animation-delay: 1.4s; }
 
     @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Mobilanpassning */
+    /* Mobile adjustments */
     @media (max-width: 768px) {
       main { gap: 20px; }
       .card { width: 90%; }
@@ -132,12 +153,27 @@
 </head>
 <body>
 
+  <!-- Header with profile image -->
   <header>
-    <img src="images/profil.jpg" alt="Min profilbild">
-    <h1>Välkommen till Min Portfolio</h1>
-    <p>En modern och clean GitHub Page med alla mina projekt</p>
+    <img src="images/profil.jpg" alt="Profilbild">
+    <h1>Chiratchaya Janpechpanao</h1>
+    <p>Data Engineer | MSc in Industrial Engineering & Management</p>
   </header>
 
+  <!-- Intro Section -->
+  <section class="intro">
+    <h2>Hi, I’m Chiratchaya</h2>
+    <p>
+      I’m a Data Engineer with a Master’s in Industrial Engineering and Management. 
+      I’m passionate about transforming data into actionable insights that drive strategic decisions 
+      and real-world impact. With experience designing and managing end-to-end ETL/ELT pipelines, 
+      developing BI dashboards, and building predictive maintenance models, I combine analytical 
+      rigor with a collaborative mindset. I enjoy leveraging data analysis, predictive modeling, 
+      and storytelling to uncover insights that optimize performance and support business growth.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
   <main>
     <div class="card">
       <img src="images/projekt1.png" alt="Projekt 1">
@@ -167,11 +203,17 @@
       <button onclick="window.open('https://github.com/octocat/git-consortium', '_blank')">Visa projekt</button>
     </div>
 
- 
+    <div class="card">
+      <img src="images/projekt5.png" alt="Projekt 5">
+      <h2>Projekt 5</h2>
+      <p>Kort beskrivning av projekt 5.</p>
+      <button onclick="window.open('https://github.com/octocat/test-repo1', '_blank')">Visa projekt</button>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Min GitHub Page</p>
+    <p>© 2025 Chiratchaya Janpechpanao</p>
   </footer>
 
 </body>
