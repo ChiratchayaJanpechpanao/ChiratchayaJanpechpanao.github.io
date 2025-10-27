@@ -45,17 +45,6 @@
       The initial analysis included numerical and graphical summaries. There were 20 observations and 8 variables. No missing values were found. Figures 1–3 show the distributions and relationships among explanatory variables.
     </p>
 
-    <pre><code>
-library(ggplot2)
-library(leaps)
-library(faraway)
-bloodData <- read.table('blood.txt', header=T)
-bloodData$Pt <- NULL
-str(bloodData)
-pairs(bloodData[,1:7], pch=1, cex=0.9)
-cor(bloodData)
-    </code></pre>
-  </section>
 
   <figure>
     <img src="images/1.dataanalis.jpeg" alt="Overview of explanatory variables">
@@ -78,14 +67,6 @@ cor(bloodData)
       Six simple linear regression models were fitted with BP as the response and each predictor individually. Model 2 (Weight) showed the highest R² value and was selected as the best simple model.
     </p>
 
-    <pre><code>
-mdl <- lm(BP ~ Age, data=bloodData)
-mdl2 <- lm(BP ~ Weight, data=bloodData)
-mdl3 <- lm(BP ~ BSA, data=bloodData)   
-mdl4 <- lm(BP ~ Dur, data=bloodData)
-mdl5 <- lm(BP ~ Pulse, data=bloodData)
-mdl6 <- lm(BP ~ Stress, data=bloodData)
-    </code></pre>
 
     <table>
       <thead>
@@ -212,8 +193,350 @@ mdl6 <- lm(BP ~ Stress, data=bloodData)
     <!-- Remaining sections (VIF, comparison, validation, etc.) stay unchanged -->
   </section>
 
-  <!-- Keep your existing Model Comparison, Validation, and Prediction Interval sections -->
-  <!-- ... -->
+  <section>
+    <h2>Multicollinearity and Model Refinement</h2>
+    <p>
+      Table 7 illustrates that the full model has a multicollinearity problem. 
+      Since two of the predictors, <strong>Weight</strong> and <strong>BSA</strong>, 
+      have a variance inflation factor greater than 5, this suggests that these predictors 
+      are strongly correlated with one another in the model.
+    </p>
+
+    <h3>Table 7: Variance Inflation Factors (Full Model)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Age</th><th>Weight</th><th>BSA</th><th>Dur</th><th>Pulse</th><th>Stress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1.766</td><td>8.741</td><td>5.463</td><td>1.254</td><td>4.547</td><td>2.116</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      A reduced model excluding the variable <strong>Weight</strong> was constructed. 
+      The new variance inflation factors are shown in Table 8. 
+      It can be seen that no variables have high VIF values, suggesting improved stability.
+    </p>
+
+    <h3>Table 8: Variance Inflation Factors (Reduced Model)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Age</th><th>BSA</th><th>Dur</th><th>Pulse</th><th>Stress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1.704</td><td>1.428</td><td>1.237</td><td>2.361</td><td>1.503</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The modified model has a p-value of <code>1.921e-07</code>, indicating statistical significance for the data.
+      The estimated Model (f) is described as:
+    </p>
+
+    <p class="center"><code>Ŷ = 6.21 + 0.57·Age + 24.55·BSA + 0.08·Dur + 0.46·Pulse − 0.02·Stress</code></p>
+  </section>
+
+
+  <section>
+    <h2>Model Comparison and Selection</h2>
+    <p>
+      Table 9 presents AIC, adjusted R², and significance values for four compared models.
+      All models are significant at the α &lt; 0.05 level. 
+      Model (e) initially appears to be a good choice due to its high adjusted R², 
+      but some predictors (Dur and Pulse) are not significant, 
+      making the model unnecessarily complex.
+    </p>
+
+    <p>
+      Based on Table 9, Model (d) appears to be the most appropriate model with a high adjusted R² and a low AIC score. 
+      However, the correlation between Weight and BSA may lead to instability and misleading predictions.
+      Table 10 shows that the variance inflation factors for Model (d) are all below 5, 
+      indicating that multicollinearity is acceptable.
+    </p>
+
+    <h3>Table 9: Model Comparison Statistics</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th><th>AIC</th><th>Adjusted R²</th><th>F-test p-value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>(b)</td><td>82.82</td><td>0.9026</td><td>1.528e-10</td></tr>
+        <tr><td>(d)</td><td>28.21</td><td>0.9963</td><td>6.395e-15</td></tr>
+        <tr><td>(e)</td><td>29.19</td><td>0.9945</td><td>&lt; 2.2e-16</td></tr>
+        <tr><td>(f)</td><td>85.27</td><td>0.9278</td><td>1.921e-07</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Table 10: Variance Inflation Factors (Model d)</h3>
+    <table>
+      <thead>
+        <tr><th>Age</th><th>BSA</th><th>Weight</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1.202</td><td>4.404</td><td>4.287</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      Comparing Model (b) and Model (d) using ANOVA F-test gives a p-value of <code>9.737e-11</code>, 
+      indicating that the two models differ significantly. 
+      Therefore, Model (d) is recommended for further analysis.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>Model Validation</h2>
+    <p>
+      Model validation for Model (d) is illustrated in Figure 7. 
+      No visible pattern can be observed in the residuals vs fitted values plot, 
+      indicating homoscedasticity. 
+      The normal Q-Q plot shows that the residuals closely follow the reference line.
+    </p>
+
+    <figure>
+      <img src="images/1.h.jpeg" alt="Residuals and QQ plot">
+      <figcaption>Figure 7: Residuals vs fitted values (left) and normal Q-Q plot (right).</figcaption>
+    </figure>
+
+    <p>
+      Figure 8 shows leverage and influential points. Observation 20 has the highest leverage, 
+      but it is not considered extreme. 
+      Cook’s distance and studentized residual tests indicate no influential outliers.
+    </p>
+
+    <figure>
+      <img src="images/1.hh.jpeg" alt="Leverage and influential points">
+      <figcaption>Figure 8: Leverage (left) and influential points (right).</figcaption>
+    </figure>
+
+    <h3>Table 11: Normality and Independence Tests</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Test</th><th>P-value</th><th>Reject H₀</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Shapiro-Wilk</td><td>0.581</td><td>NO</td></tr>
+        <tr><td>Durbin-Watson</td><td>0.401</td><td>NO</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <section>
+    <h2>Prediction Interval</h2>
+    <p>
+      Table 12 presents a 96% prediction interval for the first observation 
+      (observed BP = 105 mmHg). The predicted value is within a narrow interval, 
+      suggesting good model fit.
+    </p>
+
+    <h3>Table 12: 96% Prediction Interval</h3>
+    <table>
+      <thead>
+        <tr><th>fit</th><th>lwr</th><th>upr</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>104.76</td><td>103.74</td><td>105.79</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <pre><code>
+  </section>
+library(esquisse)
+library(ggplot2)
+library(leaps)
+library(faraway)
+library(stats)
+
+bloodData=read.table('blood.txt',header=T)
+str(bloodData)
+
+'Remove coloumn pt'
+bloodData$Pt <- NULL
+bloodData
+
+'look at the response variable'
+par(mfrow=c(1,2))
+plot(density(bloodData$BP, na.rm=TRUE),main="")
+plot(sort(bloodData$BP))
+
+'lookt at outliers'
+par(mfrow=c(2,3))
+plot(bloodData$Age)
+plot(bloodData$Weight)
+plot(bloodData$BSA)
+plot(bloodData$Dur)
+plot(bloodData$Pulse)
+plot(bloodData$Stress)
+
+'look at collinearity of the explnatory variables'
+pairs(bloodData[,1:7], pch = 1, cex = 0.9,lower.panel = NULL)
+cor(bloodData)
+
+par(mfrow = c(2,2))
+#plotting all pairs
+plot(BP ~ Age, data=bloodData)
+plot(BP ~ Weight, data=bloodData)
+plot(BP ~ BSA, data=bloodData)
+plot(BP ~ Dur, data=bloodData)
+plot(BP ~ Pulse, data=bloodData)
+plot(BP ~ Stress, data=bloodData)
+
+#b) Simple linear regression model - one predictor
+mdl <- lm(BP ~ Age, data=bloodData)
+mdl2 <- lm(BP ~ Weight, data=bloodData)
+mdl3 <- lm(BP ~ BSA, data=bloodData)   
+mdl4 <- lm(BP ~ Dur, data=bloodData)    #no significant 
+mdl5 <- lm(BP ~ Pulse, data=bloodData)
+mdl6 <- lm(BP ~ Stress, data=bloodData) #no significant 
+
+'check the models'
+summary(mdl) 
+summary(mdl2) #*** 
+summary(mdl3) #*** 
+summary(mdl4)  
+summary(mdl5)
+summary(mdl6) 
+
+#Find a model with a high adjusted R2
+#Make sure this model has equally distributed residuals around zero
+# For mdl2 
+res <- resid(mdl2)
+hist(res)
+#produce residual vs. fitted plot
+plot(fitted(mdl2), res,  main = "Residuals vs Fitted" ,ylab="residual")
+#add a horizontal line at 0 
+abline(0,0)
+qqplot(bloodData$Weight,bloodData$BP, xlab = "test x", ylab = "test y", main = "Q-Q Plot")
+
+# Visualise the model together with data
+par(mfrow=c(1,2))
+plot(BP ~ Weight, data = bloodData, main="Model2 together with the data")
+abline(mdl2)
+
+#c) Is the model statistically significant?  
+
+summary(mdl) #**
+summary(mdl2) #*** 
+summary(mdl3) #*** 
+summary(mdl4)  
+summary(mdl5)
+summary(mdl6)   
+
+#confint(mdl2, level=0.99)
+#Confint(mdl3, level=0.99)
+
+#d) Multiple linear regression- with all the predictors
+
+mdlFULL <- lm(BP ~ ., data=bloodData)  #
+summary(mdlFULL)
+
+#e) Multiple linear regression - Bayes information criterion BIC.
+
+'searches all possible combinations of predictors, the function chooses the variables which produce the min RSS'
+b <- regsubsets(BP~., data = bloodData)
+rs <- summary(b)
+rs$which
+plot(1:6, rs$bic, ylab="BIC", xlab="Number of predictors", main="BIC vs number of predictors") # We can see that suggestion of choosing 3 predictors
+
+mdlBIC <- lm(BP ~ Age+Weight+BSA, data=bloodData)
+
+summary(mdlBIC) #The bigger has better fit for the data
+
+#f) Multiple linear regression - multicollinearity
+
+mdlFULL <- lm(BP ~ ., data=bloodData)
+summary(mdlFULL)
+
+'correaltion'
+round(cor(bloodData[,-1]),2)
+
+'Variance inflation factors'
+vif(mdlFULL)
+
+mdlCOLL <- update(mdlFULL, . ~ . -Weight)
+summary(mdlCOLL)
+vif(mdlCOLL)
+
+#g) Compare models
+mdlSIMP <- lm(BP ~ Weight, data=bloodData)       #b 
+mdlFULL <- lm(BP ~ ., data=bloodData)             #d
+mdlBIC <- lm(BP ~ Age+Weight+BSA, data=bloodData) #e 
+mdlCOLL <- update(mdlFULL, . ~ . -Weight)         #f
+
+summary(mdlSIMP) #R = 0.9026
+summary(mdlFULL) #R = 0.9963  
+summary(mdlBIC)  #R = 0.9945 
+summary(mdlCOLL) #R = 0.9278  
+AIC(mdlSIMP)
+AIC(mdlFULL)
+AIC(mdlBIC)
+AIC(mdlCOLL)
+
+'Compare models'
+anova(mdlBIC,mdlSIMP)
+
+#h) Model validation, choose BIC model 
+mdlBIC <- lm(BP ~ Age+Weight+BSA, data=bloodData) 
+vif(mdlBIC) #they are not higher than >5 is okej. 
+
+'Check the constant variance assumption for the errors' 
+par(mfrow=c(1,2))
+plot(fitted(mdlBIC),residuals(mdlBIC),xlab="Fitted Values",ylab="Residuals", main="Residuals vs fitted values")
+abline(h=0)
+# Check the normality assumption
+qqnorm(residuals(mdlBIC))
+qqline(residuals(mdlBIC))
+shapiro.test(residuals(mdlBIC)) # H0 is that the data was generated from normal distribution
+
+'durbin-watson'
+library(lmtest)
+dwtest(mdlBIC) 
+
+'Check for large leverage points' 
+hatv<-hatvalues(mdlBIC)
+sum(hatv)
+countries=rownames(mdlBIC)
+halfnorm(hatv,labs=countries,ylab="Laverages")
+abline(h=2*sum(hatv)/nrow(mdlBIC))
+
+'Check for outliars'
+n=20
+p=7
+cr_value = qt(0.05/(2*n),n-p-1, lower.tail = F)
+cr_value
+srTOT = rstudent(mdlBIC)
+which(abs(srTOT)>cr_value) 
+
+'check for influential points'
+cook <- cooks.distance(mdlBIC)
+halfnorm(cook,3,labs=countries,ylab="Cook's distances")
+which(abs(cook)>0.2) 
+abline(h=0.2)
+
+#i) Predict the blood pressure
+
+x0 = data.frame(Age=47,Weight=85.4,BSA=1.75,Dur=5.1,Pulse=63,Stress=33) #Real BP = 105
+predict(mdlBIC,x0)
+predict(mdlBIC,x0,interval="confidence")
+predict(mdlBIC,x0,interval="prediction")
+    </code></pre>
+
+
 
 </body>
 </html>
