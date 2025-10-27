@@ -354,186 +354,202 @@
     </table>
   </section>
 
-  <pre><code>
+<h2>R Code for Blood Pressure Analysis</h2>
+<pre><code class="language-r">
+# ============================================
+# BLOOD PRESSURE ANALYSIS PROJECT
+# ============================================
+# Author: [Your Name]
+# Course: [Course/Project Name]
+# ============================================
+
+# --- Load necessary packages ---
 library(esquisse)
 library(ggplot2)
 library(leaps)
 library(faraway)
 library(stats)
+library(lmtest)
 
-bloodData=read.table('blood.txt',header=T)
+# --- Import and inspect data ---
+bloodData <- read.table('blood.txt', header = TRUE)
 str(bloodData)
 
-'Remove coloumn pt'
+# --- Remove unnecessary column ---
 bloodData$Pt <- NULL
 bloodData
 
-'look at the response variable'
-par(mfrow=c(1,2))
-plot(density(bloodData$BP, na.rm=TRUE),main="")
-plot(sort(bloodData$BP))
+# ============================================
+# Exploratory Data Analysis (EDA)
+# ============================================
 
-'lookt at outliers'
-par(mfrow=c(2,3))
-plot(bloodData$Age)
-plot(bloodData$Weight)
-plot(bloodData$BSA)
-plot(bloodData$Dur)
-plot(bloodData$Pulse)
-plot(bloodData$Stress)
+# --- Response variable (Blood Pressure) ---
+par(mfrow = c(1, 2))
+plot(density(bloodData$BP, na.rm = TRUE), main = "Density of BP")
+plot(sort(bloodData$BP), main = "Sorted BP Values")
 
-'look at collinearity of the explnatory variables'
-pairs(bloodData[,1:7], pch = 1, cex = 0.9,lower.panel = NULL)
+# --- Check for outliers in predictors ---
+par(mfrow = c(2, 3))
+plot(bloodData$Age, main = "Age")
+plot(bloodData$Weight, main = "Weight")
+plot(bloodData$BSA, main = "BSA")
+plot(bloodData$Dur, main = "Duration")
+plot(bloodData$Pulse, main = "Pulse")
+plot(bloodData$Stress, main = "Stress")
+
+# --- Check collinearity among explanatory variables ---
+pairs(bloodData[, 1:7], pch = 1, cex = 0.9, lower.panel = NULL)
 cor(bloodData)
 
-par(mfrow = c(2,2))
-#plotting all pairs
-plot(BP ~ Age, data=bloodData)
-plot(BP ~ Weight, data=bloodData)
-plot(BP ~ BSA, data=bloodData)
-plot(BP ~ Dur, data=bloodData)
-plot(BP ~ Pulse, data=bloodData)
-plot(BP ~ Stress, data=bloodData)
+# --- Plot response vs each predictor ---
+par(mfrow = c(2, 2))
+plot(BP ~ Age, data = bloodData)
+plot(BP ~ Weight, data = bloodData)
+plot(BP ~ BSA, data = bloodData)
+plot(BP ~ Dur, data = bloodData)
+plot(BP ~ Pulse, data = bloodData)
+plot(BP ~ Stress, data = bloodData)
 
-#b) Simple linear regression model - one predictor
-mdl <- lm(BP ~ Age, data=bloodData)
-mdl2 <- lm(BP ~ Weight, data=bloodData)
-mdl3 <- lm(BP ~ BSA, data=bloodData)   
-mdl4 <- lm(BP ~ Dur, data=bloodData)    #no significant 
-mdl5 <- lm(BP ~ Pulse, data=bloodData)
-mdl6 <- lm(BP ~ Stress, data=bloodData) #no significant 
+# ============================================
+# (b) Simple Linear Regression Models
+# ============================================
 
-'check the models'
-summary(mdl) 
-summary(mdl2) #*** 
-summary(mdl3) #*** 
-summary(mdl4)  
+mdl1 <- lm(BP ~ Age, data = bloodData)
+mdl2 <- lm(BP ~ Weight, data = bloodData)
+mdl3 <- lm(BP ~ BSA, data = bloodData)
+mdl4 <- lm(BP ~ Dur, data = bloodData)
+mdl5 <- lm(BP ~ Pulse, data = bloodData)
+mdl6 <- lm(BP ~ Stress, data = bloodData)
+
+# --- Summaries ---
+summary(mdl1)
+summary(mdl2)
+summary(mdl3)
+summary(mdl4)
 summary(mdl5)
-summary(mdl6) 
+summary(mdl6)
 
-#Find a model with a high adjusted R2
-#Make sure this model has equally distributed residuals around zero
-# For mdl2 
+# --- Residual analysis for mdl2 ---
 res <- resid(mdl2)
-hist(res)
-#produce residual vs. fitted plot
-plot(fitted(mdl2), res,  main = "Residuals vs Fitted" ,ylab="residual")
-#add a horizontal line at 0 
-abline(0,0)
-qqplot(bloodData$Weight,bloodData$BP, xlab = "test x", ylab = "test y", main = "Q-Q Plot")
+hist(res, main = "Histogram of Residuals", xlab = "Residuals")
+plot(fitted(mdl2), res, main = "Residuals vs Fitted", ylab = "Residuals")
+abline(0, 0)
+qqplot(bloodData$Weight, bloodData$BP, main = "Q-Q Plot", xlab = "Weight", ylab = "BP")
 
-# Visualise the model together with data
-par(mfrow=c(1,2))
-plot(BP ~ Weight, data = bloodData, main="Model2 together with the data")
-abline(mdl2)
+# --- Visualize model with data ---
+par(mfrow = c(1, 2))
+plot(BP ~ Weight, data = bloodData, main = "Model2: BP vs Weight")
+abline(mdl2, col = "blue")
 
-#c) Is the model statistically significant?  
+# ============================================
+# (d) Multiple Linear Regression (All Predictors)
+# ============================================
 
-summary(mdl) #**
-summary(mdl2) #*** 
-summary(mdl3) #*** 
-summary(mdl4)  
-summary(mdl5)
-summary(mdl6)   
-
-#confint(mdl2, level=0.99)
-#Confint(mdl3, level=0.99)
-
-#d) Multiple linear regression- with all the predictors
-
-mdlFULL <- lm(BP ~ ., data=bloodData)  #
+mdlFULL <- lm(BP ~ ., data = bloodData)
 summary(mdlFULL)
 
-#e) Multiple linear regression - Bayes information criterion BIC.
+# ============================================
+# (e) Model Selection using BIC Criterion
+# ============================================
 
-'searches all possible combinations of predictors, the function chooses the variables which produce the min RSS'
-b <- regsubsets(BP~., data = bloodData)
+b <- regsubsets(BP ~ ., data = bloodData)
 rs <- summary(b)
 rs$which
-plot(1:6, rs$bic, ylab="BIC", xlab="Number of predictors", main="BIC vs number of predictors") # We can see that suggestion of choosing 3 predictors
 
-mdlBIC <- lm(BP ~ Age+Weight+BSA, data=bloodData)
+plot(1:6, rs$bic, ylab = "BIC", xlab = "Number of Predictors",
+     main = "BIC vs Number of Predictors")
 
-summary(mdlBIC) #The bigger has better fit for the data
+# --- Best BIC model ---
+mdlBIC <- lm(BP ~ Age + Weight + BSA, data = bloodData)
+summary(mdlBIC)
 
-#f) Multiple linear regression - multicollinearity
+# ============================================
+# (f) Multicollinearity Analysis
+# ============================================
 
-mdlFULL <- lm(BP ~ ., data=bloodData)
-summary(mdlFULL)
+round(cor(bloodData[, -1]), 2)        # Correlation matrix
+vif(mdlFULL)                          # VIF for full model
 
-'correaltion'
-round(cor(bloodData[,-1]),2)
-
-'Variance inflation factors'
-vif(mdlFULL)
-
-mdlCOLL <- update(mdlFULL, . ~ . -Weight)
+mdlCOLL <- update(mdlFULL, . ~ . - Weight)
 summary(mdlCOLL)
 vif(mdlCOLL)
 
-#g) Compare models
-mdlSIMP <- lm(BP ~ Weight, data=bloodData)       #b 
-mdlFULL <- lm(BP ~ ., data=bloodData)             #d
-mdlBIC <- lm(BP ~ Age+Weight+BSA, data=bloodData) #e 
-mdlCOLL <- update(mdlFULL, . ~ . -Weight)         #f
+# ============================================
+# (g) Model Comparison
+# ============================================
 
-summary(mdlSIMP) #R = 0.9026
-summary(mdlFULL) #R = 0.9963  
-summary(mdlBIC)  #R = 0.9945 
-summary(mdlCOLL) #R = 0.9278  
+mdlSIMP <- lm(BP ~ Weight, data = bloodData)          # Model (b)
+mdlFULL <- lm(BP ~ ., data = bloodData)               # Model (d)
+mdlBIC  <- lm(BP ~ Age + Weight + BSA, data = bloodData) # Model (e)
+mdlCOLL <- update(mdlFULL, . ~ . - Weight)            # Model (f)
+
+# --- Summaries ---
+summary(mdlSIMP)
+summary(mdlFULL)
+summary(mdlBIC)
+summary(mdlCOLL)
+
+# --- AIC comparison ---
 AIC(mdlSIMP)
 AIC(mdlFULL)
 AIC(mdlBIC)
 AIC(mdlCOLL)
 
-'Compare models'
-anova(mdlBIC,mdlSIMP)
+# --- ANOVA comparison ---
+anova(mdlBIC, mdlSIMP)
 
-#h) Model validation, choose BIC model 
-mdlBIC <- lm(BP ~ Age+Weight+BSA, data=bloodData) 
-vif(mdlBIC) #they are not higher than >5 is okej. 
+# ============================================
+# (h) Model Validation (Chosen Model: BIC)
+# ============================================
 
-'Check the constant variance assumption for the errors' 
-par(mfrow=c(1,2))
-plot(fitted(mdlBIC),residuals(mdlBIC),xlab="Fitted Values",ylab="Residuals", main="Residuals vs fitted values")
-abline(h=0)
-# Check the normality assumption
+vif(mdlBIC)  # Check for multicollinearity
+
+# --- Constant variance assumption ---
+par(mfrow = c(1, 2))
+plot(fitted(mdlBIC), residuals(mdlBIC),
+     xlab = "Fitted Values", ylab = "Residuals",
+     main = "Residuals vs Fitted")
+abline(h = 0)
+
+# --- Normality assumption ---
 qqnorm(residuals(mdlBIC))
 qqline(residuals(mdlBIC))
-shapiro.test(residuals(mdlBIC)) # H0 is that the data was generated from normal distribution
+shapiro.test(residuals(mdlBIC))       # H₀: data is normally distributed
 
-'durbin-watson'
-library(lmtest)
-dwtest(mdlBIC) 
+# --- Independence assumption (Durbin-Watson test) ---
+dwtest(mdlBIC)
 
-'Check for large leverage points' 
-hatv<-hatvalues(mdlBIC)
+# --- Leverage points ---
+hatv <- hatvalues(mdlBIC)
 sum(hatv)
-countries=rownames(mdlBIC)
-halfnorm(hatv,labs=countries,ylab="Laverages")
-abline(h=2*sum(hatv)/nrow(mdlBIC))
+countries <- rownames(bloodData)
+halfnorm(hatv, labs = countries, ylab = "Leverages")
+abline(h = 2 * sum(hatv) / nrow(bloodData))
 
-'Check for outliars'
-n=20
-p=7
-cr_value = qt(0.05/(2*n),n-p-1, lower.tail = F)
-cr_value
-srTOT = rstudent(mdlBIC)
-which(abs(srTOT)>cr_value) 
+# --- Outlier detection ---
+n <- 20
+p <- 7
+cr_value <- qt(0.05 / (2 * n), n - p - 1, lower.tail = FALSE)
+srTOT <- rstudent(mdlBIC)
+which(abs(srTOT) > cr_value)
 
-'check for influential points'
+# --- Influential points ---
 cook <- cooks.distance(mdlBIC)
-halfnorm(cook,3,labs=countries,ylab="Cook's distances")
-which(abs(cook)>0.2) 
-abline(h=0.2)
+halfnorm(cook, 3, labs = countries, ylab = "Cook's Distance")
+abline(h = 0.2)
+which(abs(cook) > 0.2)
 
-#i) Predict the blood pressure
+# ============================================
+# (i) Prediction
+# ============================================
 
-x0 = data.frame(Age=47,Weight=85.4,BSA=1.75,Dur=5.1,Pulse=63,Stress=33) #Real BP = 105
-predict(mdlBIC,x0)
-predict(mdlBIC,x0,interval="confidence")
-predict(mdlBIC,x0,interval="prediction")
-    </code></pre>
+x0 <- data.frame(Age = 47, Weight = 85.4, BSA = 1.75,
+                 Dur = 5.1, Pulse = 63, Stress = 33)  # Real BP = 105
+
+predict(mdlBIC, x0)
+predict(mdlBIC, x0, interval = "confidence")
+predict(mdlBIC, x0, interval = "prediction")
+</code></pre>
 
 
 
