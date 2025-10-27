@@ -20,6 +20,15 @@
       padding: 120px 20px 60px 20px;
     }
 
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
     header h1 {
       font-size: 3rem;
       margin-bottom: 0.5em;
@@ -109,12 +118,14 @@
     @media (max-width: 768px) {
       main { gap: 20px; }
       .card { width: 90%; }
+      header img { width: 120px; height: 120px; }
     }
   </style>
 </head>
 <body>
 
   <header>
+    <img src="images/profil.jpg" alt="Min profilbild">
     <h1>Välkommen till Min Clean Sida</h1>
     <p>Minimalistisk och modern design för GitHub Pages</p>
   </header>
