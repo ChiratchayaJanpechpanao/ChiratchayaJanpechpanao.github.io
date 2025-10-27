@@ -12,10 +12,14 @@
     section { margin-bottom:40px; }
     img { max-width:100%; border-radius:10px; margin:20px 0; }
     h1, h2 { color:#111; }
+    pre { background:#eee; padding:15px; border-radius:10px; overflow-x:auto; }
+    figure { margin: 20px 0; }
+    figcaption { font-size:0.9rem; color:#555; text-align:center; }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Portfolio</a>
     <a href="cv.html">CV</a>
@@ -25,75 +29,111 @@
 
   <section>
     <p>
-      This project explores the relationship between blood pressure (BP, in mm Hg) and several explanatory variables in 20 individuals with high blood pressure. The predictors include age, weight, body surface area (BSA), duration of hypertension, basal pulse, and stress index. The main goal is to identify which factors significantly influence blood pressure and to construct predictive models that could be useful in further studies.
+      This project explores the relationship between blood pressure (BP, in mm Hg) and several explanatory variables in 20 individuals with high blood pressure. The predictors include age, weight, body surface area (BSA), duration of hypertension, basal pulse, and stress index. The main goal is to identify which factors significantly influence blood pressure and construct predictive models.
     </p>
   </section>
 
   <section>
-  <h2>Initial Data Analysis</h2>
-  <p>
-    The initial data analysis consisted of a numerical and graphical overview of the data. 
-    The dataset consisted of 20 observations and 8 predictor variables. Looking at the data, 
-    we were unable to find any missing values. Figure 1 provides a graphical overview of all 
-    the explanatory variables in relation to the index. We observed a bell-shaped distribution 
-    for the blood pressure around 115 and we did not see any unusual patterns in the left plot 
-    of Figure 2.
-  </p>
+    <h2>Initial Data Analysis</h2>
+    <p>
+      The initial analysis included numerical and graphical summaries. There were 20 observations and 8 variables. No missing values were found. Figure 1 shows a graphical overview of all explanatory variables. We observed a bell-shaped distribution for blood pressure around 115 and no unusual patterns in Figure 2.
+    </p>
 
-  <figure>
-    <img src="images/1.dataanalis.jpeg" alt="Overview of all explanatory variables">
-    <figcaption>
-      Figure 1: These six plots illustrate all explanatory variables in the dataset. The y-axis 
-      presents the values of a variable and the x-axis shows the corresponding index.
-    </figcaption>
-  </figure>
+    <figure>
+      <img src="images/1.dataanalis.jpeg" alt="Overview of all explanatory variables">
+      <figcaption>Figure 1: Overview of all explanatory variables with respect to index.</figcaption>
+    </figure>
 
-  <figure>
-    <img src="images/1.first.jpeg" alt="Kernel density and index plot">
-    <figcaption>
-      Figure 2: Visualisation of the kernel density estimate on the left panel and index plot 
-      of the sorted values on the right panel.
-    </figcaption>
-  </figure>
+    <figure>
+      <img src="images/1.first.jpeg" alt="Kernel density and index plot">
+      <figcaption>Figure 2: Kernel density estimate (left) and index plot (right).</figcaption>
+    </figure>
 
-  <p>
-    Based on the pairwise scatter plot in Figure 3, the response variable BP appeared to follow 
-    the same pattern as age, weight, and BSA. The variables BSA and Weight were observed to be 
-    correlated, which will be considered in more in-depth analysis when creating the models.
-  </p>
+    <p>
+      Based on the pairwise scatter plot in Figure 3, BP appeared to follow similar patterns as age, weight, and BSA. BSA and Weight were correlated, which will be considered in later model building.
+    </p>
 
-  <figure>
-    <img src="images/1.corrplot.jpeg" alt="Pairwise scatter plot of all variables">
-    <figcaption>
-      Figure 3: Pairwise plot of all variables against each other to detect possible collinearity.
-    </figcaption>
-  </figure>
-</section>
+    <figure>
+      <img src="images/1.corrplot.jpeg" alt="Pairwise scatter plot">
+      <figcaption>Figure 3: Pairwise scatter plot to detect potential collinearity between variables.</figcaption>
+    </figure>
+  </section>
 
+  <section>
+    <h2>R Code – Data Exploration</h2>
+    <pre><code>
+# Load dataset and libraries
+library(esquisse)
+library(ggplot2)
+library(leaps)
+library(faraway)
+library(stats)
+
+bloodData <- read.table('blood.txt', header=T)
+bloodData$Pt <- NULL
+str(bloodData)
+
+# Visualize response variable
+par(mfrow=c(1,2))
+plot(density(bloodData$BP, na.rm=TRUE), main="")
+plot(sort(bloodData$BP))
+
+# Explore explanatory variables
+par(mfrow=c(2,3))
+plot(bloodData$Age); plot(bloodData$Weight); plot(bloodData$BSA)
+plot(bloodData$Dur); plot(bloodData$Pulse); plot(bloodData$Stress)
+
+# Check collinearity
+pairs(bloodData[,1:7], pch=1, cex=0.9, lower.panel=NULL)
+cor(bloodData)
+    </code></pre>
+  </section>
 
   <section>
     <h2>Model Building and Regression Analysis</h2>
     <p>
-      To begin, six simple linear regression models were created, each using blood pressure as the response variable and one predictor at a time: Age, Weight, BSA, Duration, Pulse, or Stress. The model with the strongest correlation with blood pressure was selected based on the coefficient of determination (R²) and visual inspection of residuals to ensure the assumptions of linearity and constant variance were met. Statistical significance of the predictor was tested using t-tests at a significance level of 0.05.
+      Six simple linear regression models were fitted with BP as the response and each predictor individually. The predictor with the strongest correlation was selected based on R² and residual inspection. Statistical significance was evaluated using t-tests at α = 0.05.
     </p>
     <p>
-      After evaluating the simple models, a multiple linear regression model including all six predictors was fitted. Coefficients and p-values were examined to identify which variables had a significant impact on blood pressure. Stepwise selection using the Bayesian Information Criterion (BIC) was then applied to simplify the model, removing predictors with low explanatory power while retaining statistical significance.
+      A multiple regression model including all predictors was then fitted. Coefficients and p-values identified significant variables. BIC stepwise selection simplified the model, and VIF analysis addressed multicollinearity. Comparisons of all models (simple, full, BIC-reduced, VIF-adjusted) were done using R², F-tests, and ANOVA.
     </p>
-    <p>
-      To further address potential multicollinearity, variance inflation factors (VIF) were calculated. Predictors with VIF above 5 were considered highly collinear and were removed, after which the adjusted model was re-evaluated. Comparison of all models, including simple, full, BIC-reduced, and multicollinearity-adjusted versions, was conducted using explained variation (R²), F-tests, and ANOVA to identify the model that provided the best balance between fit, interpretability, and statistical validity.
-    </p>
+  </section>
+
+  <section>
+    <h2>R Code – Regression</h2>
+    <pre><code>
+mdl <- lm(BP ~ Age, data=bloodData)
+mdl2 <- lm(BP ~ Weight, data=bloodData)
+mdl3 <- lm(BP ~ BSA, data=bloodData)
+mdl4 <- lm(BP ~ Dur, data=bloodData)
+mdl5 <- lm(BP ~ Pulse, data=bloodData)
+mdl6 <- lm(BP ~ Stress, data=bloodData)
+
+summary(mdl2)  # Best simple model
+
+# Residual analysis
+res <- resid(mdl2)
+hist(res)
+plot(fitted(mdl2), res, main="Residuals vs Fitted", ylab="Residual")
+abline(0,0)
+
+# Plot regression line with data
+plot(BP ~ Weight, data=bloodData, main="BP vs Weight with regression")
+abline(mdl2)
+    </code></pre>
   </section>
 
   <section>
     <h2>Model Validation and Prediction</h2>
     <p>
-      The final selected model was subjected to rigorous validation checks. Residual plots were examined to confirm constant variance, Q-Q plots and the Shapiro-Wilk test were used to assess normality of errors, and the Durbin-Watson test verified independence of residuals. Leverage points, outliers, and influential observations were identified using hat-values, studentized residuals, and Cook's distance. 
+      The final model underwent validation: residual plots for constant variance, Q-Q plots and Shapiro-Wilk test for normality, and Durbin-Watson for independence. Leverage points, outliers, and influential observations were identified via hat-values, studentized residuals, and Cook's distance.
     </p>
     <p>
-      Finally, the model was used to predict the blood pressure of the first individual in the dataset, providing a 95% prediction interval to quantify uncertainty. This analysis demonstrates a clear, methodical approach to understanding how multiple physiological and lifestyle factors contribute to blood pressure, while emphasizing the importance of statistical rigor and careful model validation.
+      Finally, the model predicted the blood pressure of the first individual in the dataset, with a 95% prediction interval to account for uncertainty.
     </p>
   </section>
 
 </body>
 </html>
+
 
