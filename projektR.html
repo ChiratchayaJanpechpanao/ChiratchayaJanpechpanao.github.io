@@ -30,11 +30,46 @@
   </section>
 
   <section>
-    <h2>Data Exploration and Preliminary Analysis</h2>
-    <p>
-      The initial analysis of the dataset was conducted in R, using scatterplots, density plots, and pairwise comparisons to visualize distributions, detect outliers, and identify potential collinearity between explanatory variables. This preliminary exploration helped to understand the structure of the data, identify unusual observations, and guide the selection of appropriate statistical models.
-    </p>
-  </section>
+  <h2>Initial Data Analysis</h2>
+  <p>
+    The initial data analysis consisted of a numerical and graphical overview of the data. 
+    The dataset consisted of 20 observations and 8 predictor variables. Looking at the data, 
+    we were unable to find any missing values. Figure 1 provides a graphical overview of all 
+    the explanatory variables in relation to the index. We observed a bell-shaped distribution 
+    for the blood pressure around 115 and we did not see any unusual patterns in the left plot 
+    of Figure 2.
+  </p>
+
+  <figure>
+    <img src="images/1.dataanalis.jpeg" alt="Overview of all explanatory variables">
+    <figcaption>
+      Figure 1: These six plots illustrate all explanatory variables in the dataset. The y-axis 
+      presents the values of a variable and the x-axis shows the corresponding index.
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img src="images/1.first.jpeg" alt="Kernel density and index plot">
+    <figcaption>
+      Figure 2: Visualisation of the kernel density estimate on the left panel and index plot 
+      of the sorted values on the right panel.
+    </figcaption>
+  </figure>
+
+  <p>
+    Based on the pairwise scatter plot in Figure 3, the response variable BP appeared to follow 
+    the same pattern as age, weight, and BSA. The variables BSA and Weight were observed to be 
+    correlated, which will be considered in more in-depth analysis when creating the models.
+  </p>
+
+  <figure>
+    <img src="images/1.corrplot.jpeg" alt="Pairwise scatter plot of all variables">
+    <figcaption>
+      Figure 3: Pairwise plot of all variables against each other to detect possible collinearity.
+    </figcaption>
+  </figure>
+</section>
+
 
   <section>
     <h2>Model Building and Regression Analysis</h2>
