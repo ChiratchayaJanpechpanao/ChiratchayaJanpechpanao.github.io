@@ -30,12 +30,12 @@ nav a:hover {
     transition:0.3s;
 }
 
-/* Header med flexbox: text till vänster, bild till höger */
+/* Header med flexbox: text + intro till vänster, bild till höger */
 header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px; /* avstånd mellan text och bild */
+    gap: 40px; /* större avstånd mellan text och bild */
     padding: 60px 20px;
     flex-wrap: wrap; /* gör layouten responsiv på små skärmar */
 }
@@ -45,17 +45,23 @@ header .header-text {
     text-align: left;
 }
 
-header img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 0;
+header .header-text h1 {
+    margin-bottom: 10px;
 }
 
-section.intro {
-    text-align:center;
-    max-width:800px;
-    margin:40px auto;
+header .header-text p {
+    margin-bottom: 20px;
+}
+
+header .header-text .intro {
+    margin-top: 10px;
+}
+
+header img {
+    width: 200px; /* större bild */
+    height: 200px;
+    border-radius: 50%;
+    margin: 0;
 }
 
 main {
@@ -106,17 +112,15 @@ footer {
     <div class="header-text">
         <h1>Chiratchaya Janpechpanao</h1>
         <p>Data Engineer | MSc in Industrial Engineering & Management</p>
+        <div class="intro">
+            <h2>Hi, I’m Chiratchaya</h2>
+            <p>
+                I’m a Data Engineer with a Master’s in Industrial Engineering and Management. I’m passionate about transforming data into actionable insights that drive strategic decisions and real-world impact. I enjoy leveraging data analysis, predictive modeling, and storytelling to optimize performance and support business growth.
+            </p>
+        </div>
     </div>
     <img src="images/profil.jpg" alt="Profilbild">
 </header>
-
-<!-- Intro -->
-<section class="intro">
-    <h2>Hi, I’m Chiratchaya</h2>
-    <p>
-        I’m a Data Engineer with a Master’s in Industrial Engineering and Management. I’m passionate about transforming data into actionable insights that drive strategic decisions and real-world impact. I enjoy leveraging data analysis, predictive modeling, and storytelling to optimize performance and support business growth.
-    </p>
-</section>
 
 <!-- Projects -->
 <main>
@@ -152,5 +156,4 @@ summary(data)
 </footer>
 </body>
 </html>
-
 
