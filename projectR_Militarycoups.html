@@ -81,112 +81,65 @@
 
   <div class="container">
 
-    <h1>Blood Pressure Analysis Project</h1>
-
-    <!-- Overview -->
-    <section>
-      <h2>Project Overview</h2>
-      <p>
-        This project investigates how physiological and lifestyle factors relate to blood pressure. 
-        The dataset is simulated for practice purposes and includes variables such as age, weight, body surface area, pulse, stress, and duration of elevated blood pressure.  
-        All analysis was performed using <strong>R Studio</strong>.
-      </p>
-      <div class="takeaway">
-        <strong>Key Takeaways:</strong>
-        <ul>
-          <li>Exploration and visualization help detect patterns in the data.</li>
-          <li>Simulated datasets are useful for testing regression models.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Exploratory Analysis -->
-    <section>
-      <h2>Exploratory Analysis</h2>
-      <p>
-        Initial analysis included summary statistics, scatterplots, and correlations to examine relationships between variables.
-      </p>
-      <figure>
-        <img src="images/1.dataanalis.jpeg" alt="Overview of variables">
-        <figcaption>Figure 1: Overview of variables in the dataset.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/1.corrplot.jpeg" alt="Pairwise scatter plot">
-        <figcaption>Figure 2: Pairwise relationships between variables.</figcaption>
-      </figure>
-      <div class="takeaway">
-        <strong>Key Takeaways:</strong>
-        <ul>
-          <li>Weight and body surface area show strong relationships with blood pressure.</li>
-          <li>No obvious outliers or data issues detected.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Modeling -->
-    <section>
-      <h2>Regression Modeling</h2>
-      <p>
-        Simple and multiple linear regression models were fitted to explore how predictors affect blood pressure. 
-        Weight was identified as the strongest single predictor, and a multiple regression model including age, weight, and body surface area was selected.
-      </p>
-      <pre><code class="language-r">
-# Example: simple regression in R
-model <- lm(BP ~ Weight, data = data)
-summary(model)
-plot(BP ~ Weight, data = data)
-abline(model, col="blue")
-      </code></pre>
-      <p class="center"><strong>Selected Model:</strong> Predicted BP = -13.67 + 0.70·Age + 0.91·Weight + 4.63·BSA</p>
-      <figure>
-        <img src="images/buppgift.jpeg" alt="Regression line example">
-        <figcaption>Figure 3: Regression line illustrating BP vs weight.</figcaption>
-      </figure>
-      <div class="takeaway">
-        <strong>Key Takeaways:</strong>
-        <ul>
-          <li>Multiple regression improves predictive accuracy by combining key variables.</li>
-          <li>Weight, age, and body surface area are the most influential predictors.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Model Validation -->
-    <section>
-      <h2>Model Validation</h2>
+  <!-- Military Coups Analysis -->
+  <section>
+    <h2>Military Coups in Sub-Saharan Africa</h2>
+    <p>
+      This project examines how political and demographic factors are related to the number of successful military coups in sub-Saharan Africa. 
+      Variables considered include years of military oligarchy, number of political parties, population size, number of elections, regime duration, and country size. 
+      All analyses were conducted using <strong>R Studio</strong>.
+    </p>
+    <div class="takeaway">
+      <strong>Key Points:</strong>
       <ul>
-        <li>Residuals indicate approximately constant variance.</li>
-        <li>Normality checks suggest residuals are roughly normally distributed.</li>
-        <li>No extreme leverage points or influential outliers detected.</li>
+        <li>Exploring the data visually and statistically helps detect relationships between variables.</li>
+        <li>Single-variable models show that the duration of oligarchy has the strongest influence on coups.</li>
       </ul>
-      <figure>
-        <img src="images/1.h.jpeg" alt="Residuals and QQ plot">
-        <figcaption>Figure 4: Residual diagnostics for the selected model.</figcaption>
-      </figure>
-      <div class="takeaway">
-        <strong>Key Takeaways:</strong>
-        <ul>
-          <li>The selected model meets standard assumptions for linear regression.</li>
-          <li>Predictions are expected to be reliable within the data range.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Prediction -->
-    <section>
-      <h2>Prediction</h2>
-      <p>
-        Using the selected model, the predicted blood pressure for a sample individual is 104.76 mmHg, 
-        with a 95% prediction interval of 103.74–105.79 mmHg.
-      </p>
-      <div class="takeaway">
-        <strong>Key Takeaways:</strong>
-        <ul>
-          <li>Model predictions align closely with observed data.</li>
-          <li>Illustrates practical application of regression modeling.</li>
-        </ul>
-      </div>
-    </section>
+    </div>
+  
+    <!-- Exploratory Analysis -->
+    <p>
+      Initial exploration included scatterplots and boxplots to understand how each variable relates to the number of coups, as well as correlation checks to see if predictors are dependent.
+    </p>
+    <figure>
+      <img src="images/military_coups_boxplot.jpeg" alt="Boxplots for Military Coups">
+      <figcaption>Figure 1: Boxplots showing relationship between number of coups and predictors like oligarchy and population.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/military_coups_scatter.jpeg" alt="Scatterplot matrix for Military Coups">
+      <figcaption>Figure 2: Scatterplot matrix illustrating relationships among all predictors.</figcaption>
+    </figure>
+  
+    <!-- Modeling -->
+    <p>
+      Poisson regression models were used to account for count data. Single-variable models suggested that oligarchy years had the lowest AIC, indicating best fit. 
+      A full model including all predictors was also tested, followed by stepwise reduction using AIC, which resulted in a final model with oligarchy years and number of elections.
+    </p>
+    <pre><code class="language-r">
+  # Example: Poisson regression in R
+  full_model <- glm(miltcoup ~ oligarchy + parties + popn + size + numelec + numregim, 
+                    family = poisson, data = africa)
+  reduced_model <- step(full_model, direction="both")
+  summary(reduced_model)
+    </code></pre>
+  
+    <p>
+      The final model indicates that longer periods of oligarchy and a higher number of elections increase the expected number of successful coups.
+    </p>
+    <figure>
+      <img src="images/military_coups_model_plot.jpeg" alt="Predicted coups by model">
+      <figcaption>Figure 3: Predicted number of coups based on years of oligarchy and number of elections.</figcaption>
+    </figure>
+    <div class="takeaway">
+      <strong>Key Points:</strong>
+      <ul>
+        <li>The reduced model fits the data well, according to chi-squared tests.</li>
+        <li>No significant over- or under-dispersion was detected.</li>
+        <li>Each additional year of oligarchy or election is associated with an exponential increase in expected coups.</li>
+      </ul>
+    </div>
+  </section>
+      
 
   </div> <!-- end container -->
 
