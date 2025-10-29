@@ -30,25 +30,26 @@ nav a:hover {
     transition:0.3s;
 }
 
-/* Header med flexbox */
+/* Header med flexbox: text till vänster, bild till höger */
 header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px; /* avstånd mellan bild och text */
+    gap: 30px; /* avstånd mellan text och bild */
     padding: 60px 20px;
-    flex-wrap: wrap; /* gör den responsiv på små skärmar */
+    flex-wrap: wrap; /* gör layouten responsiv på små skärmar */
+}
+
+header .header-text {
+    max-width: 600px;
+    text-align: left;
 }
 
 header img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin: 0; /* tar bort margin-bottom */
-}
-
-header .header-text {
-    max-width: 600px;
+    margin: 0;
 }
 
 section.intro {
@@ -102,11 +103,11 @@ footer {
 
 <!-- Header -->
 <header>
-    <img src="images/profil.jpg" alt="Profilbild">
     <div class="header-text">
         <h1>Chiratchaya Janpechpanao</h1>
         <p>Data Engineer | MSc in Industrial Engineering & Management</p>
     </div>
+    <img src="images/profil.jpg" alt="Profilbild">
 </header>
 
 <!-- Intro -->
@@ -151,6 +152,5 @@ summary(data)
 </footer>
 </body>
 </html>
-
 
 
