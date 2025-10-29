@@ -1,120 +1,139 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chiratchaya Portfolio</title>
-  <style>
-    body { 
-      font-family:'Poppins', sans-serif; 
-      background:#f9f9f9; 
-      color:#333; 
-      margin:0; 
-      display:flex; 
-      min-height:100vh; 
-    }
-    
-    /* Sidopanel med bara bild */
-    nav { 
-      background:#111; 
-      width:120px; 
-      display:flex; 
-      align-items:center; 
-      justify-content:center; 
-      padding:20px 0; 
-    }
-    nav img { 
-      width:100px; 
-      height:100px; 
-      border-radius:50%; 
-      display:block; 
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chiratchaya Portfolio</title>
+<style>
+body {
+    font-family:'Poppins', sans-serif;
+    background:#f9f9f9;
+    color:#333;
+    margin:0;
+}
 
-    /* Huvud innehåll */
-    main { 
-      flex:1; 
-      padding:50px 40px; 
-      display:flex; 
-      flex-direction:column; 
-      justify-content:flex-start; 
-    }
-    header { 
-      display:flex; 
-      align-items:center; 
-      gap:40px; 
-      margin-bottom:50px; 
-    }
-    header img { 
-      width:150px; 
-      height:150px; 
-      border-radius:50%; 
-    }
-    .intro { 
-      display:flex; 
-      flex-direction:column; 
-      gap:15px; 
-      max-width:700px; 
-    }
-    .intro h1 { margin:0; font-size:2.5rem; }
-    .intro p { font-size:1.1rem; line-height:1.6; }
+nav {
+    background:#111;
+    padding:15px;
+    text-align:center;
+}
 
-    /* Projektkort */
-    .projects { display:flex; flex-wrap:wrap; gap:30px; }
-    .card { 
-      background:#fff; 
-      border-radius:15px; 
-      width:280px; 
-      padding:20px; 
-      box-shadow:0 8px 25px rgba(0,0,0,0.08); 
-      text-align:center; 
-      transition:transform 0.3s, box-shadow 0.3s; 
-    }
-    .card:hover { transform:translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.12); }
-    .card img { width:100%; border-radius:10px; margin-bottom:15px; }
-    pre { background:#eee; padding:10px; border-radius:8px; overflow-x:auto; }
+nav a {
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
+}
 
-    footer { text-align:center; padding:20px; color:#777; margin-top:50px; }
-    
-    @media(max-width:900px){
-      body { flex-direction:column; }
-      nav { width:100%; padding:15px 0; }
-      main { padding:30px 20px; }
-      header { flex-direction:column; text-align:center; gap:20px; }
-    }
-  </style>
+nav a:hover {
+    color:#fda085;
+    transition:0.3s;
+}
+
+/* Header med flexbox */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* avstånd mellan bild och text */
+    padding: 60px 20px;
+    flex-wrap: wrap; /* gör den responsiv på små skärmar */
+}
+
+header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0; /* tar bort margin-bottom */
+}
+
+header .header-text {
+    max-width: 600px;
+}
+
+section.intro {
+    text-align:center;
+    max-width:800px;
+    margin:40px auto;
+}
+
+main {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:50px 20px;
+}
+
+.card {
+    background:#fff;
+    border-radius:15px;
+    width:280px;
+    padding:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    text-align:center;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+.card img {
+    width:100%;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+footer {
+    text-align:center;
+    padding:20px;
+    color:#777;
+}
+</style>
 </head>
 <body>
+<!-- Navigation -->
+<nav>
+    <a href="index.html">Portfolio</a>
+    <a href="cv.html">CV</a>
+</nav>
 
-<!-- Navigation --> <nav> <a href="index.html">Portfolio</a> <a href="cv.html">CV</a> </nav>
-
-  <!-- Main content -->
-  <main>
-    <header>
-      <img src="images/profil.jpg" alt="Profilbild">
-      <div class="intro">
+<!-- Header -->
+<header>
+    <img src="images/profil.jpg" alt="Profilbild">
+    <div class="header-text">
         <h1>Chiratchaya Janpechpanao</h1>
         <p>Data Engineer | MSc in Industrial Engineering & Management</p>
-        <p>I transform data into actionable insights through analysis, predictive modeling, and data storytelling to support strategic decisions and real-world impact.</p>
-      </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Projects Section -->
-    <section class="projects">
-      <div class="card">
+<!-- Intro -->
+<section class="intro">
+    <h2>Hi, I’m Chiratchaya</h2>
+    <p>
+        I’m a Data Engineer with a Master’s in Industrial Engineering and Management. I’m passionate about transforming data into actionable insights that drive strategic decisions and real-world impact. I enjoy leveraging data analysis, predictive modeling, and storytelling to optimize performance and support business growth.
+    </p>
+</section>
+
+<!-- Projects -->
+<main>
+    <div class="card">
         <img src="images/projekt1.png" alt="Projekt 1">
         <h2>Projekt 1</h2>
         <p>Kort beskrivning av projekt 1.</p>
         <button onclick="window.open('https://github.com/octocat/Hello-World', '_blank')">Visa projekt</button>
-      </div>
+    </div>
 
-      <div class="card">
+    <div class="card">
         <img src="images/projekt2.png" alt="Projekt 2">
         <h2>Projekt 2</h2>
         <p>Kort beskrivning av projekt 2.</p>
         <button onclick="window.open('https://github.com/octocat/Spoon-Knife', '_blank')">Visa projekt</button>
-      </div>
+    </div>
 
-      <div class="card">
+    <div class="card">
         <h2>Projekt R-Analys</h2>
         <p>Kort beskrivning: Analys av dataset X med R, inklusive statistik och visualiseringar.</p>
         <h3>Kod-exempel</h3>
@@ -124,15 +143,14 @@ summary(data)
         <h3>Diagram</h3>
         <img src="images/projektR_plot.png" alt="Plot från R-analys" style="width:100%; border-radius:10px; margin-bottom:15px;">
         <button onclick="window.open('projektRBloodPressure.html', '_blank')">Se full analys</button>
-      </div>
-    </section>
+    </div>
+</main>
 
-    <footer>
-      <p>© 2025 Chiratchaya Janpechpanao</p>
-    </footer>
-  </main>
-
+<footer>
+    <p>© 2025 Chiratchaya Janpechpanao</p>
+</footer>
 </body>
 </html>
+
 
 
