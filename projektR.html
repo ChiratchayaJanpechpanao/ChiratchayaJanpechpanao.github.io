@@ -14,7 +14,7 @@
     figure { margin:30px 0; text-align:center; }
     figcaption { font-size:0.9rem; color:#555; margin-top:5px; }
     img { max-width:80%; border-radius:10px; display:block; margin:0 auto; }
-    ul { margin-left:20px; }
+    pre { background:#eee; padding:10px; border-radius:8px; overflow-x:auto; }
   </style>
 </head>
 <body>
@@ -29,70 +29,66 @@
   <section>
     <h2>Overview</h2>
     <p>
-      This project explores relationships between physiological and lifestyle factors and blood pressure using <strong>R Studio</strong>. 
-      The dataset is simulated and includes variables such as age, weight, body surface area, pulse, stress, and duration of elevated blood pressure.
+      This project explores how physiological and lifestyle factors relate to blood pressure. 
+      Simulated data includes variables such as age, weight, body surface area, pulse, and stress levels.  
+      The analysis was performed using <strong>R Studio</strong>.
     </p>
-    <p>Main goals:</p>
-    <ul>
-      <li>Identify key factors affecting blood pressure.</li>
-      <li>Build simple and multiple regression models.</li>
-      <li>Validate model assumptions and check reliability.</li>
-      <li>Make predictions for new observations.</li>
-    </ul>
   </section>
 
   <section>
     <h2>Exploratory Analysis</h2>
-    <p>Initial exploration included summary statistics, scatterplots, and correlations to observe trends and detect potential relationships.</p>
-
+    <p>Initial exploration included summary statistics, scatterplots, and correlations to detect patterns.</p>
     <figure>
       <img src="images/1.dataanalis.jpeg" alt="Overview of variables">
-      <figcaption>Figure 1: Overview of the dataset variables.</figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/1.corrplot.jpeg" alt="Pairwise scatter plot">
-      <figcaption>Figure 2: Pairwise relationships between variables.</figcaption>
+      <figcaption>Figure 1: Overview of variables.</figcaption>
     </figure>
   </section>
 
   <section>
     <h2>Modeling</h2>
     <p>
-      Simple linear regressions were fitted for each predictor. Weight emerged as the strongest single predictor of blood pressure. 
-      A multiple regression model including age, weight, and body surface area was selected based on statistical criteria.
+      Simple and multiple regression models were used to understand how different predictors affect blood pressure.
+      Weight was the strongest single predictor, and a multiple regression model including age, weight, and body surface area was selected.
     </p>
+
+    <pre><code class="language-r">
+# Example: fitting a simple regression in R
+model <- lm(BP ~ Weight, data = data)
+summary(model)
+plot(BP ~ Weight, data = data)
+abline(model, col="blue")
+    </code></pre>
 
     <p class="center"><strong>Selected Model:</strong> Predicted BP = -13.67 + 0.70·Age + 0.91·Weight + 4.63·BSA</p>
 
     <figure>
       <img src="images/buppgift.jpeg" alt="Regression line example">
-      <figcaption>Figure 3: Regression line illustrating the relationship between weight and blood pressure.</figcaption>
+      <figcaption>Figure 2: Regression line illustrating BP vs weight.</figcaption>
     </figure>
   </section>
 
   <section>
     <h2>Model Validation</h2>
     <ul>
-      <li>Residuals indicated constant variance.</li>
-      <li>Normality checks suggested residuals are approximately normal.</li>
-      <li>No extreme leverage points or influential outliers were detected.</li>
+      <li>Residuals show approximately constant variance.</li>
+      <li>Residuals are roughly normally distributed.</li>
+      <li>No extreme leverage or influential points detected.</li>
     </ul>
-
     <figure>
       <img src="images/1.h.jpeg" alt="Residuals and QQ plot">
-      <figcaption>Figure 4: Residual diagnostics for the selected model.</figcaption>
+      <figcaption>Figure 3: Residual diagnostics.</figcaption>
     </figure>
   </section>
 
   <section>
     <h2>Prediction</h2>
     <p>
-      Using the selected model, the predicted blood pressure for a sample individual is 104.76 mmHg. 
-      The 95% prediction interval is 103.74–105.79 mmHg, indicating a precise model fit.
+      Using the selected model, the predicted blood pressure for a sample individual is 104.76 mmHg, 
+      with a 95% prediction interval of 103.74–105.79 mmHg.
     </p>
   </section>
 
 </body>
 </html>
+
 
