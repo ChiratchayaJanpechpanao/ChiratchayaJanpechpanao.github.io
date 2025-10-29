@@ -3,30 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blood Pressure Analysis Project</title>
+  <title>Blood Pressure Analysis</title>
   <style>
     body { font-family:'Poppins', sans-serif; background:#f9f9f9; color:#333; margin:0; padding:20px; line-height:1.7; }
     nav { background:#111; padding:15px; text-align:center; }
     nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
     nav a:hover { color:#fda085; transition:0.3s; }
-    section { margin-bottom:50px; }
-    h1, h2, h3 { color:#111; text-align:center; }
-    pre { background:#eee; padding:15px; border-radius:10px; overflow-x:auto; }
+    section { margin-bottom:40px; }
+    h1, h2 { color:#111; text-align:center; }
     figure { margin:30px 0; text-align:center; }
     figcaption { font-size:0.9rem; color:#555; margin-top:5px; }
     img { max-width:80%; border-radius:10px; display:block; margin:0 auto; }
-    table { border-collapse:collapse; width:100%; text-align:center; margin-top:20px; }
-    table, th, td { border:1px solid #ccc; }
-    th { background:#f2f2f2; padding:8px; }
-    td { padding:8px; }
-    p.center { text-align:center; }
-    code, pre code { font-family:monospace; }
     ul { margin-left:20px; }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">Portfolio</a>
     <a href="cv.html">CV</a>
@@ -35,111 +27,72 @@
   <h1>Blood Pressure Analysis Project</h1>
 
   <section>
-    <h2>Project Overview</h2>
+    <h2>Overview</h2>
     <p>
-      This project explores the relationships between several personal and lifestyle factors and blood pressure levels using <strong>R Studio</strong>. 
-      The dataset contains simulated data on age, weight, body surface area, duration of high blood pressure, pulse, and stress levels.
+      This project explores relationships between physiological and lifestyle factors and blood pressure using <strong>R Studio</strong>. 
+      The dataset is simulated and includes variables such as age, weight, body surface area, pulse, stress, and duration of elevated blood pressure.
     </p>
-    <p>
-      The main goals were to:
-    </p>
+    <p>Main goals:</p>
     <ul>
-      <li>Investigate which factors may influence blood pressure.</li>
-      <li>Compare different regression models to identify key predictors.</li>
-      <li>Check model assumptions and assess reliability.</li>
-      <li>Use the model to make predictions for new observations.</li>
+      <li>Identify key factors affecting blood pressure.</li>
+      <li>Build simple and multiple regression models.</li>
+      <li>Validate model assumptions and check reliability.</li>
+      <li>Make predictions for new observations.</li>
     </ul>
   </section>
 
   <section>
-    <h2>Exploratory Data Analysis (EDA)</h2>
-    <p>
-      Preliminary exploration included summary statistics, density plots, scatterplots, and pairwise correlations to detect patterns or potential correlations.
-    </p>
-<pre><code class="language-r">
-# Load and inspect data
-data <- read.table('blood.txt', header = TRUE)
-str(data)
-
-# Basic EDA
-plot(density(data$BP), main="Blood Pressure Density")
-pairs(data[, -1], main="Scatterplots of Variables")
-cor(data[, -1])
-</code></pre>
+    <h2>Exploratory Analysis</h2>
+    <p>Initial exploration included summary statistics, scatterplots, and correlations to observe trends and detect potential relationships.</p>
 
     <figure>
-      <img src="images/1.dataanalis.jpeg" alt="Overview of explanatory variables">
-      <figcaption>Figure 1: Overview of the variables.</figcaption>
+      <img src="images/1.dataanalis.jpeg" alt="Overview of variables">
+      <figcaption>Figure 1: Overview of the dataset variables.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/1.corrplot.jpeg" alt="Pairwise scatter plot">
+      <figcaption>Figure 2: Pairwise relationships between variables.</figcaption>
     </figure>
   </section>
 
   <section>
-    <h2>Regression Modeling</h2>
+    <h2>Modeling</h2>
     <p>
-      Simple linear regression models were fitted for each predictor. Among them, <strong>weight</strong> appeared to be the most influential variable. 
-      Multiple regression models were then fitted to explore combined effects.
+      Simple linear regressions were fitted for each predictor. Weight emerged as the strongest single predictor of blood pressure. 
+      A multiple regression model including age, weight, and body surface area was selected based on statistical criteria.
     </p>
 
-<pre><code class="language-r">
-# Example: simple regression with weight
-model_weight <- lm(BP ~ Weight, data = data)
-summary(model_weight)
-plot(BP ~ Weight, data = data)
-abline(model_weight, col="blue")
-</code></pre>
+    <p class="center"><strong>Selected Model:</strong> Predicted BP = -13.67 + 0.70·Age + 0.91·Weight + 4.63·BSA</p>
 
-    <table>
-      <thead>
-        <tr><th>Predictor</th><th>Intercept</th><th>Coefficient</th><th>R²</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Age</td><td>44.46</td><td>1.43</td><td>0.434</td></tr>
-        <tr><td>Weight</td><td>2.21</td><td>1.20</td><td>0.903</td></tr>
-        <tr><td>BSA</td><td>45.18</td><td>34.44</td><td>0.750</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section>
-    <h2>Model Selection</h2>
-    <p>
-      Bayesian Information Criterion (BIC) was used to select a reduced model with three predictors: <strong>age, weight, and body surface area</strong>. 
-      This model balances complexity and explanatory power.
-    </p>
-
-    <p class="center"><code>Predicted BP = -13.67 + 0.70·Age + 0.91·Weight + 4.63·BSA</code></p>
+    <figure>
+      <img src="images/buppgift.jpeg" alt="Regression line example">
+      <figcaption>Figure 3: Regression line illustrating the relationship between weight and blood pressure.</figcaption>
+    </figure>
   </section>
 
   <section>
     <h2>Model Validation</h2>
     <ul>
-      <li>Residuals indicated approximately constant variance.</li>
-      <li>Normality checks showed residuals were roughly normally distributed.</li>
-      <li>Leverage and influence diagnostics suggested no extreme outliers.</li>
-      <li>Shapiro-Wilk and Durbin-Watson tests confirmed model assumptions were acceptable.</li>
+      <li>Residuals indicated constant variance.</li>
+      <li>Normality checks suggested residuals are approximately normal.</li>
+      <li>No extreme leverage points or influential outliers were detected.</li>
     </ul>
 
     <figure>
       <img src="images/1.h.jpeg" alt="Residuals and QQ plot">
-      <figcaption>Figure 2: Residuals and normal Q-Q plot for model diagnostics.</figcaption>
+      <figcaption>Figure 4: Residual diagnostics for the selected model.</figcaption>
     </figure>
   </section>
 
   <section>
-    <h2>Prediction Example</h2>
+    <h2>Prediction</h2>
     <p>
-      Using the selected model, the predicted blood pressure for a sample individual is 104.76 mmHg, with a 95% prediction interval of 103.74–105.79 mmHg, demonstrating good model fit.
+      Using the selected model, the predicted blood pressure for a sample individual is 104.76 mmHg. 
+      The 95% prediction interval is 103.74–105.79 mmHg, indicating a precise model fit.
     </p>
-
-    <table>
-      <thead><tr><th>Prediction</th><th>Lower</th><th>Upper</th></tr></thead>
-      <tbody>
-        <tr><td>104.76</td><td>103.74</td><td>105.79</td></tr>
-      </tbody>
-    </table>
   </section>
 
 </body>
 </html>
-
 
