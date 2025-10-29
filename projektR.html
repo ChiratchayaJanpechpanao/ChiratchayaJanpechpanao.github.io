@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blood Pressure Analysis</title>
+  <title>Blood Pressure Analysis Portfolio</title>
   <style>
     body { font-family:'Poppins', sans-serif; background:#f9f9f9; color:#333; margin:0; padding:20px; line-height:1.7; }
     nav { background:#111; padding:15px; text-align:center; }
     nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
     nav a:hover { color:#fda085; transition:0.3s; }
     section { margin-bottom:40px; }
-    h1, h2 { color:#111; text-align:center; }
+    h1, h2, h3 { color:#111; text-align:center; }
     figure { margin:30px 0; text-align:center; }
     figcaption { font-size:0.9rem; color:#555; margin-top:5px; }
     img { max-width:80%; border-radius:10px; display:block; margin:0 auto; }
     pre { background:#eee; padding:10px; border-radius:8px; overflow-x:auto; }
+    .takeaway { background:#f2f2f2; padding:10px; border-left:5px solid #fda085; margin:15px 0; }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Portfolio</a>
     <a href="cv.html">CV</a>
@@ -26,69 +28,110 @@
 
   <h1>Blood Pressure Analysis Project</h1>
 
+  <!-- Overview -->
   <section>
-    <h2>Overview</h2>
+    <h2>Project Overview</h2>
     <p>
-      This project explores how physiological and lifestyle factors relate to blood pressure. 
-      Simulated data includes variables such as age, weight, body surface area, pulse, and stress levels.  
-      The analysis was performed using <strong>R Studio</strong>.
+      This project investigates how physiological and lifestyle factors relate to blood pressure. 
+      The dataset is simulated for practice purposes and includes variables such as age, weight, body surface area, pulse, stress, and duration of elevated blood pressure.  
+      All analysis was performed using <strong>R Studio</strong>.
     </p>
+    <div class="takeaway">
+      <strong>Key Takeaways:</strong>
+      <ul>
+        <li>Exploration and visualization help detect patterns in the data.</li>
+        <li>Simulated datasets are useful for testing regression models.</li>
+      </ul>
+    </div>
   </section>
 
+  <!-- Exploratory Analysis -->
   <section>
     <h2>Exploratory Analysis</h2>
-    <p>Initial exploration included summary statistics, scatterplots, and correlations to detect patterns.</p>
+    <p>
+      Initial analysis included summary statistics, scatterplots, and correlations to examine relationships between variables.
+    </p>
     <figure>
       <img src="images/1.dataanalis.jpeg" alt="Overview of variables">
-      <figcaption>Figure 1: Overview of variables.</figcaption>
+      <figcaption>Figure 1: Overview of variables in the dataset.</figcaption>
     </figure>
+    <figure>
+      <img src="images/1.corrplot.jpeg" alt="Pairwise scatter plot">
+      <figcaption>Figure 2: Pairwise relationships between variables.</figcaption>
+    </figure>
+    <div class="takeaway">
+      <strong>Key Takeaways:</strong>
+      <ul>
+        <li>Weight and body surface area show strong relationships with blood pressure.</li>
+        <li>No obvious outliers or data issues detected.</li>
+      </ul>
+    </div>
   </section>
 
+  <!-- Modeling -->
   <section>
-    <h2>Modeling</h2>
+    <h2>Regression Modeling</h2>
     <p>
-      Simple and multiple regression models were used to understand how different predictors affect blood pressure.
-      Weight was the strongest single predictor, and a multiple regression model including age, weight, and body surface area was selected.
+      Simple and multiple linear regression models were fitted to explore how predictors affect blood pressure. 
+      Weight was identified as the strongest single predictor, and a multiple regression model including age, weight, and body surface area was selected.
     </p>
-
     <pre><code class="language-r">
-# Example: fitting a simple regression in R
+# Example: simple regression in R
 model <- lm(BP ~ Weight, data = data)
 summary(model)
 plot(BP ~ Weight, data = data)
 abline(model, col="blue")
     </code></pre>
-
     <p class="center"><strong>Selected Model:</strong> Predicted BP = -13.67 + 0.70·Age + 0.91·Weight + 4.63·BSA</p>
-
     <figure>
       <img src="images/buppgift.jpeg" alt="Regression line example">
-      <figcaption>Figure 2: Regression line illustrating BP vs weight.</figcaption>
+      <figcaption>Figure 3: Regression line illustrating BP vs weight.</figcaption>
     </figure>
+    <div class="takeaway">
+      <strong>Key Takeaways:</strong>
+      <ul>
+        <li>Multiple regression improves predictive accuracy by combining key variables.</li>
+        <li>Weight, age, and body surface area are the most influential predictors.</li>
+      </ul>
+    </div>
   </section>
 
+  <!-- Model Validation -->
   <section>
     <h2>Model Validation</h2>
     <ul>
-      <li>Residuals show approximately constant variance.</li>
-      <li>Residuals are roughly normally distributed.</li>
-      <li>No extreme leverage or influential points detected.</li>
+      <li>Residuals indicate approximately constant variance.</li>
+      <li>Normality checks suggest residuals are roughly normally distributed.</li>
+      <li>No extreme leverage points or influential outliers detected.</li>
     </ul>
     <figure>
       <img src="images/1.h.jpeg" alt="Residuals and QQ plot">
-      <figcaption>Figure 3: Residual diagnostics.</figcaption>
+      <figcaption>Figure 4: Residual diagnostics for the selected model.</figcaption>
     </figure>
+    <div class="takeaway">
+      <strong>Key Takeaways:</strong>
+      <ul>
+        <li>The selected model meets standard assumptions for linear regression.</li>
+        <li>Predictions are expected to be reliable within the data range.</li>
+      </ul>
+    </div>
   </section>
 
+  <!-- Prediction -->
   <section>
     <h2>Prediction</h2>
     <p>
       Using the selected model, the predicted blood pressure for a sample individual is 104.76 mmHg, 
       with a 95% prediction interval of 103.74–105.79 mmHg.
     </p>
+    <div class="takeaway">
+      <strong>Key Takeaways:</strong>
+      <ul>
+        <li>Model predictions align closely with observed data.</li>
+        <li>Illustrates practical application of regression modeling.</li>
+      </ul>
+    </div>
   </section>
 
 </body>
 </html>
-
-
