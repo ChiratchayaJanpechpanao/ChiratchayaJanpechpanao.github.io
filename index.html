@@ -73,6 +73,28 @@ header .header-text .intro p {
     color: #666;
 }
 
+/* Technical Skills under intro */
+.skills-overview {
+    margin-top: 20px;
+}
+
+.skills-overview h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #111;
+}
+
+.skills-chips span {
+    display: inline-block;
+    background: #fda085;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 15px;
+    margin: 3px 5px 3px 0;
+}
+
 /* Profilbild och kontakt */
 header .profile-section {
     text-align: center;
@@ -148,21 +170,6 @@ main::-webkit-scrollbar {
   margin-right: 8px;
 }
 
-.skills {
-  margin: 10px 0 15px;
-}
-
-.skills span {
-  display: inline-block;
-  background: #fda085;
-  color: white;
-  font-size: 0.75em;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 15px;
-  margin: 3px 5px 3px 0;
-}
-
 .read-more {
   display: inline-block;
   margin-top: 10px;
@@ -204,6 +211,23 @@ footer {
                 to optimize performance and support business growth.
             </p>
         </div>
+
+        <!-- Technical Skills sektion -->
+        <div class="skills-overview">
+            <h3>Technical Skills</h3>
+            <div class="skills-chips">
+                <span>Python</span>
+                <span>R</span>
+                <span>SQL</span>
+                <span>Pandas</span>
+                <span>tidyverse</span>
+                <span>Machine Learning</span>
+                <span>Data Visualization</span>
+                <span>Tableau</span>
+                <span>Jupyter Notebook</span>
+                <span>Statistics</span>
+            </div>
+        </div>
     </div>
 
     <div class="profile-section">
@@ -235,12 +259,6 @@ footer {
       Exploratory analysis of sleep disorders using biometric data to identify 
       behavioral and physiological patterns affecting sleep quality.
     </p>
-    <div class="skills">
-      <span>Data Cleaning</span>
-      <span>EDA</span>
-      <span>Visualization</span>
-      <span>Jupyter Notebook</span>
-    </div>
     <a href="ProjectPython_SleepDisorder.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 
@@ -256,11 +274,6 @@ footer {
       Statistical analysis of global military coups, focusing on socio-economic 
       indicators and regional trends using R visualizations.
     </p>
-    <div class="skills">
-      <span>Data Wrangling</span>
-      <span>Statistical Analysis</span>
-      <span>Visualization</span>
-    </div>
     <a href="projectR_Militarycoups.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 
@@ -276,11 +289,6 @@ footer {
       Investigation into the correlation between lifestyle factors and blood 
       pressure variations across different demographic groups.
     </p>
-    <div class="skills">
-      <span>Correlation Analysis</span>
-      <span>Data Visualization</span>
-      <span>Statistical Modeling</span>
-    </div>
     <a href="projektR_BloodPressure.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 
@@ -296,12 +304,6 @@ footer {
       Development of a predictive AI model for forecasting sales trends using regression techniques 
       and feature engineering.
     </p>
-    <div class="skills">
-      <span>Regression</span>
-      <span>Feature Engineering</span>
-      <span>ML Modeling</span>
-      <span>Python</span>
-    </div>
     <a href="projectAI_Prediction.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 
@@ -317,12 +319,6 @@ footer {
       Creation of interactive dashboards to monitor website traffic, user behavior, and conversion metrics 
       for data-driven decision making.
     </p>
-    <div class="skills">
-      <span>Dashboard Design</span>
-      <span>SQL Queries</span>
-      <span>Data Cleaning</span>
-      <span>Reporting</span>
-    </div>
     <a href="projectWeb_Analytics.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 
@@ -338,12 +334,6 @@ footer {
       Forecasting monthly sales trends using time series analysis to optimize inventory management 
       and improve revenue predictions.
     </p>
-    <div class="skills">
-      <span>Time Series</span>
-      <span>Forecasting</span>
-      <span>Python</span>
-      <span>Prophet</span>
-    </div>
     <a href="projectSales_Forecast.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 
@@ -359,12 +349,6 @@ footer {
       Segmenting customers based on purchasing behavior and demographics to enhance targeted marketing 
       strategies and increase engagement.
     </p>
-    <div class="skills">
-      <span>Clustering</span>
-      <span>Data Analysis</span>
-      <span>Marketing Analytics</span>
-      <span>Python</span>
-    </div>
     <a href="projectCustomer_Segmentation.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 </main>
