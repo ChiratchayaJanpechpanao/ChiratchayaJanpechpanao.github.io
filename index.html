@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chiratchaya Portfolio</title>
+<!-- Font Awesome för ikoner -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 body {
     font-family:'Poppins', sans-serif;
@@ -16,12 +18,12 @@ nav {
     background:#ffffff;
     padding:15px;
     display: flex;
-    justify-content: flex-end; /* flyttar länkarna åt höger */
-    gap: 15px; /* avstånd mellan länkar */
+    justify-content: flex-end;
+    gap: 15px;
 }
 
 nav a {
-    color:#111; /* mörk text */
+    color:#111;
     margin:0 15px;
     text-decoration:none;
     font-weight:bold;
@@ -35,7 +37,7 @@ nav a:hover {
     color:white;
 }
 
-/* Header med flexbox: text + intro till vänster, bild till höger */
+/* Header med flexbox */
 header {
     display: flex;
     align-items: flex-start;
@@ -70,15 +72,31 @@ header .header-text .intro p {
     color: #666;
 }
 
-/* Profilbild rektangel */
+/* Profilbild och kontakt */
+header .profile-section {
+    text-align: center;
+}
+
 header img {
     width: 220px;
     height: 280px;
     border-radius: 15px;
     object-fit: cover;
-    margin: 0;
+    margin-bottom: 15px;
 }
 
+.contact-icons a {
+    color: #111;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.contact-icons a:hover {
+    color: #fda085;
+}
+
+/* Kortsektion */
 main {
     display:flex;
     flex-wrap:wrap;
@@ -108,6 +126,21 @@ main {
     margin-bottom:15px;
 }
 
+button {
+    background-color: #fda085;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #fc7a57;
+}
+
 footer {
     text-align:center;
     padding:20px;
@@ -133,34 +166,40 @@ footer {
             </p>
         </div>
     </div>
-    <img src="images/profile.jpg" alt="Profilbild">
+
+    <div class="profile-section">
+        <img src="images/profile.jpg" alt="Profilbild">
+
+        <!-- Kontaktikoner -->
+        <div class="contact-icons">
+            <a href="https://www.linkedin.com/in/chiratchaya-janpechpanao/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
 </header>
 
 <!-- Projects -->
 <main>
     <div class="card">
       <h2>Projekt Jupyter Notebook</h2>
-      <p>Kort beskrivning:  </p>
-      <img src="images/notebook_plot.png" alt="Diagram från Notebook" style="width:100%; border-radius:10px; margin-bottom:15px;">
+      <p>Kort beskrivning:</p>
+      <img src="images/notebook_plot.png" alt="Diagram från Notebook">
       <button onclick="window.open('ProjectPython_SleepDisorder.html', '_blank')">Se full analys</button>
     </div>
     
     <div class="card">
-        <h2>Projekt R-Analys: </h2>
-        <p>Kort beskrivning: </p>
+        <h2>Projekt R-Analys:</h2>
+        <p>Kort beskrivning:</p>
         <img src="images/projektR_militarycoups_plot.png" alt="Plot från Military Coups-analys">
         <button onclick="window.open('projectR_Militarycoups.html', '_blank')">Se full analys</button>
     </div>
 
-    
     <div class="card">
-        <h2>Projekt R-Analys: </h2>
-        <p>Kort beskrivning: </p>
+        <h2>Projekt R-Analys:</h2>
+        <p>Kort beskrivning:</p>
         <img src="images/projektR_militarycoups_plot.png" alt="Plot från Military Coups-analys">
         <button onclick="window.open('projektR_BloodPressure.html', '_blank')">Se full analys</button>
     </div>
-
-    </main>
+</main>
 
 <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
