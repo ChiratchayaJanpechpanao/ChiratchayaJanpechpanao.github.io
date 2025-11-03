@@ -6,64 +6,76 @@
   <title>Chiratchaya CV</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* === Global styles === */
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f9f9f9;
+      background: #f4f4f4;
       color: #333;
       margin: 0;
       line-height: 1.6;
     }
 
     nav {
-      background: #111;
+      background: #1a1a1a;
       padding: 15px;
       text-align: center;
     }
 
     nav a {
-      color: white;
+      color: #fff;
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
       color: #fda085;
-      transition: 0.3s;
     }
 
     header {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px 40px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #666;
+      font-weight: 500;
     }
 
     main {
       display: grid;
-      grid-template-columns: 1fr 2fr; /* vänster 1, höger 2 */
+      grid-template-columns: 1fr 2fr;
       gap: 40px;
       max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
     }
 
     section {
       background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       margin-bottom: 20px;
     }
 
     h2 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-bottom: 15px;
-      border-bottom: 2px solid #ddd;
+      border-bottom: 1px solid #eee;
       padding-bottom: 5px;
     }
 
     h3 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 8px;
+      color: #1a1a1a;
     }
 
     ul {
@@ -73,20 +85,21 @@
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       color: #777;
+      background: #f9f9f9;
     }
 
-    /* === Areas of Interest sektion === */
+    /* === Areas of Interest === */
     .areas {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 40px auto;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 20px 60px;
     }
 
     .areas h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 10px;
     }
 
@@ -97,32 +110,32 @@
 
     .interest-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
     }
 
     .interest-card {
       background: #fff;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .interest-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
     .interest-card i {
       font-size: 2rem;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       color: #fda085;
     }
 
     .interest-card h3 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
     }
 
     .interest-card p {
@@ -133,9 +146,6 @@
     @media (max-width: 900px) {
       main {
         display: block;
-      }
-      section {
-        margin-bottom: 20px;
       }
     }
   </style>
@@ -154,7 +164,62 @@
     <p>Data Engineer | MSc in Industrial Engineering & Management</p>
   </header>
 
-  <!-- Areas of Interest -->
+  <!-- Main CV content -->
+  <main>
+    <!-- Left column -->
+    <div>
+      <section>
+        <h2>Education</h2>
+        <h3>MSc in Industrial Engineering and Management – Umea University (2019-2024)</h3>
+        <p>Major: Data Science and Financial Management</p>
+        <ul>
+          <li>Advanced statistical modeling</li>
+          <li>Comprehensive data analysis, Multivariate Data Analysis, Machine Learning, Deep Learning, Big Data</li>
+          <li>Financial Management</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Project Management and Organizing</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li>MATLAB, RStudio, Python (Pandas, Scikit-learn), C</li>
+          <li>SQL (SSMS, SSIS, SSAS, SSRS)</li>
+          <li>ETL/ELT data models</li>
+          <li>Microsoft Excel, Power BI</li>
+          <li>Azure DevOps</li>
+          <li>Team collaboration, Agile and Scrum (SAFe)</li>
+          <li>Growth-oriented and self-improving</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Right column -->
+    <div>
+      <section>
+        <h2>Work Experience</h2>
+        <h3>Data Engineer – Skandiabanken, Stockholm (now)</h3>
+        <ul>
+          <li>Designed, developed, and managed end-to-end ETL/ELT pipelines and data models, providing a robust infrastructure for reporting, risk monitoring, and actionable insights.</li>
+        </ul>
+
+        <h3>Master’s Thesis: Predictive Maintenance – Volvo Construction Equipment (2024)</h3>
+        <ul>
+          <li>Leveraged machine learning for predictive maintenance of industrial robots, delivering actionable insights to advance maintenance strategy.</li>
+        </ul>
+
+        <h3>Internship – Sundsvall Elnät och Servanet (2023)</h3>
+
+        <h3>Claim Advisor – If Insurance</h3>
+        <ul>
+          <li>Managed claims, provided advisory services, and conducted investigations to assess coverage, liability, and potential fraud.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- Areas of Interest (moved to bottom) -->
   <section class="areas">
     <h2>Areas of Interest</h2>
     <p>Take a look at some of the things I love working on.</p>
@@ -191,63 +256,6 @@
       </div>
     </div>
   </section>
-
-  <main>
-    <!-- Vänster kolumn: Education & Skills -->
-    <div>
-      <section>
-        <h2>Education</h2>
-        <h3>MSc in Industrial Engineering and Management – Umea University (2019-2024)</h3>
-        <p>Major: Data Science and Financial Management</p>
-        <ul>
-          <li>Advanced statistical modeling</li>
-          <li>Comprehensive data analysis, Multivariate Data Analysis, Machine Learning, Deep Learning, Big Data</li>
-          <li>Financial Management</li>
-          <li>Data Structures and Algorithms</li>
-          <li>Project Management and Organizing</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Skills</h2>
-        <ul>
-          <li>MATLAB, RStudio, Python (Pandas, Scikit-learn), C</li>
-          <li>SQL (SSMS, SSIS, SSAS, SSRS)</li>
-          <li>ETL/ELT data models</li>
-          <li>Microsoft Excel</li>
-          <li>Power BI</li>
-          <li>Azure DevOps</li>
-          <li>Team collaboration</li>
-          <li>Agile and Scrum (SAFe)</li>
-          <li>Growth-oriented and self-improving</li>
-        </ul>
-      </section>
-    </div>
-
-    <!-- Höger kolumn: Work Experience -->
-    <div>
-      <section>
-        <h2>Work Experience</h2>
-
-        <h3>Data Engineer – Skandiabanken, Stockholm (now)</h3>
-        <ul>
-          <li>Designed, developed, and managed end-to-end ETL/ELT pipelines and data models, providing a robust infrastructure for reporting, risk monitoring, and actionable insights.</li>
-        </ul>
-
-        <h3>Master’s Thesis: Predictive Maintenance – Volvo Construction Equipment (2024)</h3>
-        <ul>
-          <li>The project focused on leveraging machine learning for predictive maintenance of industrial robots in a manufacturing facility, delivering actionable insights and guidance to advance the organization’s maintenance strategy.</li>
-        </ul>
-
-        <h3>Internship – Sundsvall Elnät och Servanet (2023)</h3>
-
-        <h3>Claim Advisor – If Insurance</h3>
-        <ul>
-          <li>Managed claims, provided advisory services, and conducted thorough investigations to assess coverage, liability, and potential fraud.</li>
-        </ul>
-      </section>
-    </div>
-  </main>
 
   <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
