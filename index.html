@@ -6,6 +6,7 @@
 <title>Chiratchaya Portfolio</title>
 <!-- Font Awesome för ikoner -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 body {
     font-family:'Poppins', sans-serif;
@@ -96,37 +97,42 @@ header img {
     color: #fda085;
 }
 
-/* Kortsektion */
+/* === Kortsektion med horisontell scroll === */
 main {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
-    padding:50px 20px;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  padding: 50px 20px;
+  scrollbar-width: none; /* Tar bort scroll-baren i Firefox */
+}
+
+main::-webkit-scrollbar {
+  display: none; /* Tar bort scroll-baren i Chrome/Safari */
 }
 
 .card {
-    background:#fff;
-    border-radius:15px;
-    width:280px;
-    padding:20px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    text-align:center;
-    transition:transform 0.3s, box-shadow 0.3s;
+  flex: 0 0 280px; /* fast bredd för varje kort */
+  background:#fff;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  text-align:center;
+  transition:transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+  transform:translateY(-10px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
 }
 
 .card img {
-    width:100%;
-    border-radius:10px;
-    margin-bottom:15px;
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
-/* === NY STIL FÖR TAGGAR OCH LÄNKAR === */
+/* === Taggar och länkar === */
 .tags {
   margin: 10px 0 15px;
 }
@@ -154,23 +160,8 @@ main {
 .read-more:hover {
   color: #fda085;
 }
-/* === SLUT NY STIL === */
 
-button {
-    background-color: #fda085;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background-color: #fc7a57;
-}
-
+/* === Footer === */
 footer {
     text-align:center;
     padding:20px;
@@ -192,15 +183,25 @@ footer {
         <p>Data Engineer | MSc in Industrial Engineering & Management</p>
         <div class="intro">
             <p>
-                I’m a Data Engineer with a Master’s in Industrial Engineering and Management. I’m passionate about transforming data into actionable insights that drive strategic decisions and real-world impact. I enjoy leveraging data analysis, predictive modeling, and storytelling to optimize performance and support business growth.
+                I’m a Data Engineer with a Master’s in Industrial Engineering and Management. 
+                I’m passionate about transforming data into actionable insights that drive strategic decisions 
+                and real-world impact. I enjoy leveraging data analysis, predictive modeling, and storytelling 
+                to optimize performance and support business growth.
             </p>
         </div>
     </div>
 
     <div class="profile-section">
         <img src="images/profile.jpg" alt="Profilbild">
+
+        <!-- Kontaktikoner -->
         <div class="contact-icons">
-            <a href="https://www.linkedin.com/in/chiratchaya-janpechpanao/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/chiratchaya-janpechpanao/" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:chiratchaya@example.com" title="E-post">
+                <i class="fas fa-envelope"></i>
+            </a>
         </div>
     </div>
 </header>
@@ -251,10 +252,47 @@ footer {
     </p>
     <a href="projektR_BloodPressure.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
+
+  <!-- Lägg till fler kort här -->
 </main>
 
 <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
 </footer>
+
+<!-- === JS: dra för att scrolla === -->
+<script>
+const slider = document.querySelector('main');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2; // hastighet
+  slider.scrollLeft = scrollLeft - walk;
+});
+</script>
+
 </body>
 </html>
+
