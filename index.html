@@ -126,6 +126,36 @@ main {
     margin-bottom:15px;
 }
 
+/* === NY STIL FÖR TAGGAR OCH LÄNKAR === */
+.tags {
+  margin: 10px 0 15px;
+}
+
+.tags span {
+  display: inline-block;
+  background: #f0f0ff;
+  color: #333;
+  font-size: 0.85em;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-right: 8px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0073e6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.read-more:hover {
+  color: #fda085;
+}
+/* === SLUT NY STIL === */
+
 button {
     background-color: #fda085;
     color: white;
@@ -169,8 +199,6 @@ footer {
 
     <div class="profile-section">
         <img src="images/profile.jpg" alt="Profilbild">
-
-        <!-- Kontaktikoner -->
         <div class="contact-icons">
             <a href="https://www.linkedin.com/in/chiratchaya-janpechpanao/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
@@ -181,63 +209,49 @@ footer {
 <main>
   <div class="card">
     <img src="images/notebook_plot.png" alt="Diagram från Notebook">
-
     <h2>Sleep Disorder Analysis</h2>
-
-    <!-- Språk / verktyg -->
     <div class="tags">
       <span>Python</span>
       <span>Pandas</span>
       <span>Matplotlib</span>
     </div>
-
     <p>
       Exploratory analysis of sleep disorders using biometric data to identify 
       behavioral and physiological patterns affecting sleep quality.
     </p>
-
     <a href="ProjectPython_SleepDisorder.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 
   <div class="card">
     <img src="images/projektR_militarycoups_plot.png" alt="Plot från Military Coups-analys">
-
     <h2>Military Coups Data Study</h2>
-
     <div class="tags">
       <span>R</span>
       <span>dplyr</span>
       <span>ggplot2</span>
     </div>
-
     <p>
       Statistical analysis of global military coups, focusing on socio-economic 
       indicators and regional trends using R visualizations.
     </p>
-
     <a href="projectR_Militarycoups.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 
   <div class="card">
     <img src="images/projektR_bloodpressure_plot.png" alt="Plot från Blood Pressure-analys">
-
     <h2>Blood Pressure Analysis</h2>
-
     <div class="tags">
       <span>R</span>
       <span>tidyverse</span>
       <span>Statistics</span>
     </div>
-
     <p>
       Investigation into the correlation between lifestyle factors and blood 
       pressure variations across different demographic groups.
     </p>
-
     <a href="projektR_BloodPressure.html" target="_blank" class="read-more">Se full analys →</a>
   </div>
 </main>
-
 
 <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
