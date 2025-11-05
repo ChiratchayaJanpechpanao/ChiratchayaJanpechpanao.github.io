@@ -85,8 +85,6 @@ header img {
 .contact-icons a:hover {
     color: #fda085;
 }
-
-/* Scroll down arrow */
 .scroll-down {
     position: absolute;
     bottom: 20px;
@@ -101,8 +99,6 @@ header img {
     40% { transform: translateX(-50%) translateY(10px); }
     60% { transform: translateX(-50%) translateY(5px); }
 }
-
-/* Gradient overlay */
 header::after {
     content: '';
     position: absolute;
@@ -171,6 +167,12 @@ header::after {
 .portfolio-container {
     padding: 50px 20px;
     position: relative;
+}
+.portfolio-container h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #111;
 }
 main {
     display: flex;
@@ -295,8 +297,8 @@ footer {
 
 <!-- Portfolio / Projekt -->
 <section class="portfolio-container">
+    <h2>Utvalda Projekt</h2>
     <main id="portfolio-scroll">
-        <!-- Alla projektkort -->
         <div class="card">
             <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
             <h2>Sleep Disorder Analysis</h2>
