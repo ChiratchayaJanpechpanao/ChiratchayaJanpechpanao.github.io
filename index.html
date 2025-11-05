@@ -185,10 +185,20 @@ main::-webkit-scrollbar {
     background: #fda085;
 }
 
-/* Skills Section */
+/* Skills Section – mindre kort */
+.skills-section {
+    padding: 60px 20px;
+    background: #fffaf6;
+    text-align: center;
+}
+.skills-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #111;
+}
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* något mindre kort */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     max-width: 900px;
     margin: 0 auto;
@@ -196,26 +206,25 @@ main::-webkit-scrollbar {
 .skill-card {
     background: #fff;
     border-radius: 12px;
-    padding: 20px 15px; /* mindre padding */
+    padding: 20px 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    font-size: 1em; /* lite mindre text */
+    font-size: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 110px; /* mindre höjd */
+    height: 110px;
 }
 .skill-card strong {
-    font-size: 1.1em; /* något mindre än tidigare */
+    font-size: 1.1em;
     margin-bottom: 10px;
 }
 .skill-card .level {
     display: inline-block;
     font-size: 0.9em;
     font-weight: 500;
-    padding: 4px 10px; /* mindre padding */
+    padding: 4px 10px;
     border-radius: 12px;
 }
-
 .level.advanced {
     background: #c8f7c5;
     color: #256029;
