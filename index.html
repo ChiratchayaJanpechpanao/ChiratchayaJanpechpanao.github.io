@@ -114,87 +114,6 @@ header::after {
     pointer-events: none;
 }
 
-.portfolio-container {
-    padding: 50px 20px;
-    position: relative;
-}
-main {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 30px;
-    padding-bottom: 20px;
-    scrollbar-width: none;
-}
-main::-webkit-scrollbar {
-    display: none;
-}
-.card {
-    flex: 0 0 280px;
-    background:#fff;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    text-align:center;
-    transition:transform 0.3s, box-shadow 0.3s;
-}
-.card:hover {
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.12);
-}
-
-/* Projektbild med samma storlek + subtil ram */
-.card img {
-    width: 100%;
-    height: 180px; /* fast höjd för alla bilder */
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.tags {
-    margin: 10px 0 15px;
-}
-.tags span {
-    display: inline-block;
-    background: #f0f0ff;
-    color: #333;
-    font-size: 0.85em;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 20px;
-    margin-right: 8px;
-}
-.read-more {
-    display: inline-block;
-    margin-top: 10px;
-    color: #0073e6;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-.read-more:hover {
-    color: #fda085;
-}
-.scroll-dots-container {
-    text-align: center;
-    margin-top: 10px;
-}
-.scroll-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background: #ddd;
-    border-radius: 50%;
-    transition: background 0.3s;
-}
-.scroll-dot.active {
-    background: #fda085;
-}
-
 /* Skills Section */
 .skills-section {
     padding: 60px 20px;
@@ -248,6 +167,85 @@ main::-webkit-scrollbar {
     color: #7a5c00;
 }
 
+/* Portfolio Section */
+.portfolio-container {
+    padding: 50px 20px;
+    position: relative;
+}
+main {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 30px;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+}
+main::-webkit-scrollbar {
+    display: none;
+}
+.card {
+    flex: 0 0 280px;
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    text-align:center;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.tags {
+    margin: 10px 0 15px;
+}
+.tags span {
+    display: inline-block;
+    background: #f0f0ff;
+    color: #333;
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 8px;
+}
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.read-more:hover {
+    color: #fda085;
+}
+.scroll-dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+.scroll-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: #ddd;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+.scroll-dot.active {
+    background: #fda085;
+}
+
 footer {
     text-align:center;
     padding:20px;
@@ -280,6 +278,22 @@ footer {
     <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
 </header>
 
+<!-- Skills först -->
+<section class="skills-section">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card"><strong>R Language</strong><span class="level advanced">Advanced</span></div>
+        <div class="skill-card"><strong>Python</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>MATLAB</strong><span class="level basic">Basic</span></div>
+        <div class="skill-card"><strong>SQL</strong><span class="level basic">Basic</span></div>
+        <div class="skill-card"><strong>ArcGIS</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>ENVI</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>PowerPoint</strong><span class="level advanced">Advanced</span></div>
+        <div class="skill-card"><strong>Excel</strong><span class="level intermediate">Intermediate</span></div>
+    </div>
+</section>
+
+<!-- Portfolio / Projekt -->
 <section class="portfolio-container">
     <main id="portfolio-scroll">
         <!-- Alla projektkort -->
@@ -341,20 +355,6 @@ footer {
         </div>
     </main>
     <div class="scroll-dots-container" id="scroll-dots"></div>
-</section>
-
-<section class="skills-section">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-card"><strong>R Language</strong><span class="level advanced">Advanced</span></div>
-        <div class="skill-card"><strong>Python</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>MATLAB</strong><span class="level basic">Basic</span></div>
-        <div class="skill-card"><strong>SQL</strong><span class="level basic">Basic</span></div>
-        <div class="skill-card"><strong>ArcGIS</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>ENVI</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>PowerPoint</strong><span class="level advanced">Advanced</span></div>
-        <div class="skill-card"><strong>Excel</strong><span class="level intermediate">Intermediate</span></div>
-    </div>
 </section>
 
 <footer>
