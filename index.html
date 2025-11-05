@@ -184,6 +184,8 @@ main::-webkit-scrollbar {
 .scroll-dot.active {
     background: #fda085;
 }
+
+/* Skills Section */
 .skills-section {
     padding: 60px 20px;
     background: #fffaf6;
@@ -196,25 +198,32 @@ main::-webkit-scrollbar {
 }
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
     max-width: 900px;
     margin: 0 auto;
 }
 .skill-card {
     background: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    font-size: 1em;
+    border-radius: 15px;
+    padding: 25px 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 130px;
+}
+.skill-card strong {
+    font-size: 1.2em;
+    margin-bottom: 12px;
 }
 .skill-card .level {
     display: inline-block;
-    margin-top: 8px;
-    font-size: 0.85em;
+    font-size: 0.95em;
     font-weight: 500;
-    padding: 3px 10px;
-    border-radius: 12px;
+    padding: 5px 12px;
+    border-radius: 15px;
 }
 .level.advanced {
     background: #c8f7c5;
@@ -228,6 +237,7 @@ main::-webkit-scrollbar {
     background: #f9e5b9;
     color: #7a5c00;
 }
+
 footer {
     text-align:center;
     padding:20px;
@@ -379,4 +389,3 @@ slider.addEventListener('scroll', () => {
 
 </body>
 </html>
-
