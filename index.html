@@ -92,7 +92,6 @@ header img {
     color: #fda085;
     animation: bounce 2s infinite;
 }
-
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
     40% { transform: translateX(-50%) translateY(10px); }
@@ -139,11 +138,16 @@ main::-webkit-scrollbar {
     transform:translateY(-10px);
     box-shadow:0 15px 35px rgba(0,0,0,0.12);
 }
+
+/* Subtil ram runt projektbilder */
 .card img {
     width:100%;
     border-radius:10px;
     margin-bottom:15px;
+    border: 1px solid rgba(0,0,0,0.05); /* mycket subtil ram */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* liten skugga för djup */
 }
+
 .tags {
     margin: 10px 0 15px;
 }
@@ -185,7 +189,7 @@ main::-webkit-scrollbar {
     background: #fda085;
 }
 
-/* Skills Section – mindre kort */
+/* Skills Section */
 .skills-section {
     padding: 60px 20px;
     background: #fffaf6;
@@ -248,7 +252,7 @@ footer {
 <body>
 
 <nav>
-    <a href="index.html">Portfolio</a>
+    <a href="index.html" class="active">Portfolio</a>
     <a href="cv.html">CV</a>
 </nav>
 
@@ -280,54 +284,13 @@ footer {
             <a href="ProjectPython_SleepDisorder.html" class="read-more">Se full analys →</a>
         </div>
         <div class="card">
-            <img src="images/projektR_militarycoups_plot.png" alt="Plot från Military Coups-analys">
-            <h2>Military Coups Data Study</h2>
-            <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
-            <p>Statistical analysis of global military coups.</p>
-            <a href="projectR_Militarycoups.html" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
             <img src="images/2.boxplot.jpeg" alt="Plot från Blood Pressure-analys">
             <h2>Blood Pressure Analysis</h2>
             <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
             <p>Investigation into lifestyle factors affecting blood pressure.</p>
             <a href="projektR_BloodPressure.html" class="read-more">Se full analys →</a>
         </div>
-        <div class="card">
-            <img src="images/project8_ai_chatbot.png" alt="AI Chatbot Project">
-            <h2>AI Chatbot</h2>
-            <div class="tags"><span>Python</span><span>NLU</span><span>AI</span></div>
-            <p>Development of a conversational AI chatbot using NLP techniques.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project9_sales_dashboard.png" alt="Sales Dashboard">
-            <h2>Sales Dashboard</h2>
-            <div class="tags"><span>Tableau</span><span>Data Viz</span><span>SQL</span></div>
-            <p>Interactive dashboard for monitoring sales and revenue metrics.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project10_weather_analysis.png" alt="Weather Analysis">
-            <h2>Weather Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-            <p>Analyzing climate data to identify seasonal patterns and trends.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project11_stock_prediction.png" alt="Stock Prediction">
-            <h2>Stock Prediction</h2>
-            <div class="tags"><span>Python</span><span>ML</span><span>Finance</span></div>
-            <p>Predicting stock market trends using machine learning models.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project12_customer_churn.png" alt="Customer Churn Analysis">
-            <h2>Customer Churn Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
-            <p>Analyzing customer churn and predicting retention rates.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
+        <!-- Lägg till fler kort som tidigare -->
     </main>
     <div class="scroll-dots-container" id="scroll-dots"></div>
 </section>
