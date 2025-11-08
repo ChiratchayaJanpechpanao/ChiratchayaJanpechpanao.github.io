@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chiratchaya Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 body {
     font-family:'Poppins', sans-serif;
     background:#ffffff;
-    color:#333;
     margin:0;
+    color:#333;
 }
 
 /* NAVIGATION */
@@ -19,21 +20,17 @@ nav {
     padding:15px;
     display:flex;
     justify-content:flex-end;
-    gap:20px;
+    gap:10px;
 }
 nav a {
-    color:#111;
-    text-decoration:none;
-    font-weight:bold;
     padding:8px 15px;
+    font-weight:bold;
+    text-decoration:none;
+    color:#111;
     border-radius:8px;
     transition:0.3s;
 }
-nav a:hover {
-    background:#fda085;
-    color:white;
-}
-nav a.active {
+nav a:hover, nav a.active {
     background:#fda085;
     color:white;
 }
@@ -41,202 +38,243 @@ nav a.active {
 /* HEADER */
 header {
     text-align:center;
-    padding:60px 20px;
+    padding:50px 20px;
 }
 header h1 {
     font-size:2.2em;
-    margin-bottom:15px;
-}
-header p {
-    font-size:1.2em;
-    color:#555;
+    margin-bottom:10px;
 }
 
-/* SECTIONS */
-.portfolio-container {
-    padding:40px 30px;
-    max-width:1200px;
-    margin:auto;
-}
-.portfolio-container h2 {
+/* FILTER BUTTONS */
+.filter-buttons {
     text-align:center;
-    font-size:1.8em;
-    margin-bottom:30px;
-    color:#111;
+    margin:20px 0 30px;
 }
-.portfolio-container h3 {
-    color:#fda085;
-    margin:40px 0 20px;
-    font-size:1.4em;
+.filter-buttons button {
+    padding:10px 18px;
+    margin:5px;
+    border:none;
+    border-radius:25px;
+    background:#eee;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+.filter-buttons button.active,
+.filter-buttons button:hover {
+    background:#fda085;
+    color:white;
 }
 
 /* GRID */
-.project-row {
+.project-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
     gap:25px;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
 }
 
-/* CARD DESIGN */
+/* CARDS – GLOBAL FIXED HEIGHT */
 .card {
     background:#fff;
     border-radius:15px;
     padding:20px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
     display:flex;
     flex-direction:column;
-    height:480px; /* Alla kort lika höga */
+    text-align:center;
+    height:480px; /* ✅ Global card height (ändra här om du vill) */
+    overflow:hidden;
+    transition:0.3s;
+}
+.card:hover {
+    transform:translateY(-5px);
 }
 
+/* IMAGE HOVER EFFECT */
 .card img {
     width:100%;
     height:180px;
     object-fit:cover;
     border-radius:10px;
-    margin-bottom:15px;
+    transition:transform 0.4s;
+}
+.card:hover img {
+    transform:scale(1.05);
 }
 
+/* TAGS */
 .tags {
     margin:10px 0;
 }
 .tags span {
     display:inline-block;
     background:#f0f0ff;
-    color:#333;
-    font-size:0.85em;
-    font-weight:500;
     padding:5px 10px;
+    font-size:0.8em;
     border-radius:20px;
     margin-right:6px;
 }
 
-/* Beskrivning som fyller utrymmet */
+/* TEXT */
+.card h2 {
+    font-size:1.15em;
+    margin:10px 0;
+}
 .card p {
+    color:#555;
+    font-size:0.95em;
     flex-grow:1;
-    overflow:hidden;
-    color:#444;
 }
 
-/* Länk alltid längst ner */
+/* BUTTON */
 .read-more {
-    margin-top:15px;
-    color:#0073e6;
-    font-weight:600;
     text-decoration:none;
+    background:#fda085;
+    color:white;
+    padding:10px 15px;
+    border-radius:8px;
+    font-weight:600;
+    transition:0.3s;
 }
 .read-more:hover {
-    color:#fda085;
+    background:#ff8c5a;
 }
 
 /* FOOTER */
 footer {
     text-align:center;
     padding:25px;
+    margin-top:40px;
     color:#777;
-    margin-top:50px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="portfolio.html" class="active">Portfolio</a>
     <a href="cv.html">About Me</a>
 </nav>
 
+<!-- HEADER -->
 <header>
     <h1>Chiratchaya Janpechpanao</h1>
     <p>Data Scientist Portfolio</p>
 </header>
 
-<section class="portfolio-container">
-    <h2>Portfolio Projects</h2>
+<!-- FILTER BUTTONS -->
+<div class="filter-buttons">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="python">Python</button>
+    <button data-filter="r">R</button>
+    <button data-filter="bi">Power BI / Tableau</button>
+</div>
 
-    <!-- PYTHON -->
-    <h3>Python</h3>
-    <div class="project-row">
-        <div class="card">
-            <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
-            <h2>Sleep Disorder Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-            <p>Exploratory analysis of sleep disorders using biometric data.</p>
-            <a href="Sleep_health_and_lifestyle_project.html" class="read-more">Se full analys →</a>
-        </div>
+<!-- PROJECT GRID -->
+<div class="project-grid">
 
-        <div class="card">
-            <img src="images/project8_ai_chatbot.png" alt="AI Chatbot Project">
-            <h2>AI Chatbot</h2>
-            <div class="tags"><span>Python</span><span>NLU</span><span>AI</span></div>
-            <p>Conversational chatbot built with NLP and intent classification.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-
-        <div class="card">
-            <img src="images/project10_weather_analysis.png" alt="Weather Analysis">
-            <h2>Weather Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-            <p>Analyzing global climate trends and seasonal patterns.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-
-        <div class="card">
-            <img src="images/project11_stock_prediction.png" alt="Stock Prediction">
-            <h2>Stock Prediction</h2>
-            <div class="tags"><span>Python</span><span>ML</span><span>Finance</span></div>
-            <p>Predicting stock market movements with machine learning.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-
-        <div class="card">
-            <img src="images/project12_customer_churn.png" alt="Customer Churn Analysis">
-            <h2>Customer Churn Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
-            <p>Modeling churn probability and identifying retention drivers.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
+    <!-- PYTHON PROJECTS -->
+    <div class="card python">
+        <img src="images/Sleepdisorder_occupation.png">
+        <h2>Sleep Disorder Analysis</h2>
+        <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+        <p>Exploratory analysis of sleep disorders using biometric data.</p>
+        <a class="read-more" href="Sleep_health_and_lifestyle_project.html">See full analysis</a>
     </div>
 
-    <!-- R -->
-    <h3>R</h3>
-    <div class="project-row">
-        <div class="card">
-            <img src="images/2.boxplot.jpeg" alt="Military Coups Data Study">
-            <h2>Military Coups Data Study</h2>
-            <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
-            <p>Statistical exploration of global military coup events.</p>
-            <a href="projectR_Militarycoups.html" class="read-more">Se full analys →</a>
-        </div>
+    <div class="card python">
+        <img src="images/project8_ai_chatbot.png">
+        <h2>AI Chatbot</h2>
+        <div class="tags"><span>Python</span><span>NLP</span><span>AI</span></div>
+        <p>Building a conversational chatbot using NLU techniques.</p>
+        <a class="read-more" href="#">See full analysis</a>
+    </div>
 
-        <div class="card">
-            <img src="images/1.dataanalis.jpeg" alt="Blood Pressure Analysis">
-            <h2>Blood Pressure Analysis</h2>
-            <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
-            <p>Studying lifestyle patterns affecting systolic/diastolic pressure.</p>
-            <a href="projektR_BloodPressure.html" class="read-more">Se full analys →</a>
-        </div>
+    <div class="card python">
+        <img src="images/project10_weather_analysis.png">
+        <h2>Weather Analysis</h2>
+        <div class="tags"><span>Python</span><span>Pandas</span></div>
+        <p>Analyzing climate trends and seasonal patterns.</p>
+        <a class="read-more" href="#">See full analysis</a>
+    </div>
+
+    <div class="card python">
+        <img src="images/project11_stock_prediction.png">
+        <h2>Stock Prediction</h2>
+        <div class="tags"><span>Python</span><span>ML</span></div>
+        <p>Predicting stock market behavior with ML models.</p>
+        <a class="read-more" href="#">See full analysis</a>
+    </div>
+
+    <div class="card python">
+        <img src="images/project12_customer_churn.png">
+        <h2>Customer Churn</h2>
+        <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
+        <p>Identifying likely customer churn and retention strategies.</p>
+        <a class="read-more" href="#">See full analysis</a>
+    </div>
+
+    <!-- R PROJECTS -->
+    <div class="card r">
+        <img src="images/2.boxplot.jpeg">
+        <h2>Military Coups Study</h2>
+        <div class="tags"><span>R</span><span>dplyr</span></div>
+        <p>Statistical exploration of military coups worldwide.</p>
+        <a class="read-more" href="projectR_Militarycoups.html">See full analysis</a>
+    </div>
+
+    <div class="card r">
+        <img src="images/1.dataanalis.jpeg">
+        <h2>Blood Pressure Analysis</h2>
+        <div class="tags"><span>R</span><span>tidyverse</span></div>
+        <p>Investigating lifestyle factors that affect blood pressure.</p>
+        <a class="read-more" href="projektR_BloodPressure.html">See full analysis</a>
     </div>
 
     <!-- POWER BI / TABLEAU -->
-    <h3>Power BI / Tableau</h3>
-    <div class="project-row">
-        <div class="card">
-            <img src="images/project9_sales_dashboard.png" alt="Sales Dashboard">
-            <h2>Sales Dashboard</h2>
-            <div class="tags"><span>Tableau</span><span>Data Viz</span><span>SQL</span></div>
-            <p>Interactive dashboard revealing revenue, product trends, and KPIs.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
+    <div class="card bi">
+        <img src="images/project9_sales_dashboard.png">
+        <h2>Sales Dashboard</h2>
+        <div class="tags"><span>Tableau</span><span>Power BI</span></div>
+        <p>Interactive dashboard showing revenue and KPIs.</p>
+        <a class="read-more" href="#">See full analysis</a>
     </div>
 
-</section>
+</div>
 
+<!-- FOOTER -->
 <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
 </footer>
 
+<script>
+// FILTERING SYSTEM
+const buttons = document.querySelectorAll(".filter-buttons button");
+const cards = document.querySelectorAll(".card");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card => {
+            if (filter === "all" || card.classList.contains(filter)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
-
