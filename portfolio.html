@@ -5,22 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chiratchaya Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
 body {
     font-family:'Poppins', sans-serif;
-    background:#ffffff;
+    background:#fff;
     margin:0;
     color:#333;
 }
 
 /* NAVIGATION */
 nav {
-    background:#ffffff;
-    padding:15px;
     display:flex;
     justify-content:flex-end;
     gap:10px;
+    padding:15px;
+    background:#fff;
 }
 nav a {
     padding:8px 15px;
@@ -66,17 +65,17 @@ header h1 {
     color:white;
 }
 
-/* GRID */
+/* PROJECT GRID */
 .project-grid {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
     gap:25px;
     max-width:1200px;
     margin:0 auto;
-    padding:0 20px;
+    padding:0 20px 50px;
 }
 
-/* CARDS – GLOBAL FIXED HEIGHT */
+/* CARD */
 .card {
     background:#fff;
     border-radius:15px;
@@ -84,16 +83,15 @@ header h1 {
     box-shadow:0 5px 20px rgba(0,0,0,0.08);
     display:flex;
     flex-direction:column;
-    text-align:center;
-    height:480px; /* Alla kort samma höjd */
-    overflow:hidden;
+    justify-content:space-between;
+    height:480px; /* samma höjd globalt */
     transition:0.3s;
 }
 .card:hover {
     transform:translateY(-5px);
 }
 
-/* IMAGE HOVER EFFECT */
+/* IMAGE */
 .card img {
     width:100%;
     height:180px;
@@ -124,8 +122,8 @@ header h1 {
     margin:10px 0;
 }
 .card p {
-    color:#555;
     font-size:0.95em;
+    color:#555;
     flex-grow:1;
 }
 
@@ -147,19 +145,10 @@ header h1 {
 footer {
     text-align:center;
     padding:25px;
-    margin-top:40px;
     color:#777;
-}
-
-/* RESPONSIVE */
-@media (max-width:800px) {
-    .project-grid {
-        grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-    }
 }
 </style>
 </head>
-
 <body>
 
 <!-- NAV -->
@@ -185,74 +174,67 @@ footer {
 
 <!-- PROJECT GRID -->
 <div class="project-grid">
-
-    <!-- PYTHON PROJECTS -->
+    <!-- PYTHON -->
     <div class="card python">
         <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
         <h2>Sleep Disorder Analysis</h2>
         <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
         <p>Exploratory analysis of sleep disorders using biometric data.</p>
-        <a class="read-more" href="Sleep_health_and_lifestyle_project.html">See full analysis</a>
+        <a class="read-more" href="Sleep_health_and_lifestyle_project.html">Se full analys →</a>
     </div>
-
     <div class="card python">
         <img src="images/project8_ai_chatbot.png" alt="AI Chatbot">
         <h2>AI Chatbot</h2>
-        <div class="tags"><span>Python</span><span>NLP</span><span>AI</span></div>
-        <p>Building a conversational chatbot using NLU techniques.</p>
-        <a class="read-more" href="#">See full analysis</a>
+        <div class="tags"><span>Python</span><span>NLU</span><span>AI</span></div>
+        <p>Development of a conversational AI chatbot using NLP techniques.</p>
+        <a class="read-more" href="#">Se full analys →</a>
     </div>
-
     <div class="card python">
         <img src="images/project10_weather_analysis.png" alt="Weather Analysis">
         <h2>Weather Analysis</h2>
-        <div class="tags"><span>Python</span><span>Pandas</span></div>
-        <p>Analyzing climate trends and seasonal patterns.</p>
-        <a class="read-more" href="#">See full analysis</a>
+        <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+        <p>Analyzing climate data to identify seasonal patterns and trends.</p>
+        <a class="read-more" href="#">Se full analys →</a>
     </div>
-
     <div class="card python">
         <img src="images/project11_stock_prediction.png" alt="Stock Prediction">
         <h2>Stock Prediction</h2>
-        <div class="tags"><span>Python</span><span>ML</span></div>
-        <p>Predicting stock market behavior with ML models.</p>
-        <a class="read-more" href="#">See full analysis</a>
+        <div class="tags"><span>Python</span><span>ML</span><span>Finance</span></div>
+        <p>Predicting stock market trends using machine learning models.</p>
+        <a class="read-more" href="#">Se full analys →</a>
     </div>
-
     <div class="card python">
-        <img src="images/project12_customer_churn.png" alt="Customer Churn">
-        <h2>Customer Churn</h2>
+        <img src="images/project12_customer_churn.png" alt="Customer Churn Analysis">
+        <h2>Customer Churn Analysis</h2>
         <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
-        <p>Identifying likely customer churn and retention strategies.</p>
-        <a class="read-more" href="#">See full analysis</a>
+        <p>Analyzing customer churn and predicting retention rates.</p>
+        <a class="read-more" href="#">Se full analys →</a>
     </div>
 
-    <!-- R PROJECTS -->
+    <!-- R -->
     <div class="card r">
-        <img src="images/2.boxplot.jpeg" alt="Military Coups Study">
-        <h2>Military Coups Study</h2>
-        <div class="tags"><span>R</span><span>dplyr</span></div>
-        <p>Statistical exploration of military coups worldwide.</p>
-        <a class="read-more" href="projectR_Militarycoups.html">See full analysis</a>
+        <img src="images/2.boxplot.jpeg" alt="Military Coups Data Study">
+        <h2>Military Coups Data Study</h2>
+        <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
+        <p>Statistical analysis of global military coups.</p>
+        <a class="read-more" href="projectR_Militarycoups.html">Se full analys →</a>
     </div>
-
     <div class="card r">
         <img src="images/1.dataanalis.jpeg" alt="Blood Pressure Analysis">
         <h2>Blood Pressure Analysis</h2>
-        <div class="tags"><span>R</span><span>tidyverse</span></div>
-        <p>Investigating lifestyle factors that affect blood pressure.</p>
-        <a class="read-more" href="projektR_BloodPressure.html">See full analysis</a>
+        <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
+        <p>Investigation into lifestyle factors affecting blood pressure.</p>
+        <a class="read-more" href="projektR_BloodPressure.html">Se full analys →</a>
     </div>
 
-    <!-- POWER BI / TABLEAU -->
+    <!-- Power BI / Tableau -->
     <div class="card bi">
         <img src="images/project9_sales_dashboard.png" alt="Sales Dashboard">
         <h2>Sales Dashboard</h2>
         <div class="tags"><span>Tableau</span><span>Power BI</span></div>
-        <p>Interactive dashboard showing revenue and KPIs.</p>
-        <a class="read-more" href="#">See full analysis</a>
+        <p>Interactive dashboard for monitoring sales and revenue metrics.</p>
+        <a class="read-more" href="#">Se full analys →</a>
     </div>
-
 </div>
 
 <!-- FOOTER -->
@@ -261,7 +243,7 @@ footer {
 </footer>
 
 <script>
-// FILTERING SYSTEM
+// FILTERING
 const buttons = document.querySelectorAll(".filter-buttons button");
 const cards = document.querySelectorAll(".card");
 
@@ -273,7 +255,7 @@ buttons.forEach(btn => {
         const filter = btn.dataset.filter;
 
         cards.forEach(card => {
-            if (filter === "all" || card.classList.contains(filter)) {
+            if(filter === "all" || card.classList.contains(filter)) {
                 card.style.display = "flex";
             } else {
                 card.style.display = "none";
@@ -282,6 +264,5 @@ buttons.forEach(btn => {
     });
 });
 </script>
-
 </body>
 </html>
