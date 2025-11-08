@@ -175,7 +175,7 @@ main {
 main::-webkit-scrollbar { display: none; }
 
 .card {
-    flex: 0 0 280px; /* jämn, bred storlek */
+    flex: 0 0 280px;
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -319,7 +319,28 @@ footer {
             <p>Investigation into lifestyle factors affecting blood pressure.</p>
             <a href="projektR_BloodPressure.html" class="read-more">Se full analys →</a>
         </div>
-        <!-- Fler projektkort kan läggas till här -->
+        <!-- Låtsasprojekt -->
+        <div class="card">
+            <img src="images/project_fake1.png" alt="Social Media Analytics">
+            <h2>Social Media Analytics</h2>
+            <div class="tags"><span>Python</span><span>Pandas</span><span>Seaborn</span></div>
+            <p>Analysis of social media engagement and trends for marketing strategies.</p>
+            <a href="#" class="read-more">Se full analys →</a>
+        </div>
+        <div class="card">
+            <img src="images/project_fake2.png" alt="Energy Consumption Forecast">
+            <h2>Energy Consumption Forecast</h2>
+            <div class="tags"><span>Python</span><span>ML</span><span>Time Series</span></div>
+            <p>Predicting future energy usage patterns using historical consumption data.</p>
+            <a href="#" class="read-more">Se full analys →</a>
+        </div>
+        <div class="card">
+            <img src="images/project_fake3.png" alt="Customer Feedback Dashboard">
+            <h2>Customer Feedback Dashboard</h2>
+            <div class="tags"><span>Tableau</span><span>Visualization</span><span>SQL</span></div>
+            <p>Interactive dashboard summarizing customer reviews and satisfaction scores.</p>
+            <a href="#" class="read-more">Se full analys →</a>
+        </div>
     </main>
     <div class="scroll-dots-container" id="scroll-dots"></div>
 </section>
@@ -358,7 +379,7 @@ cards.forEach((_, i) => {
 });
 const dots = dotsContainer.querySelectorAll('.scroll-dot');
 slider.addEventListener('scroll', () => {
-    const cardWidth = cards[0].offsetWidth + 20; // gap mellan korten
+    const cardWidth = cards[0].offsetWidth + 20;
     const index = Math.round(slider.scrollLeft / cardWidth);
     dots.forEach(d => d.classList.remove('active'));
     if(dots[index]) dots[index].classList.add('active');
