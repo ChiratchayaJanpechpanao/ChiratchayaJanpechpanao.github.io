@@ -12,6 +12,8 @@ body {
     color:#333;
     margin:0;
 }
+
+/* Navbar */
 nav {
     background:#ffffff;
     padding:15px;
@@ -21,21 +23,18 @@ nav {
 }
 nav a {
     color:#111;
-    margin:0 15px;
     text-decoration:none;
     font-weight:bold;
     padding:8px 15px;
     border-radius:8px;
     transition:0.3s;
 }
-nav a:hover {
+nav a:hover, nav a.active {
     background:#fda085;
     color:white;
 }
-nav a.active {
-    background:#fda085;
-    color:white;
-}
+
+/* Header */
 header {
     display: flex;
     align-items: flex-start;
@@ -150,18 +149,9 @@ header::after {
     padding: 4px 10px;
     border-radius: 12px;
 }
-.level.advanced {
-    background: #c8f7c5;
-    color: #256029;
-}
-.level.intermediate {
-    background: #cde4f7;
-    color: #204d74;
-}
-.level.basic {
-    background: #f9e5b9;
-    color: #7a5c00;
-}
+.level.advanced { background: #c8f7c5; color: #256029; }
+.level.intermediate { background: #cde4f7; color: #204d74; }
+.level.basic { background: #f9e5b9; color: #7a5c00; }
 
 /* Portfolio Section */
 .portfolio-container {
@@ -178,22 +168,21 @@ main {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    gap: 30px;
+    gap: 20px;
     padding-bottom: 20px;
     scrollbar-width: none;
 }
-main::-webkit-scrollbar {
-    display: none;
-}
-.card p {
-    color:#555;
-    font-size:0.95em;
-    flex-grow:1;
-}
-    
-.card:hover {
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+main::-webkit-scrollbar { display: none; }
+
+.card {
+    flex: 0 0 280px; /* jämn, bred storlek */
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 .card img {
     width: 100%;
@@ -202,12 +191,22 @@ main::-webkit-scrollbar {
     border-radius: 10px;
     margin-bottom: 15px;
     border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-.tags {
-    margin: 10px 0 15px;
+.card h2 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #111;
 }
-.tags span {
+.card p {
+    color:#555;
+    font-size:0.95em;
+    margin-bottom: 15px;
+    flex-grow:1;
+}
+.card .tags {
+    margin-bottom: 10px;
+}
+.card .tags span {
     display: inline-block;
     background: #f0f0ff;
     color: #333;
@@ -217,19 +216,21 @@ main::-webkit-scrollbar {
     border-radius: 20px;
     margin-right: 8px;
 }
-    /* KNAPPEN "Se full analys" */
-    .read-more {
-      text-decoration: none;
-      background: #fda085; /* Färgen bakom texten */
-      color: white;         /* Textfärg */
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .read-more:hover {
-      background: #ff8c5a; /* Färg vid hover */
-    }
+.card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+.read-more {
+    text-decoration: none;
+    background: #fda085;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+}
+.read-more:hover { background: #ff8c5a; }
 
 .scroll-dots-container {
     text-align: center;
@@ -244,10 +245,9 @@ main::-webkit-scrollbar {
     border-radius: 50%;
     transition: background 0.3s;
 }
-.scroll-dot.active {
-    background: #fda085;
-}
+.scroll-dot.active { background: #fda085; }
 
+/* Footer */
 footer {
     text-align:center;
     padding:20px;
@@ -281,7 +281,6 @@ footer {
     <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
 </header>
 
-<!-- Skills först -->
 <section class="skills-section">
     <h2>Technical Skills</h2>
     <div class="skills-grid">
@@ -296,7 +295,6 @@ footer {
     </div>
 </section>
 
-<!-- Portfolio / Projekt -->
 <section class="portfolio-container">
     <h2>Project</h2>
     <main id="portfolio-scroll">
@@ -321,41 +319,7 @@ footer {
             <p>Investigation into lifestyle factors affecting blood pressure.</p>
             <a href="projektR_BloodPressure.html" class="read-more">Se full analys →</a>
         </div>
-        <div class="card">
-            <img src="images/project8_ai_chatbot.png" alt="AI Chatbot Project">
-            <h2>AI Chatbot</h2>
-            <div class="tags"><span>Python</span><span>NLU</span><span>AI</span></div>
-            <p>Development of a conversational AI chatbot using NLP techniques.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project9_sales_dashboard.png" alt="Sales Dashboard">
-            <h2>Sales Dashboard</h2>
-            <div class="tags"><span>Tableau</span><span>Data Viz</span><span>SQL</span></div>
-            <p>Interactive dashboard for monitoring sales and revenue metrics.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project10_weather_analysis.png" alt="Weather Analysis">
-            <h2>Weather Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-            <p>Analyzing climate data to identify seasonal patterns and trends.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project11_stock_prediction.png" alt="Stock Prediction">
-            <h2>Stock Prediction</h2>
-            <div class="tags"><span>Python</span><span>ML</span><span>Finance</span></div>
-            <p>Predicting stock market trends using machine learning models.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project12_customer_churn.png" alt="Customer Churn Analysis">
-            <h2>Customer Churn Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
-            <p>Analyzing customer churn and predicting retention rates.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
+        <!-- Fler projektkort kan läggas till här -->
     </main>
     <div class="scroll-dots-container" id="scroll-dots"></div>
 </section>
@@ -383,7 +347,7 @@ slider.addEventListener('mousemove', e => {
     slider.scrollLeft = scrollLeft - walk;
 });
 
-// Dots
+// Scroll dots
 const cards = slider.querySelectorAll('.card');
 const dotsContainer = document.getElementById('scroll-dots');
 cards.forEach((_, i) => {
@@ -394,7 +358,7 @@ cards.forEach((_, i) => {
 });
 const dots = dotsContainer.querySelectorAll('.scroll-dot');
 slider.addEventListener('scroll', () => {
-    const cardWidth = cards[0].offsetWidth + 30;
+    const cardWidth = cards[0].offsetWidth + 20; // gap mellan korten
     const index = Math.round(slider.scrollLeft / cardWidth);
     dots.forEach(d => d.classList.remove('active'));
     if(dots[index]) dots[index].classList.add('active');
