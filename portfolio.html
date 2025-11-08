@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Scientist Portfolio - Chiratchaya</title>
+<title>Chiratchaya Data Science Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 body {
@@ -17,74 +17,67 @@ body {
 nav {
     background:#ffffff;
     padding:15px;
-    display:flex;
-    justify-content:flex-end;
-    gap:15px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
 }
 nav a {
     color:#111;
+    margin:0 15px;
     text-decoration:none;
     font-weight:bold;
     padding:8px 15px;
     border-radius:8px;
     transition:0.3s;
 }
-nav a:hover, nav a.active {
+nav a:hover {
+    background:#fda085;
+    color:white;
+}
+nav a.active {
     background:#fda085;
     color:white;
 }
 
 /* Header */
 header {
-    text-align:center;
-    padding:60px 20px;
+    text-align: center;
+    padding: 60px 20px;
 }
 header h1 {
-    font-size:2.2em;
-    margin-bottom:10px;
+    font-size: 2.2em;
+    margin-bottom: 10px;
 }
 header p {
-    font-size:1.1em;
-    color:#555;
+    font-size: 1.1em;
+    color: #555;
 }
 
-/* Portfolio Section */
+/* Portfolio / Projects */
 .portfolio-container {
-    padding:50px 20px;
+    padding: 50px 20px;
+    position: relative;
 }
 .portfolio-container h2 {
-    text-align:center;
-    font-size:1.8em;
-    margin-bottom:25px;
-    color:#111;
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #111;
 }
-
-/* Project categories */
-.category {
-    margin-bottom:50px;
+main {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 30px;
+    padding-bottom: 20px;
+    scrollbar-width: none;
 }
-.category h3 {
-    font-size:1.5em;
-    margin-bottom:20px;
-    color:#fda085;
-    text-align:center;
-}
-
-/* Scrollable cards */
-.project-scroll {
-    display:flex;
-    overflow-x:auto;
-    gap:25px;
-    scroll-behavior:smooth;
-    padding-bottom:10px;
-}
-.project-scroll::-webkit-scrollbar {
-    display:none;
+main::-webkit-scrollbar {
+    display: none;
 }
 .card {
-    flex:0 0 280px;
-    background:#fffaf6;
+    flex: 0 0 280px;
+    background:#fff;
     border-radius:15px;
     padding:20px;
     box-shadow:0 8px 25px rgba(0,0,0,0.08);
@@ -96,36 +89,53 @@ header p {
     box-shadow:0 15px 35px rgba(0,0,0,0.12);
 }
 .card img {
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:10px;
-    margin-bottom:15px;
-    border:1px solid rgba(0,0,0,0.05);
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .tags {
-    margin:10px 0 15px;
+    margin: 10px 0 15px;
 }
 .tags span {
-    display:inline-block;
-    background:#f0f0ff;
-    color:#333;
-    font-size:0.85em;
-    font-weight:500;
-    padding:5px 10px;
-    border-radius:20px;
-    margin-right:8px;
+    display: inline-block;
+    background: #f0f0ff;
+    color: #333;
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 8px;
 }
 .read-more {
-    display:inline-block;
-    margin-top:10px;
-    color:#0073e6;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
+    display: inline-block;
+    margin-top: 10px;
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
 }
 .read-more:hover {
-    color:#fda085;
+    color: #fda085;
+}
+.scroll-dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+.scroll-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: #ddd;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+.scroll-dot.active {
+    background: #fda085;
 }
 
 /* Footer */
@@ -134,103 +144,129 @@ footer {
     padding:20px;
     color:#777;
 }
-
-/* Responsive */
-@media (max-width:900px){
-    .project-scroll {
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-    .card {
-        flex:0 0 90%;
-        margin-bottom:20px;
-    }
-}
 </style>
 </head>
 <body>
 
+<!-- Navigation -->
 <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="about.html">About Me</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="cv.html">About Me</a>
 </nav>
 
+<!-- Header -->
 <header>
-    <h1>Data Scientist Portfolio</h1>
-    <p>Projects categorized by programming language and tool</p>
+    <h1>Chiratchaya Janpechpanao</h1>
+    <p>Data Scientist Portfolio</p>
 </header>
 
-<div class="portfolio-container">
-
-    <!-- Python Projects -->
-    <div class="category">
-        <h3>Python Projects</h3>
-        <div class="project-scroll">
-            <div class="card">
-                <img src="images/python_project1.png" alt="Python Project 1">
-                <h4>Customer Churn Prediction</h4>
-                <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
-                <p>Predict customer churn using machine learning and data preprocessing techniques.</p>
-                <a href="#" class="read-more">Se full analys →</a>
-            </div>
-            <div class="card">
-                <img src="images/python_project2.png" alt="Python Project 2">
-                <h4>Stock Price Forecasting</h4>
-                <div class="tags"><span>Python</span><span>Scikit-learn</span><span>Finance</span></div>
-                <p>Time series forecasting of stock prices using regression and ML models.</p>
-                <a href="#" class="read-more">Se full analys →</a>
-            </div>
+<!-- Portfolio / Projects -->
+<section class="portfolio-container">
+    <h2>Projects</h2>
+    <main id="portfolio-scroll">
+        <div class="card">
+            <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
+            <h2>Sleep Disorder Analysis</h2>
+            <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+            <p>Exploratory analysis of sleep disorders using biometric data.</p>
+            <a href="Sleep_health_and_lifestyle_project.html" class="read-more">Se full analys →</a>
         </div>
-    </div>
-
-    <!-- R Projects -->
-    <div class="category">
-        <h3>R Projects</h3>
-        <div class="project-scroll">
-            <div class="card">
-                <img src="images/r_project1.png" alt="R Project 1">
-                <h4>Global Military Coups Analysis</h4>
-                <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
-                <p>Statistical analysis and visualization of global military coups data.</p>
-                <a href="#" class="read-more">Se full analys →</a>
-            </div>
-            <div class="card">
-                <img src="images/r_project2.png" alt="R Project 2">
-                <h4>Blood Pressure Study</h4>
-                <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
-                <p>Analyzing lifestyle factors impacting blood pressure with R.</p>
-                <a href="#" class="read-more">Se full analys →</a>
-            </div>
+        <div class="card">
+            <img src="images/2.boxplot.jpeg" alt="Military Coups Data Study">
+            <h2>Military Coups Data Study</h2>
+            <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
+            <p>Statistical analysis of global military coups.</p>
+            <a href="projectR_Militarycoups.html" class="read-more">Se full analys →</a>
         </div>
-    </div>
-
-    <!-- Power BI Projects -->
-    <div class="category">
-        <h3>Power BI Projects</h3>
-        <div class="project-scroll">
-            <div class="card">
-                <img src="images/powerbi_project1.png" alt="Power BI Project 1">
-                <h4>Sales Dashboard</h4>
-                <div class="tags"><span>Power BI</span><span>SQL</span><span>Data Viz</span></div>
-                <p>Interactive sales dashboard for monitoring KPIs and revenue metrics.</p>
-                <a href="#" class="read-more">Se full analys →</a>
-            </div>
-            <div class="card">
-                <img src="images/powerbi_project2.png" alt="Power BI Project 2">
-                <h4>Customer Insights Dashboard</h4>
-                <div class="tags"><span>Power BI</span><span>DAX</span><span>Reporting</span></div>
-                <p>Provides actionable insights on customer behavior and retention.</p>
-                <a href="#" class="read-more">Se full analys →</a>
-            </div>
+        <div class="card">
+            <img src="images/1.dataanalis.jpeg" alt="Blood Pressure Analysis">
+            <h2>Blood Pressure Analysis</h2>
+            <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
+            <p>Investigation into lifestyle factors affecting blood pressure.</p>
+            <a href="projektR_BloodPressure.html" class="read-more">Se full analys →</a>
         </div>
-    </div>
+        <div class="card">
+            <img src="images/project8_ai_chatbot.png" alt="AI Chatbot Project">
+            <h2>AI Chatbot</h2>
+            <div class="tags"><span>Python</span><span>NLU</span><span>AI</span></div>
+            <p>Development of a conversational AI chatbot using NLP techniques.</p>
+            <a href="#" class="read-more">Se full analys →</a>
+        </div>
+        <div class="card">
+            <img src="images/project9_sales_dashboard.png" alt="Sales Dashboard">
+            <h2>Sales Dashboard</h2>
+            <div class="tags"><span>Tableau</span><span>Data Viz</span><span>SQL</span></div>
+            <p>Interactive dashboard for monitoring sales and revenue metrics.</p>
+            <a href="#" class="read-more">Se full analys →</a>
+        </div>
+        <div class="card">
+            <img src="images/project10_weather_analysis.png" alt="Weather Analysis">
+            <h2>Weather Analysis</h2>
+            <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+            <p>Analyzing climate data to identify seasonal patterns and trends.</p>
+            <a href="#" class="read-more">Se full analys →</a>
+        </div>
+        <div class="card">
+            <img src="images/project11_stock_prediction.png" alt="Stock Prediction">
+            <h2>Stock Prediction</h2>
+            <div class="tags"><span>Python</span><span>ML</span><span>Finance</span></div>
+            <p>Predicting stock market trends using machine learning models.</p>
+            <a href="#" class="read-more">Se full analys →</a>
+        </div>
+        <div class="card">
+            <img src="images/project12_customer_churn.png" alt="Customer Churn Analysis">
+            <h2>Customer Churn Analysis</h2>
+            <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
+            <p>Analyzing customer churn and predicting retention rates.</p>
+            <a href="#" class="read-more">Se full analys →</a>
+        </div>
+    </main>
+    <div class="scroll-dots-container" id="scroll-dots"></div>
+</section>
 
-</div>
-
+<!-- Footer -->
 <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
 </footer>
 
+<script>
+// Drag scroll
+const slider = document.getElementById('portfolio-scroll');
+let isDown = false, startX, scrollLeft;
+slider.addEventListener('mousedown', e => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+slider.addEventListener('mouseleave', () => isDown=false);
+slider.addEventListener('mouseup', () => isDown=false);
+slider.addEventListener('mousemove', e => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+// Dots
+const cards = slider.querySelectorAll('.card');
+const dotsContainer = document.getElementById('scroll-dots');
+cards.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('scroll-dot');
+    if(i === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+});
+const dots = dotsContainer.querySelectorAll('.scroll-dot');
+slider.addEventListener('scroll', () => {
+    const cardWidth = cards[0].offsetWidth + 30;
+    const index = Math.round(slider.scrollLeft / cardWidth);
+    dots.forEach(d => d.classList.remove('active'));
+    if(dots[index]) dots[index].classList.add('active');
+});
+</script>
+
 </body>
 </html>
+
