@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Scientist Portfolio - Chiratchaya</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family:'Poppins', sans-serif;
+    background:#ffffff;
+    color:#333;
+    margin:0;
+}
+
+/* Navigation */
+nav {
+    background:#ffffff;
+    padding:15px;
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.05);
+}
+nav a {
+    color:#111;
+    text-decoration:none;
+    font-weight:bold;
+    padding:8px 15px;
+    border-radius:8px;
+    transition:0.3s;
+}
+nav a:hover, nav a.active {
+    background:#fda085;
+    color:white;
+}
+
+/* Header */
+header {
+    text-align:center;
+    padding:60px 20px;
+}
+header h1 {
+    font-size:2.2em;
+    margin-bottom:10px;
+}
+header p {
+    font-size:1.1em;
+    color:#555;
+}
+
+/* Portfolio Section */
+.portfolio-container {
+    padding:50px 20px;
+}
+.portfolio-container h2 {
+    text-align:center;
+    font-size:1.8em;
+    margin-bottom:25px;
+    color:#111;
+}
+
+/* Project categories */
+.category {
+    margin-bottom:50px;
+}
+.category h3 {
+    font-size:1.5em;
+    margin-bottom:20px;
+    color:#fda085;
+    text-align:center;
+}
+
+/* Scrollable cards */
+.project-scroll {
+    display:flex;
+    overflow-x:auto;
+    gap:25px;
+    scroll-behavior:smooth;
+    padding-bottom:10px;
+}
+.project-scroll::-webkit-scrollbar {
+    display:none;
+}
+.card {
+    flex:0 0 280px;
+    background:#fffaf6;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    text-align:center;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+.card img {
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+    border:1px solid rgba(0,0,0,0.05);
+}
+.tags {
+    margin:10px 0 15px;
+}
+.tags span {
+    display:inline-block;
+    background:#f0f0ff;
+    color:#333;
+    font-size:0.85em;
+    font-weight:500;
+    padding:5px 10px;
+    border-radius:20px;
+    margin-right:8px;
+}
+.read-more {
+    display:inline-block;
+    margin-top:10px;
+    color:#0073e6;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+.read-more:hover {
+    color:#fda085;
+}
+
+/* Footer */
+footer {
+    text-align:center;
+    padding:20px;
+    color:#777;
+}
+
+/* Responsive */
+@media (max-width:900px){
+    .project-scroll {
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+    .card {
+        flex:0 0 90%;
+        margin-bottom:20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="about.html">About Me</a>
+</nav>
+
+<header>
+    <h1>Data Scientist Portfolio</h1>
+    <p>Projects categorized by programming language and tool</p>
+</header>
+
+<div class="portfolio-container">
+
+    <!-- Python Projects -->
+    <div class="category">
+        <h3>Python Projects</h3>
+        <div class="project-scroll">
+            <div class="card">
+                <img src="images/python_project1.png" alt="Python Project 1">
+                <h4>Customer Churn Prediction</h4>
+                <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
+                <p>Predict customer churn using machine learning and data preprocessing techniques.</p>
+                <a href="#" class="read-more">Se full analys →</a>
+            </div>
+            <div class="card">
+                <img src="images/python_project2.png" alt="Python Project 2">
+                <h4>Stock Price Forecasting</h4>
+                <div class="tags"><span>Python</span><span>Scikit-learn</span><span>Finance</span></div>
+                <p>Time series forecasting of stock prices using regression and ML models.</p>
+                <a href="#" class="read-more">Se full analys →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- R Projects -->
+    <div class="category">
+        <h3>R Projects</h3>
+        <div class="project-scroll">
+            <div class="card">
+                <img src="images/r_project1.png" alt="R Project 1">
+                <h4>Global Military Coups Analysis</h4>
+                <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
+                <p>Statistical analysis and visualization of global military coups data.</p>
+                <a href="#" class="read-more">Se full analys →</a>
+            </div>
+            <div class="card">
+                <img src="images/r_project2.png" alt="R Project 2">
+                <h4>Blood Pressure Study</h4>
+                <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
+                <p>Analyzing lifestyle factors impacting blood pressure with R.</p>
+                <a href="#" class="read-more">Se full analys →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Power BI Projects -->
+    <div class="category">
+        <h3>Power BI Projects</h3>
+        <div class="project-scroll">
+            <div class="card">
+                <img src="images/powerbi_project1.png" alt="Power BI Project 1">
+                <h4>Sales Dashboard</h4>
+                <div class="tags"><span>Power BI</span><span>SQL</span><span>Data Viz</span></div>
+                <p>Interactive sales dashboard for monitoring KPIs and revenue metrics.</p>
+                <a href="#" class="read-more">Se full analys →</a>
+            </div>
+            <div class="card">
+                <img src="images/powerbi_project2.png" alt="Power BI Project 2">
+                <h4>Customer Insights Dashboard</h4>
+                <div class="tags"><span>Power BI</span><span>DAX</span><span>Reporting</span></div>
+                <p>Provides actionable insights on customer behavior and retention.</p>
+                <a href="#" class="read-more">Se full analys →</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2025 Chiratchaya Janpechpanao</p>
+</footer>
+
+</body>
+</html>
