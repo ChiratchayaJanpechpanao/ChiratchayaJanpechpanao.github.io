@@ -42,31 +42,17 @@ nav a.active {
 
 /* Header */
 header {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:40px;
-    padding:60px 20px;
-    flex-wrap:wrap;
     text-align:center;
+    padding:60px 20px;
 }
-header img {
-    width:220px;
-    height:280px;
-    border-radius:15px;
-    object-fit:cover;
-    margin-bottom:15px;
-}
-header .header-text h1 {
+header h1 {
     font-size:2.2em;
     margin-bottom:10px;
 }
-header .header-text p {
+header p {
     color:#555;
     font-size:1.1em;
 }
-
-/* Contact icons */
 .contact-icons a {
     color:#111;
     font-size:1.5em;
@@ -80,7 +66,7 @@ header .header-text p {
 /* Main content */
 main {
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:1fr 1fr;
     gap:40px;
     max-width:1200px;
     margin:40px auto;
@@ -109,35 +95,6 @@ ul {
 ul li {
     margin-bottom:5px;
 }
-
-/* Skills grid */
-.skills-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
-    gap:15px;
-    margin-top:15px;
-}
-.skill-card {
-    background:#fffaf6;
-    border-radius:12px;
-    padding:15px;
-    text-align:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-}
-.skill-card strong {
-    display:block;
-    margin-bottom:8px;
-}
-.skill-card .level {
-    display:inline-block;
-    padding:4px 10px;
-    border-radius:12px;
-    font-size:0.9em;
-    font-weight:500;
-}
-.level.advanced { background:#c8f7c5; color:#256029; }
-.level.intermediate { background:#cde4f7; color:#204d74; }
-.level.basic { background:#f9e5b9; color:#7a5c00; }
 
 /* Areas of interest */
 .areas {
@@ -181,7 +138,9 @@ footer {
 
 /* Responsive */
 @media (max-width:900px){
-    main { grid-template-columns:1fr; }
+    main { 
+        grid-template-columns:1fr; 
+    }
 }
 </style>
 </head>
@@ -194,14 +153,11 @@ footer {
 </nav>
 
 <header>
-    <img src="images/profile.jpg" alt="Profilbild">
-    <div class="header-text">
-        <h1>Chiratchaya Janpechpanao</h1>
-        <p>Data Engineer | MSc in Industrial Engineering & Management</p>
-        <div class="contact-icons">
-            <a href="https://www.linkedin.com/in/chiratchaya-janpechpanao/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:chiratchaya@example.com"><i class="fas fa-envelope"></i></a>
-        </div>
+    <h1>Chiratchaya Janpechpanao</h1>
+    <p>Data Engineer | MSc in Industrial Engineering & Management</p>
+    <div class="contact-icons">
+        <a href="https://www.linkedin.com/in/chiratchaya-janpechpanao/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:chiratchaya@example.com"><i class="fas fa-envelope"></i></a>
     </div>
 </header>
 
@@ -219,18 +175,6 @@ footer {
                 <li>Data Structures and Algorithms</li>
                 <li>Project Management and Organizing</li>
             </ul>
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card"><strong>R Language</strong><span class="level advanced">Advanced</span></div>
-                <div class="skill-card"><strong>Python</strong><span class="level intermediate">Intermediate</span></div>
-                <div class="skill-card"><strong>MATLAB</strong><span class="level basic">Basic</span></div>
-                <div class="skill-card"><strong>SQL</strong><span class="level intermediate">Intermediate</span></div>
-                <div class="skill-card"><strong>Power BI</strong><span class="level intermediate">Intermediate</span></div>
-                <div class="skill-card"><strong>Excel</strong><span class="level advanced">Advanced</span></div>
-            </div>
         </section>
     </div>
 
@@ -300,3 +244,4 @@ footer {
 
 </body>
 </html>
+
