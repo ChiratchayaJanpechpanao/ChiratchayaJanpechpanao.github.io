@@ -62,19 +62,16 @@ header p {
     margin-left:10px;
     margin-bottom:15px;
 }
-main {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+
+/* Grid för kort */
+.project-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    padding-bottom: 20px;
-    scrollbar-width: none;
+    margin-bottom: 40px;
 }
-main::-webkit-scrollbar {
-    display: none;
-}
+
 .card {
-    flex: 0 0 280px;
     background:#fff;
     border-radius:15px;
     padding:20px;
@@ -84,6 +81,7 @@ main::-webkit-scrollbar {
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+    height: 400px; /* Alla kort samma höjd */
 }
 .card:hover {
     transform:translateY(-10px);
@@ -91,53 +89,38 @@ main::-webkit-scrollbar {
 }
 .card img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+    border:1px solid rgba(0,0,0,0.05);
+    box-shadow:0 2px 4px rgba(0,0,0,0.05);
 }
 .tags {
-    margin: 10px 0 15px;
+    margin:10px 0 15px;
 }
 .tags span {
-    display: inline-block;
-    background: #f0f0ff;
-    color: #333;
-    font-size: 0.85em;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 20px;
-    margin-right: 8px;
+    display:inline-block;
+    background:#f0f0ff;
+    color:#333;
+    font-size:0.85em;
+    font-weight:500;
+    padding:5px 10px;
+    border-radius:20px;
+    margin-right:8px;
 }
 .read-more {
-    display: inline-block;
-    margin-top: 10px;
-    color: #0073e6;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
+    display:inline-block;
+    margin-top:10px;
+    color:#0073e6;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
 }
 .read-more:hover {
-    color: #fda085;
+    color:#fda085;
 }
-.scroll-dots-container {
-    text-align: center;
-    margin-top: 10px;
-}
-.scroll-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background: #ddd;
-    border-radius: 50%;
-    transition: background 0.3s;
-}
-.scroll-dot.active {
-    background: #fda085;
-}
+
 footer {
     text-align:center;
     padding:20px;
@@ -146,13 +129,11 @@ footer {
 
 /* Responsive */
 @media (max-width: 800px) {
-    main {
-        flex-wrap: wrap;
-        justify-content: center;
+    .project-row {
+        grid-template-columns: 1fr;
     }
     .card {
-        flex: 0 0 90%;
-        max-width: 400px;
+        height:auto; /* låter korten anpassa höjd på små skärmar */
     }
 }
 </style>
@@ -161,7 +142,7 @@ footer {
 
 <nav>
     <a href="index.html">Home</a>
-    <a href="/portfolio.html" class="active">Portfolio</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
     <a href="cv.html">About Me</a>
 </nav>
 
@@ -175,7 +156,7 @@ footer {
 
     <!-- Python Projects -->
     <h3>Python</h3>
-    <main class="project-row">
+    <div class="project-row">
         <div class="card">
             <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
             <h2>Sleep Disorder Analysis</h2>
@@ -197,25 +178,11 @@ footer {
             <p>Analyzing climate data to identify seasonal patterns and trends.</p>
             <a href="#" class="read-more">Se full analys →</a>
         </div>
-        <div class="card">
-            <img src="images/project11_stock_prediction.png" alt="Stock Prediction">
-            <h2>Stock Prediction</h2>
-            <div class="tags"><span>Python</span><span>ML</span><span>Finance</span></div>
-            <p>Predicting stock market trends using machine learning models.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project12_customer_churn.png" alt="Customer Churn Analysis">
-            <h2>Customer Churn Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
-            <p>Analyzing customer churn and predicting retention rates.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-    </main>
+    </div>
 
     <!-- R Projects -->
     <h3>R</h3>
-    <main class="project-row">
+    <div class="project-row">
         <div class="card">
             <img src="images/2.boxplot.jpeg" alt="Military Coups Data Study">
             <h2>Military Coups Data Study</h2>
@@ -230,11 +197,11 @@ footer {
             <p>Investigation into lifestyle factors affecting blood pressure.</p>
             <a href="projektR_BloodPressure.html" class="read-more">Se full analys →</a>
         </div>
-    </main>
+    </div>
 
     <!-- Power BI / Tableau Projects -->
     <h3>Power BI / Tableau</h3>
-    <main class="project-row">
+    <div class="project-row">
         <div class="card">
             <img src="images/project9_sales_dashboard.png" alt="Sales Dashboard">
             <h2>Sales Dashboard</h2>
@@ -242,45 +209,13 @@ footer {
             <p>Interactive dashboard for monitoring sales and revenue metrics.</p>
             <a href="#" class="read-more">Se full analys →</a>
         </div>
-    </main>
+    </div>
 </section>
 
 <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
 </footer>
 
-<script>
-// Equal height for cards per row
-const rows = document.querySelectorAll('.project-row');
-rows.forEach(row => {
-    const cards = row.querySelectorAll('.card');
-    let maxHeight = 0;
-    cards.forEach(card => {
-        card.style.height = 'auto';
-        if(card.offsetHeight > maxHeight) maxHeight = card.offsetHeight;
-    });
-    cards.forEach(card => card.style.height = maxHeight + 'px');
-});
-
-// Optional: Drag scroll for each row
-rows.forEach(row => {
-    let isDown = false, startX, scrollLeft;
-    row.addEventListener('mousedown', e => {
-        isDown = true;
-        startX = e.pageX - row.offsetLeft;
-        scrollLeft = row.scrollLeft;
-    });
-    row.addEventListener('mouseleave', () => isDown = false);
-    row.addEventListener('mouseup', () => isDown = false);
-    row.addEventListener('mousemove', e => {
-        if(!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - row.offsetLeft;
-        const walk = (x - startX) * 2;
-        row.scrollLeft = scrollLeft - walk;
-    });
-});
-</script>
-
 </body>
 </html>
+
