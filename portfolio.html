@@ -85,7 +85,7 @@ header h1 {
     display:flex;
     flex-direction:column;
     text-align:center;
-    height:480px; /* ✅ Global card height (ändra här om du vill) */
+    height:480px; /* Alla kort samma höjd */
     overflow:hidden;
     transition:0.3s;
 }
@@ -150,6 +150,13 @@ footer {
     margin-top:40px;
     color:#777;
 }
+
+/* RESPONSIVE */
+@media (max-width:800px) {
+    .project-grid {
+        grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
 </style>
 </head>
 
@@ -181,7 +188,7 @@ footer {
 
     <!-- PYTHON PROJECTS -->
     <div class="card python">
-        <img src="images/Sleepdisorder_occupation.png">
+        <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
         <h2>Sleep Disorder Analysis</h2>
         <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
         <p>Exploratory analysis of sleep disorders using biometric data.</p>
@@ -189,7 +196,7 @@ footer {
     </div>
 
     <div class="card python">
-        <img src="images/project8_ai_chatbot.png">
+        <img src="images/project8_ai_chatbot.png" alt="AI Chatbot">
         <h2>AI Chatbot</h2>
         <div class="tags"><span>Python</span><span>NLP</span><span>AI</span></div>
         <p>Building a conversational chatbot using NLU techniques.</p>
@@ -197,7 +204,7 @@ footer {
     </div>
 
     <div class="card python">
-        <img src="images/project10_weather_analysis.png">
+        <img src="images/project10_weather_analysis.png" alt="Weather Analysis">
         <h2>Weather Analysis</h2>
         <div class="tags"><span>Python</span><span>Pandas</span></div>
         <p>Analyzing climate trends and seasonal patterns.</p>
@@ -205,7 +212,7 @@ footer {
     </div>
 
     <div class="card python">
-        <img src="images/project11_stock_prediction.png">
+        <img src="images/project11_stock_prediction.png" alt="Stock Prediction">
         <h2>Stock Prediction</h2>
         <div class="tags"><span>Python</span><span>ML</span></div>
         <p>Predicting stock market behavior with ML models.</p>
@@ -213,7 +220,7 @@ footer {
     </div>
 
     <div class="card python">
-        <img src="images/project12_customer_churn.png">
+        <img src="images/project12_customer_churn.png" alt="Customer Churn">
         <h2>Customer Churn</h2>
         <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
         <p>Identifying likely customer churn and retention strategies.</p>
@@ -222,7 +229,7 @@ footer {
 
     <!-- R PROJECTS -->
     <div class="card r">
-        <img src="images/2.boxplot.jpeg">
+        <img src="images/2.boxplot.jpeg" alt="Military Coups Study">
         <h2>Military Coups Study</h2>
         <div class="tags"><span>R</span><span>dplyr</span></div>
         <p>Statistical exploration of military coups worldwide.</p>
@@ -230,7 +237,7 @@ footer {
     </div>
 
     <div class="card r">
-        <img src="images/1.dataanalis.jpeg">
+        <img src="images/1.dataanalis.jpeg" alt="Blood Pressure Analysis">
         <h2>Blood Pressure Analysis</h2>
         <div class="tags"><span>R</span><span>tidyverse</span></div>
         <p>Investigating lifestyle factors that affect blood pressure.</p>
@@ -239,7 +246,7 @@ footer {
 
     <!-- POWER BI / TABLEAU -->
     <div class="card bi">
-        <img src="images/project9_sales_dashboard.png">
+        <img src="images/project9_sales_dashboard.png" alt="Sales Dashboard">
         <h2>Sales Dashboard</h2>
         <div class="tags"><span>Tableau</span><span>Power BI</span></div>
         <p>Interactive dashboard showing revenue and KPIs.</p>
