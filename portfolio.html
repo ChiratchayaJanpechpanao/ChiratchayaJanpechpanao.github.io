@@ -3,274 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chiratchaya Data Science Portfolio</title>
+<title>Chiratchaya Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 body {
     font-family:'Poppins', sans-serif;
-    background:#fefefe;
+    background:#f9f9f9;
     color:#333;
     margin:0;
 }
-
-/* Navigation */
 nav {
     background:#ffffff;
-    padding:15px 30px;
+    padding:15px;
     display: flex;
     justify-content: flex-end;
-    gap: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 nav a {
     color:#111;
     text-decoration:none;
-    font-weight:600;
-    padding:10px 20px;
+    font-weight:bold;
+    padding:8px 15px;
     border-radius:8px;
     transition:0.3s;
 }
-nav a:hover, nav a.active {
+nav a:hover {
+    background:#fda085;
+    color:white;
+}
+nav a.active {
     background:#fda085;
     color:white;
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 80px 20px 40px;
-    background: linear-gradient(135deg, #ffe0d1, #fffaf6);
+h1, h2 {
+    text-align:center;
 }
-header h1 {
-    font-size: 2.6em;
-    margin-bottom: 10px;
+h1 {
+    margin: 30px 0 10px;
+    font-size:2.2em;
     color:#111;
 }
-header p {
-    font-size: 1.2em;
-    color: #555;
+h2 {
+    margin:50px 0 20px;
+    font-size:1.8em;
+    color:#111;
 }
 
-/* Portfolio Sections */
-.portfolio-container {
-    padding: 60px 20px;
-}
-.portfolio-container h2 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 50px;
-    color: #111;
+.portfolio-section {
+    padding: 0 20px 60px;
 }
 
-/* Language section */
-.language-section {
-    margin-bottom: 60px;
-}
-.language-section h3 {
-    font-size: 1.6em;
-    color: #fda085;
-    margin-bottom: 25px;
-    border-bottom: 3px solid #fda085;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-/* Cards Grid */
-.cards-grid {
-    display: grid;
+.project-grid {
+    display:grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 25px;
+    max-width:1200px;
+    margin:0 auto;
 }
 
-/* Card styling */
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     background:#fff;
     border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 6px 20px rgba(0,0,0,0.07);
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    display:flex;
+    flex-direction:column;
+    text-align:center;
     transition: transform 0.3s, box-shadow 0.3s;
-    min-height: 420px; /* Fixed height for uniform blocks */
+    min-height: 420px;
+    padding: 20px;
+}
+.card img {
+    width: 100%;
+    height:180px;
+    object-fit: cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+.card h3 {
+    margin:10px 0;
+    font-size:1.2em;
+}
+.card .tags {
+    margin:10px 0;
+}
+.card .tags span {
+    display:inline-block;
+    background:#f0f0ff;
+    color:#333;
+    font-size:0.85em;
+    font-weight:500;
+    padding:5px 10px;
+    border-radius:20px;
+    margin:3px 3px;
+}
+.card p {
+    flex:1;
+    font-size:0.95em;
+    color:#555;
+    margin:10px 0;
+}
+.card a.read-more {
+    display:inline-block;
+    margin-top:10px;
+    text-decoration:none;
+    color:#0073e6;
+    font-weight:600;
+    transition:0.3s;
+}
+.card a.read-more:hover {
+    color:#fda085;
 }
 .card:hover {
     transform:translateY(-8px);
     box-shadow:0 15px 35px rgba(0,0,0,0.12);
 }
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+
+.language-section {
+    margin-top:50px;
 }
-.card-content {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-.card-content h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color:#111;
-}
-.card-content p {
-    font-size: 0.95em;
-    color:#555;
-    flex-grow:1;
-}
-.tags {
-    margin: 15px 0;
-}
-.tags span {
-    display: inline-block;
-    background: #f0f0ff;
-    color: #333;
-    font-size: 0.8em;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-right: 5px;
-}
-.read-more {
-    display: inline-block;
-    margin-top: auto;
-    text-decoration: none;
-    font-weight: 600;
-    color: #0073e6;
-    transition: color 0.3s;
-}
-.read-more:hover {
+
+.language-section h2 {
+    text-align:left;
+    margin-left:20px;
     color:#fda085;
-}
-
-/* Footer */
-footer {
-    text-align:center;
-    padding:40px 20px;
-    color:#777;
-    background:#f9f9f9;
-}
-
-/* Responsive tweaks */
-@media(max-width: 900px){
-    nav {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .cards-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
 }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
 <nav>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="portfolio.html">Portfolio</a>
     <a href="cv.html">About Me</a>
 </nav>
 
-<!-- Header -->
-<header>
-    <h1>Chiratchaya Janpechpanao</h1>
-    <p>Data Scientist Portfolio</p>
-</header>
+<h1>Portfolio Projects</h1>
 
-<!-- Portfolio Section -->
-<section class="portfolio-container">
-
-    <h2>My Projects</h2>
+<div class="portfolio-section">
 
     <!-- Python Projects -->
     <div class="language-section">
-        <h3>Python</h3>
-        <div class="cards-grid">
+        <h2>Python</h2>
+        <div class="project-grid">
             <div class="card">
                 <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
-                <div class="card-content">
-                    <h2>Sleep Disorder Analysis</h2>
-                    <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-                    <p>Exploratory analysis of sleep disorders using biometric data.</p>
-                    <a href="Sleep_health_and_lifestyle_project.html" class="read-more">Se full analys →</a>
-                </div>
+                <h3>Sleep Disorder Analysis</h3>
+                <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+                <p>Exploratory analysis of sleep disorders using biometric data.</p>
+                <a href="Sleep_health_and_lifestyle_project.html" class="read-more">Se full analys →</a>
             </div>
             <div class="card">
                 <img src="images/project8_ai_chatbot.png" alt="AI Chatbot Project">
-                <div class="card-content">
-                    <h2>AI Chatbot</h2>
-                    <div class="tags"><span>Python</span><span>NLU</span><span>AI</span></div>
-                    <p>Development of a conversational AI chatbot using NLP techniques.</p>
-                    <a href="#" class="read-more">Se full analys →</a>
-                </div>
+                <h3>AI Chatbot</h3>
+                <div class="tags"><span>Python</span><span>NLU</span><span>AI</span></div>
+                <p>Development of a conversational AI chatbot using NLP techniques.</p>
+                <a href="#" class="read-more">Se full analys →</a>
             </div>
             <div class="card">
                 <img src="images/project10_weather_analysis.png" alt="Weather Analysis">
-                <div class="card-content">
-                    <h2>Weather Analysis</h2>
-                    <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-                    <p>Analyzing climate data to identify seasonal patterns and trends.</p>
-                    <a href="#" class="read-more">Se full analys →</a>
-                </div>
+                <h3>Weather Analysis</h3>
+                <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+                <p>Analyzing climate data to identify seasonal patterns and trends.</p>
+                <a href="#" class="read-more">Se full analys →</a>
+            </div>
+            <div class="card">
+                <img src="images/project11_stock_prediction.png" alt="Stock Prediction">
+                <h3>Stock Prediction</h3>
+                <div class="tags"><span>Python</span><span>ML</span><span>Finance</span></div>
+                <p>Predicting stock market trends using machine learning models.</p>
+                <a href="#" class="read-more">Se full analys →</a>
+            </div>
+            <div class="card">
+                <img src="images/project12_customer_churn.png" alt="Customer Churn Analysis">
+                <h3>Customer Churn Analysis</h3>
+                <div class="tags"><span>Python</span><span>Pandas</span><span>ML</span></div>
+                <p>Analyzing customer churn and predicting retention rates.</p>
+                <a href="#" class="read-more">Se full analys →</a>
             </div>
         </div>
     </div>
 
     <!-- R Projects -->
     <div class="language-section">
-        <h3>R</h3>
-        <div class="cards-grid">
+        <h2>R</h2>
+        <div class="project-grid">
             <div class="card">
                 <img src="images/2.boxplot.jpeg" alt="Military Coups Data Study">
-                <div class="card-content">
-                    <h2>Military Coups Data Study</h2>
-                    <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
-                    <p>Statistical analysis of global military coups.</p>
-                    <a href="projectR_Militarycoups.html" class="read-more">Se full analys →</a>
-                </div>
+                <h3>Military Coups Data Study</h3>
+                <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
+                <p>Statistical analysis of global military coups.</p>
+                <a href="projectR_Militarycoups.html" class="read-more">Se full analys →</a>
             </div>
             <div class="card">
                 <img src="images/1.dataanalis.jpeg" alt="Blood Pressure Analysis">
-                <div class="card-content">
-                    <h2>Blood Pressure Analysis</h2>
-                    <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
-                    <p>Investigation into lifestyle factors affecting blood pressure.</p>
-                    <a href="projektR_BloodPressure.html" class="read-more">Se full analys →</a>
-                </div>
+                <h3>Blood Pressure Analysis</h3>
+                <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
+                <p>Investigation into lifestyle factors affecting blood pressure.</p>
+                <a href="projektR_BloodPressure.html" class="read-more">Se full analys →</a>
             </div>
         </div>
     </div>
 
     <!-- Power BI / Tableau Projects -->
     <div class="language-section">
-        <h3>Power BI / Tableau</h3>
-        <div class="cards-grid">
+        <h2>Power BI / Tableau</h2>
+        <div class="project-grid">
             <div class="card">
                 <img src="images/project9_sales_dashboard.png" alt="Sales Dashboard">
-                <div class="card-content">
-                    <h2>Sales Dashboard</h2>
-                    <div class="tags"><span>Tableau</span><span>Data Viz</span><span>SQL</span></div>
-                    <p>Interactive dashboard for monitoring sales and revenue metrics.</p>
-                    <a href="#" class="read-more">Se full analys →</a>
-                </div>
+                <h3>Sales Dashboard</h3>
+                <div class="tags"><span>Tableau</span><span>Data Viz</span><span>SQL</span></div>
+                <p>Interactive dashboard for monitoring sales and revenue metrics.</p>
+                <a href="#" class="read-more">Se full analys →</a>
             </div>
         </div>
     </div>
 
-</section>
+</div>
 
-<!-- Footer -->
 <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
 </footer>
 
 </body>
 </html>
-
-
-</body>
-</html>
-
 
