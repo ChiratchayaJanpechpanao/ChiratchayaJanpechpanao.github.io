@@ -59,7 +59,7 @@ header .header-text p {
     line-height: 1.6;
     color: #555;
 }
-header .header-text .intro p {
+header .intro p {
     margin-top: 10px;
     font-size: 1em;
     line-height: 1.6;
@@ -111,7 +111,7 @@ header::after {
 
 /* Skills Section */
 .skills-section {
-    padding: 60px 20px;
+    padding: 50px 20px;
     background: #fffaf6;
     text-align: center;
 }
@@ -122,32 +122,40 @@ header::after {
 }
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
     max-width: 900px;
     margin: 0 auto;
 }
 .skill-card {
     background: #fff;
     border-radius: 12px;
-    padding: 20px 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    font-size: 1em;
+    padding: 15px 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    font-size: 0.95em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 110px;
+    justify-content: center;
+    height: 90px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 .skill-card strong {
-    font-size: 1.1em;
-    margin-bottom: 10px;
+    font-size: 1em;
+    margin-bottom: 6px;
+    color: #111;
 }
 .skill-card .level {
     display: inline-block;
-    font-size: 0.9em;
+    font-size: 0.85em;
     font-weight: 500;
-    padding: 4px 10px;
+    padding: 3px 8px;
     border-radius: 12px;
+    text-transform: capitalize;
 }
 .level.advanced { background: #c8f7c5; color: #256029; }
 .level.intermediate { background: #cde4f7; color: #204d74; }
@@ -284,17 +292,16 @@ footer {
 <section class="skills-section">
     <h2>Technical Skills</h2>
     <div class="skills-grid">
-        <div class="skill-card"><strong>Python</strong><span class="level Intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>R Language</strong><span class="level Intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>SQL</strong><span class="level Intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Data Visualization / BI</strong><span class="level Intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Statistical Analysis</strong><span class="level Intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Data Cleaning / Wrangling</strong><span class="level Intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Excel</strong><span class="level advanced">advanced</span></div>
+        <div class="skill-card"><strong>Python</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>R Language</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>SQL</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Data Visualization / BI</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Statistical Analysis</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Data Cleaning / Wrangling</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Excel</strong><span class="level advanced">Advanced</span></div>
         <div class="skill-card"><strong>ETL Tools</strong><span class="level intermediate">Intermediate</span></div>
     </div>
 </section>
-
 
 <section class="portfolio-container">
     <h2>Portfolio</h2>
@@ -319,28 +326,6 @@ footer {
             <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
             <p>Investigation into lifestyle factors affecting blood pressure.</p>
             <a href="R_BloodPressureProjekt.html" class="read-more">Se full analys →</a>
-        </div>
-        <!-- Låtsasprojekt -->
-        <div class="card">
-            <img src="images/project_fake1.png" alt="Social Media Analytics">
-            <h2>Social Media Analytics</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>Seaborn</span></div>
-            <p>Analysis of social media engagement and trends for marketing strategies.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project_fake2.png" alt="Energy Consumption Forecast">
-            <h2>Energy Consumption Forecast</h2>
-            <div class="tags"><span>Python</span><span>ML</span><span>Time Series</span></div>
-            <p>Predicting future energy usage patterns using historical consumption data.</p>
-            <a href="#" class="read-more">Se full analys →</a>
-        </div>
-        <div class="card">
-            <img src="images/project_fake3.png" alt="Customer Feedback Dashboard">
-            <h2>Customer Feedback Dashboard</h2>
-            <div class="tags"><span>Tableau</span><span>Visualization</span><span>SQL</span></div>
-            <p>Interactive dashboard summarizing customer reviews and satisfaction scores.</p>
-            <a href="#" class="read-more">Se full analys →</a>
         </div>
     </main>
     <div class="scroll-dots-container" id="scroll-dots"></div>
