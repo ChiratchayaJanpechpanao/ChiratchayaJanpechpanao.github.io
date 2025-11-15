@@ -39,59 +39,67 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    text-align: center;
+    gap: 50px;
     padding: 80px 20px;
     position: relative;
-    gap: 25px;
+    flex-wrap: wrap;
 }
 
-header .profile-section h1 {
+.header-left {
+    flex: 1 1 350px;
+    text-align: left;
+    max-width: 600px;
+}
+
+.header-left h1 {
     font-size: 2.5em;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #111;
 }
 
-header .profile-img {
-    width: 300px;
-    height: 350px;
-    border-radius: 20px;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid #fda085;
-}
-
-header .profile-title {
+.header-left .profile-title {
     font-weight: 600;
     font-size: 1.2rem;
     color: #333;
     margin-bottom: 25px;
 }
 
-header .intro p {
-    max-width: 650px;
+.header-left .intro p {
     font-size: 1.05em;
     color: #555;
     line-height: 1.6;
-    margin: 0 auto 20px;
+    margin-bottom: 25px;
 }
 
-header .contact-icons {
+.header-left .contact-icons {
     display: flex;
-    justify-content: center;
     gap: 15px;
 }
 
-header .contact-icons a {
+.header-left .contact-icons a {
     color: #111;
     font-size: 1.6em;
     transition: 0.3s;
 }
 
-header .contact-icons a:hover {
+.header-left .contact-icons a:hover {
     color: #fda085;
 }
 
+.header-right {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.header-right img {
+    width: 300px;
+    height: 350px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 3px solid #fda085;
+}
+
+/* Scroll down */
 .scroll-down {
     position: absolute;
     bottom: 20px;
@@ -259,6 +267,20 @@ footer {
     padding:20px;
     color:#777;
 }
+
+/* Responsive */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-left {
+        text-align: center;
+    }
+    .header-left .contact-icons {
+        justify-content: center;
+    }
+}
 </style>
 </head>
 <body>
@@ -270,9 +292,8 @@ footer {
 </nav>
 
 <header>
-    <div class="profile-section">
+    <div class="header-left">
         <h1>Chiratchaya Janpechpanao</h1>
-        <img src="images/profile.jpg" alt="Profilbild" class="profile-img">
         <p class="profile-title">Data Engineer<br>MSc in Industrial Engineering & Management</p>
         <div class="intro">
             <p>I’m a data enthusiast and Data Engineer, passionate about transforming numbers into meaningful insights. I enjoy tackling complex problems, building models, and turning data into stories that uncover actionable insights.</p>
@@ -281,6 +302,9 @@ footer {
             <a href="https://www.linkedin.com/in/chiratchaya-janpechpanao/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:chiratchaya@example.com" title="E-post"><i class="fas fa-envelope"></i></a>
         </div>
+    </div>
+    <div class="header-right">
+        <img src="images/profile.jpg" alt="Profilbild">
     </div>
     <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
 </header>
@@ -370,4 +394,3 @@ slider.addEventListener('scroll', () => {
 
 </body>
 </html>
-
