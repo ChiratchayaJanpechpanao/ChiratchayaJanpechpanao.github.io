@@ -39,79 +39,62 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
     padding: 80px 20px;
-    position: relative;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
-/* Text section */
 .header-left {
-    flex: 1 1 350px;
     max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
     text-align: left;
 }
+
 .header-left h1 {
     font-size: 2.5em;
-    margin-bottom: 5px; /* Mindre mellanrum */
+    margin-bottom: 10px;
+    color: #111;
 }
+
 .header-left .profile-title {
     font-weight: 600;
     font-size: 1.2rem;
     color: #333;
-    margin: 0 0 10px 0; /* Mindre mellanrum */
+    margin: 0 0 15px 0; /* avstånd till beskrivning */
 }
+
 .header-left .intro p {
     font-size: 1.05em;
     color: #555;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
 }
 
-/* Bild sektion */
 .header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    text-align: center;
 }
+
 .header-right img {
-    width: 250px;
-    height: 300px;
+    width: 280px; /* något mindre bild */
+    height: 330px;
     border-radius: 20px;
     object-fit: cover;
+    margin-bottom: 15px;
 }
+
 .header-right .contact-icons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
+
 .header-right .contact-icons a {
     color: #111;
     font-size: 1.6em;
     transition: 0.3s;
 }
+
 .header-right .contact-icons a:hover {
     color: #fda085;
-}
-
-.scroll-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5em;
-    color: #fda085;
-    animation: bounce 2s infinite;
-}
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(10px); }
-    60% { transform: translateX(-50%) translateY(5px); }
 }
 
 /* Skills Section */
@@ -291,7 +274,6 @@ footer {
             <a href="mailto:chiratchaya@example.com" title="E-post"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
-    <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
 </header>
 
 <section class="skills-section">
@@ -303,7 +285,7 @@ footer {
         <div class="skill-card"><strong>Data Visualization / BI</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>Statistical Analysis</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>Data Cleaning</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Predictive Modeling</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Excel</strong><span class="level advanced">Advanced</span></div>
         <div class="skill-card"><strong>ETL Tools</strong><span class="level intermediate">Intermediate</span></div>
     </div>
 </section>
