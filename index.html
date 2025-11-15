@@ -97,58 +97,6 @@ header {
     color: #fda085;
 }
 
-/* Skills Section */
-.skills-section {
-    padding: 50px 20px;
-    background: #fffaf6;
-    text-align: center;
-}
-.skills-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 25px;
-    color: #111;
-}
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-.skill-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 15px 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    font-size: 0.95em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 90px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-.skill-card strong {
-    font-size: 1em;
-    margin-bottom: 6px;
-    color: #111;
-}
-.skill-card .level {
-    display: inline-block;
-    font-size: 0.85em;
-    font-weight: 500;
-    padding: 3px 8px;
-    border-radius: 12px;
-    text-transform: capitalize;
-}
-.level.advanced { background: #c8f7c5; color: #256029; }
-.level.intermediate { background: #cde4f7; color: #204d74; }
-.level.basic { background: #f9e5b9; color: #7a5c00; }
-
 /* Portfolio Section */
 .portfolio-container {
     padding: 50px 20px;
@@ -186,7 +134,6 @@ main::-webkit-scrollbar { display: none; }
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 15px;
-    border: 1px solid rgba(0,0,0,0.05);
 }
 .card h2 {
     font-size: 1.1em;
@@ -243,6 +190,58 @@ main::-webkit-scrollbar { display: none; }
 }
 .scroll-dot.active { background: #fda085; }
 
+/* Skills Section */
+.skills-section {
+    padding: 50px 20px;
+    background: #fffaf6;
+    text-align: center;
+}
+.skills-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #111;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.skill-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    font-size: 0.95em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.skill-card strong {
+    font-size: 1em;
+    margin-bottom: 6px;
+    color: #111;
+}
+.skill-card .level {
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 12px;
+    text-transform: capitalize;
+}
+.level.advanced { background: #c8f7c5; color: #256029; }
+.level.intermediate { background: #cde4f7; color: #204d74; }
+.level.basic { background: #f9e5b9; color: #7a5c00; }
+
 /* Areas of Interest Section */
 .areas {
     padding: 50px 20px;
@@ -292,6 +291,36 @@ main::-webkit-scrollbar { display: none; }
     color: #555;
 }
 
+/* More to Explore Section */
+.more-explore {
+    padding: 50px 20px;
+    text-align: center;
+    background: #fffaf6;
+}
+.more-explore h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #111;
+}
+.more-explore p {
+    font-size: 1em;
+    margin-bottom: 25px;
+    color: #555;
+}
+.more-explore a {
+    display: inline-block;
+    text-decoration: none;
+    background: #fda085;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.more-explore a:hover {
+    background: #ff8c5a;
+}
+
 /* Footer */
 footer {
     text-align:center;
@@ -325,20 +354,6 @@ footer {
     </div>
 </header>
 
-<section class="skills-section">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-card"><strong>Python</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>R Language</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>SQL</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Data Visualization / BI</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Statistical Analysis</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Data Cleaning</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Predictive Modeling</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>ETL Tools</strong><span class="level intermediate">Intermediate</span></div>
-    </div>
-</section>
-
 <section class="portfolio-container">
     <h2>Portfolio</h2>
     <main id="portfolio-scroll">
@@ -365,6 +380,20 @@ footer {
         </div>
     </main>
     <div class="scroll-dots-container" id="scroll-dots"></div>
+</section>
+
+<section class="skills-section">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card"><strong>Python</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>R Language</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>SQL</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Data Visualization / BI</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Statistical Analysis</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Data Cleaning</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Excel</strong><span class="level advanced">Advanced</span></div>
+        <div class="skill-card"><strong>ETL Tools</strong><span class="level intermediate">Intermediate</span></div>
+    </div>
 </section>
 
 <section class="areas">
@@ -402,6 +431,12 @@ footer {
             <p>Tell stories through insightful and visually compelling data presentations.</p>
         </div>
     </div>
+</section>
+
+<section class="more-explore">
+    <h2>More to Explore</h2>
+    <p>There are many more projects, insights, and tools I work with. Feel free to explore my GitHub and CV!</p>
+    <a href="https://github.com/chiratchaya" target="_blank">View More →</a>
 </section>
 
 <footer>
