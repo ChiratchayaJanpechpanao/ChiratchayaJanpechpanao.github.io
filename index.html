@@ -39,71 +39,66 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
+    flex-wrap: wrap;
     padding: 80px 20px;
     position: relative;
-    flex-wrap: wrap;
 }
 
+/* Text section */
 .header-left {
     flex: 1 1 350px;
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertikal centrering */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
 .header-left h1 {
     font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #111;
+    margin-bottom: 5px; /* Mindre mellanrum */
 }
-
 .header-left .profile-title {
     font-weight: 600;
     font-size: 1.2rem;
     color: #333;
-    margin-bottom: 25px;
+    margin: 0 0 10px 0; /* Mindre mellanrum */
 }
-
 .header-left .intro p {
     font-size: 1.05em;
     color: #555;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    line-height: 1.5;
+    margin: 0;
 }
 
+/* Bild sektion */
 .header-right {
-    flex: 1 1 300px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
-
 .header-right img {
-    width: 300px;
-    height: 350px;
+    width: 250px;
+    height: 300px;
     border-radius: 20px;
     object-fit: cover;
-    margin-bottom: 15px;
 }
-
-/* LinkedIn and email under image */
 .header-right .contact-icons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
-
 .header-right .contact-icons a {
     color: #111;
     font-size: 1.6em;
     transition: 0.3s;
 }
-
 .header-right .contact-icons a:hover {
     color: #fda085;
 }
 
-/* Scroll down */
 .scroll-down {
     position: absolute;
     bottom: 20px;
@@ -271,17 +266,6 @@ footer {
     padding:20px;
     color:#777;
 }
-
-/* Responsive */
-@media (max-width: 900px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    .header-left {
-        text-align: center;
-    }
-}
 </style>
 </head>
 <body>
@@ -319,7 +303,7 @@ footer {
         <div class="skill-card"><strong>Data Visualization / BI</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>Statistical Analysis</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>Data Cleaning</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Predictive Modeling</strong><span class="level intermediate">Intermediate</span></div>
+        <div class="skill-card"><strong>Excel</strong><span class="level advanced">Advanced</span></div>
         <div class="skill-card"><strong>ETL Tools</strong><span class="level intermediate">Intermediate</span></div>
     </div>
 </section>
@@ -395,4 +379,3 @@ slider.addEventListener('scroll', () => {
 
 </body>
 </html>
-
