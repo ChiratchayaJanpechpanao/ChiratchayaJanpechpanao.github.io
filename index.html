@@ -47,7 +47,6 @@ header {
 
 .header-left {
     flex: 1 1 350px;
-    text-align: left;
     max-width: 600px;
 }
 
@@ -71,32 +70,34 @@ header {
     margin-bottom: 25px;
 }
 
-.header-left .contact-icons {
+.header-right {
+    flex: 1 1 350px;
+    text-align: center;
+}
+
+.header-right img {
+    width: 350px;
+    height: 400px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* LinkedIn and email under image */
+.header-right .contact-icons {
     display: flex;
+    justify-content: center;
     gap: 15px;
 }
 
-.header-left .contact-icons a {
+.header-right .contact-icons a {
     color: #111;
     font-size: 1.6em;
     transition: 0.3s;
 }
 
-.header-left .contact-icons a:hover {
+.header-right .contact-icons a:hover {
     color: #fda085;
-}
-
-.header-right {
-    flex: 1 1 300px;
-    text-align: center;
-}
-
-.header-right img {
-    width: 300px;
-    height: 350px;
-    border-radius: 20px;
-    object-fit: cover;
-    border: 3px solid #fda085;
 }
 
 /* Scroll down */
@@ -277,9 +278,6 @@ footer {
     .header-left {
         text-align: center;
     }
-    .header-left .contact-icons {
-        justify-content: center;
-    }
 }
 </style>
 </head>
@@ -298,13 +296,13 @@ footer {
         <div class="intro">
             <p>I’m a data enthusiast and Data Engineer, passionate about transforming numbers into meaningful insights. I enjoy tackling complex problems, building models, and turning data into stories that uncover actionable insights.</p>
         </div>
+    </div>
+    <div class="header-right">
+        <img src="images/profile.jpg" alt="Profilbild">
         <div class="contact-icons">
             <a href="https://www.linkedin.com/in/chiratchaya-janpechpanao/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:chiratchaya@example.com" title="E-post"><i class="fas fa-envelope"></i></a>
         </div>
-    </div>
-    <div class="header-right">
-        <img src="images/profile.jpg" alt="Profilbild">
     </div>
     <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
 </header>
@@ -394,3 +392,4 @@ slider.addEventListener('scroll', () => {
 
 </body>
 </html>
+
