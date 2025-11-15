@@ -116,6 +116,7 @@ main {
     gap: 20px;
     padding-bottom: 20px;
     scrollbar-width: none;
+    position: relative;
 }
 main::-webkit-scrollbar { display: none; }
 
@@ -190,6 +191,27 @@ main::-webkit-scrollbar { display: none; }
     transition: background 0.3s;
 }
 .scroll-dot.active { background: #fda085; }
+
+/* Scroll arrows */
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(250, 160, 133, 0.8);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: white;
+    z-index: 10;
+    transition: background 0.3s;
+}
+.scroll-arrow:hover {
+    background: rgba(250, 160, 133, 1);
+}
+.scroll-arrow.left { left: 10px; }
+.scroll-arrow.right { right: 10px; }
 
 /* Skills Section */
 .skills-section {
@@ -328,6 +350,9 @@ footer {
 <section class="portfolio-container">
     <h2>Portfolio</h2>
     <main id="portfolio-scroll">
+        <button class="scroll-arrow left" id="scroll-left"><i class="fas fa-chevron-left"></i></button>
+        <button class="scroll-arrow right" id="scroll-right"><i class="fas fa-chevron-right"></i></button>
+
         <div class="card">
             <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
             <h2>Sleep Disorder Analysis</h2>
@@ -362,7 +387,7 @@ footer {
         <div class="skill-card"><strong>Data Visualization / BI</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>Statistical Analysis</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>Data Cleaning</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Excel</strong><span class="level advanced">Advanced</span></div>
+        <div class="skill-card"><strong>Predictive Modeling</strong><span class="level advanced">Advanced</span></div>
         <div class="skill-card"><strong>ETL Tools</strong><span class="level intermediate">Intermediate</span></div>
     </div>
 </section>
@@ -442,6 +467,18 @@ slider.addEventListener('scroll', () => {
     const index = Math.round(slider.scrollLeft / cardWidth);
     dots.forEach(d => d.classList.remove('active'));
     if(dots[index]) dots[index].classList.add('active');
+});
+
+// Scroll buttons functionality
+const btnLeft = document.getElementById('scroll-left');
+const btnRight = document.getElementById('scroll-right');
+
+btnLeft.addEventListener('click', () => {
+    slider.scrollBy({ left: -300, behavior: 'smooth' });
+});
+
+btnRight.addEventListener('click', () => {
+    slider.scrollBy({ left: 300, behavior: 'smooth' });
 });
 </script>
 
