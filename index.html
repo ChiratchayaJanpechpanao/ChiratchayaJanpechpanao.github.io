@@ -48,11 +48,14 @@ header {
 .header-left {
     flex: 1 1 350px;
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikal centrering */
 }
 
 .header-left h1 {
     font-size: 2.5em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #111;
 }
 
@@ -71,13 +74,13 @@ header {
 }
 
 .header-right {
-    flex: 1 1 350px;
+    flex: 1 1 300px;
     text-align: center;
 }
 
 .header-right img {
-    width: 350px;
-    height: 400px;
+    width: 300px;
+    height: 350px;
     border-radius: 20px;
     object-fit: cover;
     margin-bottom: 15px;
@@ -316,7 +319,7 @@ footer {
         <div class="skill-card"><strong>Data Visualization / BI</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>Statistical Analysis</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>Data Cleaning</strong><span class="level intermediate">Intermediate</span></div>
-        <div class="skill-card"><strong>Excel</strong><span class="level advanced">Advanced</span></div>
+        <div class="skill-card"><strong>Predictive Modeling</strong><span class="level intermediate">Intermediate</span></div>
         <div class="skill-card"><strong>ETL Tools</strong><span class="level intermediate">Intermediate</span></div>
     </div>
 </section>
