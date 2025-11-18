@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chiratchaya Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 body {
     font-family:'Poppins', sans-serif;
@@ -42,7 +43,7 @@ header {
     padding: 80px 20px;
     gap: 50px;
     flex-wrap: wrap;
-    position: relative; /* För scroll-pilen */
+    position: relative;
 }
 
 .header-left {
@@ -98,7 +99,7 @@ header {
     color: #fda085;
 }
 
-/* Scroll-down pil */
+/* Scroll-down arrow */
 .scroll-down {
     position: absolute;
     left: 50%;
@@ -110,7 +111,6 @@ header {
     text-decoration: none;
     transition: opacity 0.3s;
 }
-
 .scroll-down.hidden {
     opacity: 0;
     pointer-events: none;
@@ -122,11 +122,10 @@ header {
     60% { transform: translateX(-50%) translateY(5px); }
 }
 
-/* Portfolio Section */
+/* Portfolio */
 .portfolio-container {
     padding: 50px 20px;
-    background: #FFF5EE; /* Vit */
-    position: relative;
+    background: #FFF5EE;
 }
 .portfolio-container h2 {
     text-align: center;
@@ -134,6 +133,7 @@ header {
     margin-bottom: 25px;
     color: #111;
 }
+
 main {
     display: flex;
     overflow-x: auto;
@@ -154,6 +154,7 @@ main::-webkit-scrollbar { display: none; }
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .card img {
     width: 100%;
     height: 180px;
@@ -161,19 +162,21 @@ main::-webkit-scrollbar { display: none; }
     border-radius: 10px;
     margin-bottom: 15px;
 }
+
 .card h2 {
     font-size: 1.1em;
     margin-bottom: 10px;
     color: #111;
-    text-align: left; /* Vänsterjustera projekttiteln */
-
+    text-align: left;
 }
+
 .card p {
     color:#555;
     font-size:0.95em;
     margin-bottom: 15px;
     flex-grow:1;
 }
+
 .card .tags {
     margin-bottom: 10px;
 }
@@ -187,10 +190,12 @@ main::-webkit-scrollbar { display: none; }
     border-radius: 20px;
     margin-right: 8px;
 }
+
 .card:hover {
     transform:translateY(-8px);
     box-shadow:0 15px 35px rgba(0,0,0,0.12);
 }
+
 .read-more {
     text-decoration: none;
     background: #fda085;
@@ -201,7 +206,10 @@ main::-webkit-scrollbar { display: none; }
     text-align: center;
     display: inline-block;
 }
-.read-more:hover { background: #ff8c5a; }
+
+.read-more:hover {
+    background: #ff8c5a;
+}
 
 .scroll-dots-container {
     text-align: center;
@@ -218,10 +226,10 @@ main::-webkit-scrollbar { display: none; }
 }
 .scroll-dot.active { background: #fda085; }
 
-/* Skills Section */
+/* Skills */
 .skills-section {
     padding: 50px 20px;
-    background: #ffffff; /* Vit */
+    background: #ffffff;
     text-align: center;
 }
 .skills-section h2 {
@@ -270,10 +278,10 @@ main::-webkit-scrollbar { display: none; }
 .level.intermediate { background: #cde4f7; color: #204d74; }
 .level.basic { background: #f9e5b9; color: #7a5c00; }
 
-/* Areas of Interest Section */
+/* Areas of Interest */
 .areas {
     padding: 50px 20px;
-    background: #FFF5EE; /* Vit */
+    background: #FFF5EE;
     text-align: center;
 }
 .areas h2 {
@@ -327,6 +335,7 @@ footer {
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -342,6 +351,7 @@ footer {
             <p>I’m a data enthusiast and Data Engineer, passionate about transforming numbers into meaningful insights. I enjoy tackling complex problems, building models, and turning data into stories that uncover actionable insights.</p>
         </div>
     </div>
+
     <div class="header-right">
         <img src="images/profile.jpg" alt="Profilbild">
         <div class="contact-icons">
@@ -350,7 +360,6 @@ footer {
         </div>
     </div>
 
-    <!-- Vertikal scroll pil -->
     <a href="#portfolio-scroll" class="scroll-down" id="scroll-down">
         <i class="fas fa-chevron-down"></i>
     </a>
@@ -358,7 +367,10 @@ footer {
 
 <section class="portfolio-container">
     <h2>Portfolio</h2>
+
     <main id="portfolio-scroll">
+
+        <!-- PYTHON -->
         <div class="card">
             <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
             <h2>Sleep Disorder Analysis</h2>
@@ -366,6 +378,8 @@ footer {
             <p>Exploratory analysis of sleep disorders using biometric data.</p>
             <a href="Python/Sleep_health_and_lifestyle_project.html" class="read-more">Se full analys →</a>
         </div>
+
+        <!-- R PROJECT 1 -->
         <div class="card">
             <img src="images/MC_PROJECT_boxplot.jpeg" alt="Military Coups Data Study">
             <h2>Military Coups Data Study</h2>
@@ -373,6 +387,8 @@ footer {
             <p>Statistical analysis of global military coups.</p>
             <a href="Rstudio/R_MilitarycoupProjekt.html" class="read-more">Se full analys →</a>
         </div>
+
+        <!-- R PROJECT 2 -->
         <div class="card">
             <img src="images/BP_PROJECT_corrplot.jpeg" alt="Blood Pressure Analysis">
             <h2>Blood Pressure Analysis</h2>
@@ -380,7 +396,27 @@ footer {
             <p>Investigation into lifestyle factors affecting blood pressure.</p>
             <a href="Rstudio/R_BloodPressureProjekt.html" class="read-more">Se full analys →</a>
         </div>
+
+        <!-- POWER BI PROJECT 1 -->
+        <div class="card">
+            <img src="images/powerbi_sales_thumb.jpg" alt="Sales Dashboard">
+            <h2>Sales Dashboard</h2>
+            <div class="tags"><span>Power BI</span><span>Dashboard</span></div>
+            <p>Interactive sales dashboard visualizing profit, KPIs, and forecasting.</p>
+            <a href="powerBI/salesdashboards.pdf" class="read-more" target="_blank">View dashboard →</a>
+        </div>
+
+        <!-- POWER BI PROJECT 2 -->
+        <div class="card">
+            <img src="images/powerbi_health_thumb.jpg" alt="Health Dashboard">
+            <h2>Health Dashboard</h2>
+            <div class="tags"><span>Power BI</span><span>Healthcare</span></div>
+            <p>Dashboard showing diagnoses, treatments and hospital patient statistics.</p>
+            <a href="powerBI/health.pdf" class="read-more" target="_blank">View dashboard →</a>
+        </div>
+
     </main>
+
     <div class="scroll-dots-container" id="scroll-dots"></div>
 </section>
 
@@ -412,15 +448,15 @@ footer {
             <h3>Machine Learning</h3>
             <p>Enjoy math, theory, and implementation beyond API usage.</p>
         </div>
-         <div class="interest-card">
-        <i class="fas fa-dumbbell"></i>  <!-- Träning/Fitness ikon -->
-        <h3>Fitness & Sports</h3>
-        <p>I really enjoy staying active and maintaining a healthy lifestyle.</p>
+        <div class="interest-card">
+            <i class="fas fa-dumbbell"></i>
+            <h3>Fitness & Sports</h3>
+            <p>I really enjoy staying active and maintaining a healthy lifestyle.</p>
         </div>
         <div class="interest-card">
-        <i class="fas fa-book"></i>  <!-- Bok/learning ikon -->
-        <h3>Reading & Learning</h3>
-        <p>Staying curious with books, articles, and courses.</p>
+            <i class="fas fa-book"></i>
+            <h3>Reading & Learning</h3>
+            <p>Staying curious with books, articles, and courses.</p>
         </div>
     </div>
 </section>
@@ -430,28 +466,27 @@ footer {
 </footer>
 
 <script>
-// Vertikal scroll pil: göm när scroll > 0
+// Hide scroll arrow
 const scrollDown = document.getElementById('scroll-down');
 window.addEventListener('scroll', () => {
-    if(window.scrollY > 50){
-        scrollDown.classList.add('hidden');
-    } else {
-        scrollDown.classList.remove('hidden');
-    }
+    scrollDown.classList.toggle('hidden', window.scrollY > 50);
 });
 
-// Drag scroll for portfolio
+// Drag scroll
 const slider = document.getElementById('portfolio-scroll');
 let isDown = false, startX, scrollLeft;
+
 slider.addEventListener('mousedown', e => {
     isDown = true;
     startX = e.pageX - slider.offsetLeft;
     scrollLeft = slider.scrollLeft;
 });
-slider.addEventListener('mouseleave', () => isDown=false);
-slider.addEventListener('mouseup', () => isDown=false);
+
+slider.addEventListener('mouseleave', () => isDown = false);
+slider.addEventListener('mouseup', () => isDown = false);
+
 slider.addEventListener('mousemove', e => {
-    if(!isDown) return;
+    if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX) * 2;
@@ -461,18 +496,21 @@ slider.addEventListener('mousemove', e => {
 // Scroll dots
 const cards = slider.querySelectorAll('.card');
 const dotsContainer = document.getElementById('scroll-dots');
+
 cards.forEach((_, i) => {
     const dot = document.createElement('span');
     dot.classList.add('scroll-dot');
-    if(i === 0) dot.classList.add('active');
+    if (i === 0) dot.classList.add('active');
     dotsContainer.appendChild(dot);
 });
+
 const dots = dotsContainer.querySelectorAll('.scroll-dot');
+
 slider.addEventListener('scroll', () => {
     const cardWidth = cards[0].offsetWidth + 20;
     const index = Math.round(slider.scrollLeft / cardWidth);
     dots.forEach(d => d.classList.remove('active'));
-    if(dots[index]) dots[index].classList.add('active');
+    if (dots[index]) dots[index].classList.add('active');
 });
 </script>
 
