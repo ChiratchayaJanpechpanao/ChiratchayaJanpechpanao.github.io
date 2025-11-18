@@ -47,11 +47,11 @@ header h1 {
 }
 
 .header-intro {
-    max-width: 800px;       /* Begränsar textens bredd */
-    margin: 0 auto;          /* Centrerar texten */
-    line-height: 1.6;        /* Bättre läsbarhet */
-    font-size: 1.05em;       /* Lagom storlek */
-    color: #555;             /* Lättare textfärg */
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.05em;
+    color: #555;
 }
 
 /* FILTER BUTTONS */
@@ -85,7 +85,7 @@ header h1 {
     padding:0 20px;
 }
 
-/* CARDS – GLOBAL FIXED HEIGHT */
+/* CARDS */
 .card {
     background:#fff;
     border-radius:15px;
@@ -102,7 +102,7 @@ header h1 {
     transform:translateY(-5px);
 }
 
-/* IMAGE HOVER EFFECT */
+/* IMAGE */
 .card img {
     width:100%;
     height:180px;
@@ -152,14 +152,14 @@ header h1 {
     background:#ff8c5a;
 }
 
-/* POWER BI / TABLEAU CARD SPECIFIC */
+/* POWER BI CARDS */
 .card.bi {
     display: flex;
     flex-direction: column;
-    height:480px; /* Samma höjd som andra kort */
+    height:480px;
 }
 .card.bi .pdf-container {
-    flex-grow:1; /* PDF tar maximal höjd */
+    flex-grow:1;
     margin-bottom:10px;
 }
 .card.bi iframe {
@@ -242,26 +242,26 @@ footer {
         <a class="read-more" href="Rstudio/R_BloodPressureProjekt.html">See full analysis</a>
     </div>
 
-          <!-- POWER BI / TABLEAU -->
-        <div class="card bi">
+    <!-- POWER BI / TABLEAU -->
+    <div class="card bi">
         <div class="pdf-container" style="width:100%; height:600px;">
-        <iframe src="powerBI/salesdashboards.pdf" style="width:100%; height:100%;"></iframe>
+            <iframe src="powerBI/salesdashboards.pdf" style="width:100%; height:100%;"></iframe>
         </div>
         <h2>Sales Dashboard</h2>
         <p style="font-size:0.9em; color:#555;">
-        Interactive sales dashboard visualizing profit, KPIs, and forecasting in Power BI.
+            Interactive sales dashboard visualizing profit, KPIs, and forecasting in Power BI.
         </p>
-        </div>
+    </div>
 
     <div class="card bi">
         <div class="pdf-container" style="width:100%; height:600px;">
-        <iframe src="powerBI/health.pdf" style="width:100%; height:100%;"></iframe>
+            <iframe src="powerBI/health.pdf" style="width:100%; height:100%;"></iframe>
         </div>
-        <h2>Sales Dashboard</h2>
+        <h2>Health Dashboard</h2>
         <p style="font-size:0.9em; color:#555;">
-        Interactive sales dashboard visualizing profit, KPIs, and forecasting in Power BI.
+            This dashboard includes information about hospital patients, covering diagnoses, treatments, and billing details in Power BI.
         </p>
-        </div>
+    </div>
 
 </div>
 
