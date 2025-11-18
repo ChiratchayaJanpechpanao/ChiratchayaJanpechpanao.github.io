@@ -152,23 +152,6 @@ header h1 {
     background:#ff8c5a;
 }
 
-/* POWER BI CARDS */
-.card.bi {
-    display: flex;
-    flex-direction: column;
-    height:480px;
-}
-.card.bi .pdf-container {
-    flex-grow:1;
-    margin-bottom:10px;
-}
-.card.bi iframe {
-    width:100%;
-    height:100%;
-    border-radius:10px;
-    border:none;
-}
-
 /* FOOTER */
 footer {
     text-align:center;
@@ -199,7 +182,7 @@ footer {
     <h1>Chiratchaya Janpechpanao</h1>
     <p class="header-intro">
         This portfolio features projects, including work in Python, R, and Power BI. 
-        They cover, among other things, data analysis, statistical modeling, machine learning, 
+        They cover data analysis, statistical modeling, machine learning, 
         and interactive dashboards, demonstrating how I turn complex datasets into clear insights 
         and visually engaging results.
     </p>
@@ -210,19 +193,19 @@ footer {
     <button class="active" data-filter="all">All</button>
     <button data-filter="python">Python</button>
     <button data-filter="r">R</button>
-    <button data-filter="bi">Power BI / Tableau</button>
+    <button data-filter="bi">Power BI</button>
 </div>
 
 <!-- PROJECT GRID -->
 <div class="project-grid">
 
-    <!-- PYTHON PROJECTS -->
+    <!-- PYTHON PROJECT -->
     <div class="card python">
         <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
         <h2>Sleep Disorder Analysis</h2>
         <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
         <p>Exploratory analysis of sleep disorders using biometric data.</p>
-        <a class="read-more" href="Python/Sleep_health_and_lifestyle_project.html">See full analysis</a>
+        <a class="read-more" href="Python/Sleep_health_and_lifestyle_project.html">See full analysis →</a>
     </div>
 
     <!-- R PROJECTS -->
@@ -231,7 +214,7 @@ footer {
         <h2>Military Coups Study</h2>
         <div class="tags"><span>R</span><span>dplyr</span></div>
         <p>Statistical exploration of military coups worldwide.</p>
-        <a class="read-more" href="Rstudio/R_MilitarycoupProjekt.html">See full analysis</a>
+        <a class="read-more" href="Rstudio/R_MilitarycoupProjekt.html">See full analysis →</a>
     </div>
 
     <div class="card r">
@@ -239,29 +222,24 @@ footer {
         <h2>Blood Pressure Analysis</h2>
         <div class="tags"><span>R</span><span>tidyverse</span></div>
         <p>Investigating lifestyle factors that affect blood pressure.</p>
-        <a class="read-more" href="Rstudio/R_BloodPressureProjekt.html">See full analysis</a>
+        <a class="read-more" href="Rstudio/R_BloodPressureProjekt.html">See full analysis →</a>
     </div>
 
-    <!-- POWER BI PROJECT 1 -->
+    <!-- POWER BI PROJECTS -->
     <div class="card bi">
-        <div class="pdf-container" style="width:100%; height:100%;">
-            <iframe src="powerBI/salesdashboards.pdf"></iframe>
-        </div>
+        <img src="images/POWERBI_SALESOVERVIEW.png" alt="Sales Dashboard">
         <h2>Sales Dashboard</h2>
-        <p style="font-size:0.9em; color:#555;">
-            Interactive sales dashboard visualizing profit, KPIs, and forecasting in Power BI.
-        </p>
+        <div class="tags"><span>Power BI</span><span>Dashboard</span></div>
+        <p>Interactive sales dashboard visualizing profit, KPIs, and forecasting.</p>
+        <a class="read-more" href="powerBI/salesdashboards.pdf" target="_blank">See full analysis →</a>
     </div>
 
-    <!-- POWER BI PROJECT 2 -->
     <div class="card bi">
-        <div class="pdf-container" style="width:100%; height:100%;">
-            <iframe src="powerBI/health.pdf"></iframe>
-        </div>
+        <img src="images/POWERBI_healthOverview.png" alt="Health Dashboard">
         <h2>Health Dashboard</h2>
-        <p style="font-size:0.9em; color:#555;">
-            Dashboard showing hospital patient statistics, including diagnoses and treatments in Power BI.
-        </p>
+        <div class="tags"><span>Power BI</span><span>Healthcare</span></div>
+        <p>Dashboard showing diagnoses, treatments, and hospital patient statistics.</p>
+        <a class="read-more" href="powerBI/health.pdf" target="_blank">See full analysis →</a>
     </div>
 
 </div>
@@ -296,4 +274,3 @@ buttons.forEach(btn => {
 
 </body>
 </html>
-
