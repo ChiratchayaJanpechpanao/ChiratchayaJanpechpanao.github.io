@@ -124,9 +124,14 @@ header {
 
 /* Portfolio */
 .portfolio-container {
-    padding: 50px 20px;
-    background: #FFF5EE;
+    text-align: center;  
+    display: flex;       /* Om du vill centrera både horisontellt och vertikalt */
+    flex-direction: column;
+    align-items: center; /* Centrerar innehållet horisontellt */
+    justify-content: center; /* Centrerar innehållet vertikalt */
+    min-height: 200px;   /* Exempel på höjd för vertikal centrering */
 }
+
 .portfolio-container h2 {
     text-align: center;
     font-size: 1.8em;
