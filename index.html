@@ -129,35 +129,39 @@ header {
     display: flex;              
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Starta innehållet uppifrån */
+    justify-content: flex-start;
     padding: 50px 20px;         
 }
 
-/* Rubrik och text */
 .portfolio-container h2 {
-    text-align: center;
     font-size: 1.8em;
-    margin-bottom: 10px; /* Samma som Areas of Interest */
+    margin-bottom: 10px;
     color: #111;
 }
 
 .portfolio-container p {
     font-size: 1em;
-    margin-bottom: 30px; /* Samma som Areas of Interest */
+    margin-bottom: 30px;
     color: #555;
 }
 
-/* Portfolio cards scroll */
-main#portfolio-scroll {
-    display: flex;
-    overflow-x: auto;          /* Gör att det går att scrolla på sidled */
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding-bottom: 20px;
+/* Scroll wrapper för portfolio */
+.portfolio-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;           
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
 
-main#portfolio-scroll::-webkit-scrollbar { display: none; }
+.portfolio-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+#portfolio-scroll {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+}
 
 /* Card styling */
 .card {
@@ -386,54 +390,56 @@ footer {
     <h2>Portfolio</h2>
     <p>Explore My Portfolio</p>
 
-    <main id="portfolio-scroll">
+    <div class="portfolio-scroll-wrapper">
+        <main id="portfolio-scroll">
 
-        <!-- PYTHON -->
-        <div class="card">
-            <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
-            <h2>Sleep Disorder Analysis</h2>
-            <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-            <p>Exploratory analysis of sleep disorders using biometric data.</p>
-            <a href="Python/Sleep_health_and_lifestyle_project.html" class="read-more">Se full analys →</a>
-        </div>
+            <!-- PYTHON -->
+            <div class="card">
+                <img src="images/Sleepdisorder_occupation.png" alt="Sleep Disorder Analysis">
+                <h2>Sleep Disorder Analysis</h2>
+                <div class="tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+                <p>Exploratory analysis of sleep disorders using biometric data.</p>
+                <a href="Python/Sleep_health_and_lifestyle_project.html" class="read-more">Se full analys →</a>
+            </div>
 
-        <!-- R PROJECT 1 -->
-        <div class="card">
-            <img src="images/MC_PROJECT_boxplot.jpeg" alt="Military Coups Data Study">
-            <h2>Military Coups Data Study</h2>
-            <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
-            <p>Statistical analysis of global military coups.</p>
-            <a href="Rstudio/R_MilitarycoupProjekt.html" class="read-more">Se full analys →</a>
-        </div>
+            <!-- R PROJECT 1 -->
+            <div class="card">
+                <img src="images/MC_PROJECT_boxplot.jpeg" alt="Military Coups Data Study">
+                <h2>Military Coups Data Study</h2>
+                <div class="tags"><span>R</span><span>dplyr</span><span>ggplot2</span></div>
+                <p>Statistical analysis of global military coups.</p>
+                <a href="Rstudio/R_MilitarycoupProjekt.html" class="read-more">Se full analys →</a>
+            </div>
 
-        <!-- R PROJECT 2 -->
-        <div class="card">
-            <img src="images/BP_PROJECT_corrplot.jpeg" alt="Blood Pressure Analysis">
-            <h2>Blood Pressure Analysis</h2>
-            <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
-            <p>Investigation into lifestyle factors affecting blood pressure.</p>
-            <a href="Rstudio/R_BloodPressureProjekt.html" class="read-more">Se full analys →</a>
-        </div>
+            <!-- R PROJECT 2 -->
+            <div class="card">
+                <img src="images/BP_PROJECT_corrplot.jpeg" alt="Blood Pressure Analysis">
+                <h2>Blood Pressure Analysis</h2>
+                <div class="tags"><span>R</span><span>tidyverse</span><span>Statistics</span></div>
+                <p>Investigation into lifestyle factors affecting blood pressure.</p>
+                <a href="Rstudio/R_BloodPressureProjekt.html" class="read-more">Se full analys →</a>
+            </div>
 
-        <!-- POWER BI PROJECT 1 -->
-        <div class="card">
-            <img src="images/POWERBI_SALESOVERVIEW.png" alt="Sales Dashboard">
-            <h2>Sales Dashboard</h2>
-            <div class="tags"><span>Power BI</span><span>Dashboard</span></div>
-            <p>Interactive sales dashboard visualizing profit, KPIs, and forecasting.</p>
-            <a href="powerBI/salesdashboards.pdf" class="read-more" target="_blank">View dashboard →</a>
-        </div>
+            <!-- POWER BI PROJECT 1 -->
+            <div class="card">
+                <img src="images/POWERBI_SALESOVERVIEW.png" alt="Sales Dashboard">
+                <h2>Sales Dashboard</h2>
+                <div class="tags"><span>Power BI</span><span>Dashboard</span></div>
+                <p>Interactive sales dashboard visualizing profit, KPIs, and forecasting.</p>
+                <a href="powerBI/salesdashboards.pdf" class="read-more" target="_blank">View dashboard →</a>
+            </div>
 
-        <!-- POWER BI PROJECT 2 -->
-        <div class="card">
-            <img src="images/POWERBI_healthOverview.png" alt="Health Dashboard">
-            <h2>Health Dashboard</h2>
-            <div class="tags"><span>Power BI</span><span>Dashboard</span></div>
-            <p>Dashboard showing diagnoses, treatments and hospital patient statistics.</p>
-            <a href="powerBI/health.pdf" class="read-more" target="_blank">View dashboard →</a>
-        </div>
+            <!-- POWER BI PROJECT 2 -->
+            <div class="card">
+                <img src="images/POWERBI_healthOverview.png" alt="Health Dashboard">
+                <h2>Health Dashboard</h2>
+                <div class="tags"><span>Power BI</span><span>Dashboard</span></div>
+                <p>Dashboard showing diagnoses, treatments and hospital patient statistics.</p>
+                <a href="powerBI/health.pdf" class="read-more" target="_blank">View dashboard →</a>
+            </div>
 
-    </main>
+        </main>
+    </div>
 
     <div class="scroll-dots-container" id="scroll-dots"></div>
 </section>
@@ -493,7 +499,7 @@ window.addEventListener('scroll', () => {
     scrollDown.classList.toggle('hidden', window.scrollY > 50);
 });
 
-// Drag scroll
+// Drag scroll only for portfolio
 const slider = document.getElementById('portfolio-scroll');
 let isDown = false, startX, scrollLeft;
 
@@ -514,7 +520,7 @@ slider.addEventListener('mousemove', e => {
     slider.scrollLeft = scrollLeft - walk;
 });
 
-// Scroll dots
+// Scroll dots for portfolio
 const cards = slider.querySelectorAll('.card');
 const dotsContainer = document.getElementById('scroll-dots');
 
@@ -537,4 +543,3 @@ slider.addEventListener('scroll', () => {
 
 </body>
 </html>
-
