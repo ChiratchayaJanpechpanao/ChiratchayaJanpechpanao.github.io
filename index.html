@@ -124,38 +124,42 @@ header {
 
 /* Portfolio */
 .portfolio-container {
-    background-color: #FFF5EE;  /* Sätter bakgrundsfärg */
-    text-align: center;         /* Centrerar texten horisontellt */
-    display: flex;              /* Centrerar innehållet både horisontellt och vertikalt */
+    background-color: #FFF5EE;  
+    text-align: center;         
+    display: flex;              
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100px;          /* Justera höjd efter behov */
-    padding: 50px 20px;         /* Lite padding runt innehållet */
+    justify-content: flex-start; /* Starta innehållet uppifrån */
+    padding: 50px 20px;         
 }
 
-
+/* Rubrik och text */
 .portfolio-container h2 {
     text-align: center;
     font-size: 1.8em;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Samma som Areas of Interest */
     color: #111;
 }
-    
+
 .portfolio-container p {
-    margin-top: 0;              /* Tar bort extra toppmarginal */
+    font-size: 1em;
+    margin-bottom: 30px; /* Samma som Areas of Interest */
+    color: #555;
 }
 
-main {
+/* Portfolio cards scroll */
+main#portfolio-scroll {
     display: flex;
-    overflow-x: auto;
+    overflow-x: auto;          /* Gör att det går att scrolla på sidled */
     scroll-behavior: smooth;
     gap: 20px;
     padding-bottom: 20px;
     scrollbar-width: none;
 }
-main::-webkit-scrollbar { display: none; }
 
+main#portfolio-scroll::-webkit-scrollbar { display: none; }
+
+/* Card styling */
 .card {
     flex: 0 0 280px;
     display: flex;
@@ -377,10 +381,10 @@ footer {
     </a>
 </header>
 
+<!-- Portfolio Section -->
 <section class="portfolio-container">
     <h2>Portfolio</h2>
     <p>Explore My Portfolio</p>
-
 
     <main id="portfolio-scroll">
 
@@ -434,6 +438,7 @@ footer {
     <div class="scroll-dots-container" id="scroll-dots"></div>
 </section>
 
+<!-- Skills Section -->
 <section class="skills-section">
     <h2>Skills</h2>
     <div class="skills-grid">
@@ -448,6 +453,7 @@ footer {
     </div>
 </section>
 
+<!-- Areas of Interest -->
 <section class="areas">
     <h2>Areas of Interest</h2>
     <p>Take a look at some of the things I love working on.</p>
@@ -475,6 +481,7 @@ footer {
     </div>
 </section>
 
+<!-- Footer -->
 <footer>
     <p>© 2025 Chiratchaya Janpechpanao</p>
 </footer>
@@ -530,3 +537,4 @@ slider.addEventListener('scroll', () => {
 
 </body>
 </html>
+
